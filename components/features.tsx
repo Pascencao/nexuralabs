@@ -5,7 +5,7 @@ import FeaturesImage from "@/public/images/features.png";
 import SectionHeader from "./ui/sectionHeader";
 import ArticleCard from "./ui/articleCard";
 
-export default function Features() {
+export default function Features({title, description}: {title: string, description: string}) {
   const articles = [
     {
       icon: (
@@ -151,8 +151,8 @@ export default function Features() {
           {/* Section header */}
           <SectionHeader 
             tag="Innovative Solutions" 
-            title="Empowering Teams with Cutting-Edge Tools"
-            description="Leverage state-of-the-art technology and tailored solutions to supercharge your team's productivity. From seamless collaboration to scalable architectures, our tools and expertise are designed to align with your unique needs and drive exceptional results." 
+            title={title}
+            description={description}
           />
           <div className="flex justify-center pb-4 md:pb-12" data-aos="fade-up">
             <Image
