@@ -1,14 +1,27 @@
 export const metadata = {
-  title: "Home - Open PRO",
-  description: "Page description",
+  title: "Nexura Labs | Tech Solutions that Grow with You",
+  description: "Nexura Labs ofrece soluciones tecnológicas personalizadas, transformación digital, desarrollo de software a medida y ciberseguridad. Innovación para empresas que buscan crecer y destacarse en un mundo digital.",
+  keywords: "Nexura Labs, transformación digital, desarrollo a medida, ciberseguridad, soluciones tecnológicas, innovación empresarial, tecnología para empresas",
+  author: "Nexura Labs",
+  url: "https://www.nexuralabs.com",
+  image: "https://www.nexuralabs.com/og-image.jpg",
+  ogDescription: "Soluciones tecnológicas personalizadas para empresas. Transformación digital, desarrollo de software y ciberseguridad para un crecimiento sostenible.",
+  ogType: "website",
+  ogUrl: "http://www.nexuralabs.agency",
+  twitterCard: "summary_large_image",
+  twitterTitle: "Nexura Labs | Tech Solutions that Grow with You",
+  twitterDescription: "Nexura Labs ayuda a empresas con transformación digital, desarrollo de software a medida y ciberseguridad. Conecta, innova y crece con nosotros.",
+  twitterImage: "https://www.nexuralabs.com/twitter-image.jpg",
+  canonical: "http://www.nexuralabs.agency",
 };
 
+import React from 'react';
 import PageIllustration from "@/components/page-illustration";
 import Hero from "@/components/hero-home";
 import Workflows from "@/components/workflows";
 import Features from "@/components/features";
-import Testimonials from "@/components/testimonials";
 import Cta from "@/components/cta";
+import Calendar from "@/components/ui/calendar";
 
 export default function Home() {
   return (
@@ -50,21 +63,14 @@ export default function Home() {
 
       {/* Testimonials Section */}
       {/*<Testimonials />*/}
-
       {/* Contact CTA Section */}
       <Cta
         tag="Connect with us"
         title="Do you have a project in mind or need to optimize your processes? Let's talk!"
         description="We'll be in touch soon to explore how Nexura Labs can help you achieve your goals."
       />
-      
+
+      <Calendar />
     </>
   );
 }
-/*
-<PageIllustration />
-<Hero />
-<Workflows />
-<Features />
-<Testimonials />
-<Cta />*/
