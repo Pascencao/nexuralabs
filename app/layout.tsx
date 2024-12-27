@@ -65,9 +65,7 @@ export default function RootLayout({
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
               <div className="flex items-center">
                 <Logo /> 
-                <h1 className="poppins-bold text-4xl font-bold text-center tracking-[0.3rem] text-cyan-400 text-transparent inline w-full">
-
-
+                <h1 className="poppins-bold text-4xl font-bold text-center tracking-[0.3rem] text-cyan-400 inline w-full">
                   NEXURA
                 </h1>
               </div>
