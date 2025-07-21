@@ -1,91 +1,110 @@
-# Free React / Next.js landing page template
+# NexuraLabs Landing Page
 
-![Open React / Next.js template preview](https://github.com/user-attachments/assets/522a5e46-2a0e-48ca-80eb-87c7fa58f3ea)
+Una landing page moderna y limpia para NexuraLabs, construida con Next.js 14, App Router y TailwindCSS.
 
-**Open** is a **free React / Next.js landing page template built with Tailwind CSS** for developers/makers who want to create a quick and professional landing page for their open source projects, SaaS products, online services, and more.
+## 🚀 Tecnologías
 
-Use it for whatever you want, and be sure to reach us out on [Twitter](https://twitter.com/Cruip_com) if you build anything cool/useful with it.
+- **Next.js 14** - Framework de React con App Router
+- **TypeScript** - Tipado estático
+- **TailwindCSS** - Framework de CSS utility-first
+- **Lucide React** - Iconos modernos
+- **Inter Font** - Tipografía moderna
 
-Created and maintained with ❤️ by [Cruip.com](https://cruip.com).
+## 🎨 Diseño
 
-_Version 1.0.0 built with the Cruip CSS is available [here](https://github.com/cruip/open-react-template/releases/tag/1.0.0)._
-_Version 2.0.3 built with Tailwind CSS and React + Vite is available [here](https://github.com/cruip/open-react-template/releases/tag/2.0.3)._
-_Version 3.3.0 (before redesign) built with Tailwind CSS and Next.js is available [here](https://github.com/cruip/open-react-template/releases/tag/3.3.0)._
+- **Paleta de colores:**
+  - Primario: #001F3F (azul marino oscuro)
+  - Acento: #007BFF (azul vívido)
+  - Neutral: #F4F4F4 (gris claro), #FFFFFF (blanco), #1A1A1A (casi negro para texto)
 
-## Live demo
+- **Tipografía:** Inter (sans-serif moderno)
 
-Check the live demo here 👉️ [https://open.cruip.com/](https://open.cruip.com/)
+## 📁 Estructura del Proyecto
 
-## Open PRO
-
-[![Open Pro](https://github.com/user-attachments/assets/2062c728-95f1-4d59-aa2d-d63556f625d5)](https://cruip.com/)
-
-## Design files
-
-If you need the design files, you can download them from Figma's Community 👉 https://bit.ly/401KSUS
-
-## Usage
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-### Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+├── app/
+│   ├── globals.css          # Estilos globales y TailwindCSS
+│   ├── layout.tsx           # Layout principal con metadata
+│   └── page.tsx             # Página principal
+├── components/
+│   ├── Hero.tsx             # Sección hero principal
+│   ├── ProblemsSection.tsx  # Problemas que resolvemos
+│   ├── SolutionsSection.tsx # Nuestras soluciones
+│   ├── WhyNexuraLabs.tsx    # Por qué elegirnos
+│   ├── TestimonialsSection.tsx # Testimonios de clientes
+│   ├── CTASection.tsx       # Llamada a la acción
+│   └── Footer.tsx           # Pie de página
+├── public/                  # Archivos estáticos
+└── package.json            # Dependencias y scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Instalación
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+2. **Ejecutar en desarrollo:**
+   ```bash
+   npm run dev
+   ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+3. **Construir para producción:**
+   ```bash
+   npm run build
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Ejecutar en producción:**
+   ```bash
+   npm start
+   ```
 
-### Learn More
+## 📱 Características
 
-To learn more about Next.js, take a look at the following resources:
+- ✅ **Diseño responsive** - Optimizado para móvil y desktop
+- ✅ **Componentes modulares** - Fácil de editar y mantener
+- ✅ **SEO optimizado** - Metadata configurada
+- ✅ **Accesibilidad** - ARIA labels y navegación por teclado
+- ✅ **Performance** - Optimizado con Next.js 14
+- ✅ **Animaciones suaves** - Transiciones y hover effects
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Secciones
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Hero** - Headline principal y CTA
+2. **Problemas** - 3 tarjetas con problemas comunes
+3. **Soluciones** - Grid con servicios principales
+4. **Why NexuraLabs** - 3 razones para elegirnos + estadísticas
+5. **Testimonios** - Opiniones de clientes
+6. **CTA/Contacto** - Llamada a la acción final
+7. **Footer** - Enlaces y información de contacto
 
-### Deploy on Vercel
+## 🔧 Personalización
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Colores
+Los colores se pueden modificar en `tailwind.config.js`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```javascript
+colors: {
+  primary: '#001F3F',    // Azul marino oscuro
+  accent: '#007BFF',     // Azul vívido
+  neutral: {
+    50: '#F4F4F4',       // Gris claro
+    900: '#1A1A1A',      // Casi negro
+  }
+}
+```
 
-### Support notes
+### Contenido
+Cada componente es independiente y fácil de editar. Los textos y datos están definidos en variables dentro de cada archivo.
 
-This template has been developed with the App Router (`app`) and React Server Components. If you’re unfamiliar with these beta features, you can find more information about them on the Next.js beta documentation page. So, please note that any request dealing with React (e.g. extra features, customisations, et cetera) is to be considered out of the support scope.
+### Iconos
+Se utilizan iconos de Lucide React. Puedes cambiar los iconos importando otros de la librería.
 
-For more information about what support covers, please see our (FAQs)[https://cruip.com/faq/].
+## 📄 Licencia
 
-## Credits
+Este proyecto está bajo la licencia MIT.
 
-- [Nucleo](https://nucleoapp.com/)
+---
 
-## Terms and License
-
-- Released under the [GPL](https://www.gnu.org/licenses/gpl-3.0.html).
-- Copyright 2024 [Cruip](https://cruip.com/).
-- Use it for personal and commercial projects, but please don’t republish, redistribute, or resell the template.
-- Attribution is not required, although it is really appreciated.
-
-## About Us
-
-We're an Italian developer/designer duo creating high-quality design/code resources for developers, makers, and startups.
-
-## Stay in the loop
-
-If you would like to know when we release new resources, you can follow [@pacovitiello](https://x.com/pacovitiello) and [@DavidePacilio](https://x.com/DavidePacilio) on X, or you can subscribe to our [newsletter](https://cruip.com/newsletter/).
+**NexuraLabs** - Tech Solutions that Grow with You

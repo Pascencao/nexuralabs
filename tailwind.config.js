@@ -1,50 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#001F3F', // dark navy blue
+        accent: '#007BFF', // vivid blue
+        neutral: {
+          50: '#F4F4F4', // light gray
+          900: '#1A1A1A', // almost black for text
+        }
+      },
       fontFamily: {
-        inter: ["var(--font-inter)", "sans-serif"],
-        nacelle: ["var(--font-nacelle)", "sans-serif"],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
-      fontSize: {
-        xs: ["0.8125rem", { lineHeight: "1.5384" }],
-        sm: ["0.875rem", { lineHeight: "1.5715" }],
-        base: [
-          "0.9375rem",
-          { lineHeight: "1.5333", letterSpacing: "-0.0125em" },
-        ],
-        lg: ["1.125rem", { lineHeight: "1.5", letterSpacing: "-0.0125em" }],
-        xl: ["1.25rem", { lineHeight: "1.5", letterSpacing: "-0.0125em" }],
-        "2xl": ["1.5rem", { lineHeight: "1.415", letterSpacing: "-0.0268em" }],
-        "3xl": [
-          "1.75rem",
-          { lineHeight: "1.3571", letterSpacing: "-0.0268em" },
-        ],
-        "4xl": ["2.5rem", { lineHeight: "1.1", letterSpacing: "-0.0268em" }],
-        "5xl": ["3.5rem", { lineHeight: "1", letterSpacing: "-0.0268em" }],
-        "6xl": ["4rem", { lineHeight: "1", letterSpacing: "-0.0268em" }],
-        "7xl": ["4.5rem", { lineHeight: "1", letterSpacing: "-0.0268em" }],
-      },
-      animation: {
-        shine: "shine 5s ease-in-out 500ms infinite",
-      },
-      keyframes: {
-        shine: {
-          "0%": { top: "0", transform: "scaleY(5)", opacity: "0" },
-          "10%": { opacity: ".8" },
-          "20%": { top: "100%", transform: "scaleY(10)", opacity: "0" },
-          "100%": { top: "100%", transform: "scaleY(1)", opacity: "0" },
-        },
-        gradient: {
-          to: { "background-position": "200% center" },
-        },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },
-  plugins: [require("@tailwindcss/forms")],
-};
+  plugins: [],
+} 
