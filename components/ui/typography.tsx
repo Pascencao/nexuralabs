@@ -1,27 +1,22 @@
-'use client'
-import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
 
-const Typography = ({ children, type }: { children: React.ReactNode, type:string }) => {
-    
-    const [comp, setComp] = useState<React.ReactNode>(<></>)
-    useEffect(() => {
-        switch (type) {
-            case 'h2':
-                setComp(<h2 
-                className="animate-[gradient_6s_linear_infinite] 
-                    bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))]
-                     bg-[length:200%_auto] bg-clip-text pb-8 font-nacelle text-3xl font-semibold text-transparent md:text-4xl"
-                    >{children}</h2>)
-                    break;
-            case 'p':
-                setComp(<p className="text-lg text-indigo-200/65 pb-8">{children}</p>)
-                break;
-            default:
-                break;
-        }
-    }, [type])
+const styles: Record<string, string> = {
+  h2: "pb-6 font-inter text-3xl font-semibold tracking-tight text-white md:text-4xl",
+  p: "pb-8 text-lg leading-relaxed text-nexura-muted",
+};
 
-    return (<>{comp}</>);
+export default function Typography({
+  children,
+  type,
+}: {
+  children: ReactNode;
+  type: string;
+}) {
+  if (type === "h2") {
+    return <h2 className={styles.h2}>{children}</h2>;
+  }
+  if (type === "p") {
+    return <p className={styles.p}>{children}</p>;
+  }
+  return null;
 }
-
-export default Typography;

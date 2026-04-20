@@ -7,6 +7,26 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        nexura: {
+          bg: "#0B0B0F",
+          surface: "#12121A",
+          border: "#1F1F2A",
+          muted: "#A1A1AA",
+          turquoise: "#2CE6D1",
+          violet: "#7C5CFF",
+          rose: "#FF4D8D",
+        },
+      },
+      maxWidth: {
+        site: "1200px",
+      },
+      boxShadow: {
+        card: "0 12px 40px -24px rgba(0,0,0,0.65)",
+        "card-hover": "0 20px 50px -20px rgba(0,0,0,0.55)",
+        glow: "0 0 24px rgba(124, 92, 255, 0.25)",
+        "glow-turquoise": "0 0 22px rgba(44, 230, 209, 0.2)",
+      },
       fontFamily: {
         inter: ["var(--font-inter)", "sans-serif"],
         nacelle: ["var(--font-nacelle)", "sans-serif"],
@@ -32,6 +52,8 @@ module.exports = {
       },
       animation: {
         shine: "shine 5s ease-in-out 500ms infinite",
+        "mockup-float": "mockup-float 14s ease-in-out infinite",
+        marquee: "marquee 28s linear infinite",
       },
       keyframes: {
         shine: {
@@ -42,6 +64,14 @@ module.exports = {
         },
         gradient: {
           to: { "background-position": "200% center" },
+        },
+        "mockup-float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
     },

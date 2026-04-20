@@ -1,9 +1,20 @@
-import Link from "next/link";
 import Image from "next/image";
-import logo from "@/public/images/logo.svg";
 
-export default function Logo() {
+export default function Logo({
+  size = 48,
+  priority = false,
+}: {
+  size?: number;
+  priority?: boolean;
+}) {
   return (
-      <Image src="/images/logo.jpg" alt="Nexura labs" width={64} height={64} />
+    <Image
+      src="/images/logo.jpg"
+      alt="Nexura Labs"
+      width={size}
+      height={size}
+      className="rounded-lg object-cover"
+      priority={priority}
+    />
   );
 }
