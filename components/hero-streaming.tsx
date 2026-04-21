@@ -1,17 +1,15 @@
 import ButtonPrimary from "@/components/ui/buttonPrimary";
 import ButtonSecondary from "@/components/ui/buttonSecondary";
-import StreamingMockup from "@/components/streaming-mockup";
+import HeroVisualClient from "@/components/hero-visual-client";
 
 const MEETING_URL = "https://calendar.app.google/xsCKdDtbHWRrH7tHA";
 
 export default function HeroStreaming() {
   return (
-    <section className="relative pt-28 pb-16 md:pt-32 md:pb-24">
-      <div className="mx-auto max-w-site px-5 sm:px-8">
-        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
-          <div data-aos="fade-up" data-aos-duration="450">
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-nexura-border bg-nexura-surface/80 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-nexura-muted">
-              <span className="text-nexura-turquoise">●</span>
+    <section className="relative mx-auto max-w-site px-5 pb-16 pt-28 sm:px-8 md:pb-24 md:pt-32">
+      <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          <div className="scroll-reveal">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-nexura-border bg-nexura-surface/80 px-4 py-1.5 pl-3 text-xs font-medium uppercase tracking-[0.18em] text-nexura-muted before:inline-block before:text-nexura-turquoise before:content-['●'] before:mr-1.5">
               Built for high-scale streaming platforms
             </p>
             <h1 className="font-inter text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[2.75rem] xl:text-[3.25rem]">
@@ -41,18 +39,8 @@ export default function HeroStreaming() {
             </div>
           </div>
 
-          <div
-            className="relative"
-            data-aos="fade-up"
-            data-aos-duration="500"
-            data-aos-delay="120"
-          >
-            <div className="animate-mockup-float will-change-transform">
-              <StreamingMockup />
-            </div>
-          </div>
+          <HeroVisualClient />
         </div>
-      </div>
     </section>
   );
 }

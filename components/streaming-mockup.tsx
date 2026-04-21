@@ -2,6 +2,8 @@
 
 import { useCallback, useRef, useState } from "react";
 
+const tiles = ["En vivo", "Serie", "Doc", "Original", "Live", "VOD"];
+
 export default function StreamingMockup() {
   const wrap = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -17,39 +19,38 @@ export default function StreamingMockup() {
 
   const onLeave = useCallback(() => setOffset({ x: 0, y: 0 }), []);
 
-  const tiles = ["En vivo", "Serie", "Doc", "Original", "Live", "VOD"];
-
   return (
     <div
       ref={wrap}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="relative mx-auto w-full max-w-lg select-none lg:max-w-none"
+      className="relative mx-auto w-full max-w-md select-none lg:max-w-none"
     >
       <div
-        className="relative overflow-hidden rounded-2xl border border-nexura-border bg-nexura-surface shadow-card transition-shadow duration-300 hover:border-nexura-muted/40 hover:shadow-card-hover"
+        className="relative overflow-hidden rounded-2xl border border-nexura-border bg-nexura-surface shadow-card transform-gpu will-change-transform"
         style={{
           transform: `perspective(1200px) rotateX(${-4 + offset.y * 0.15}deg) rotateY(${4 + offset.x * 0.15}deg) translate3d(${offset.x}px, ${offset.y}px, 0)`,
-          transition: "transform 120ms ease-out, box-shadow 300ms ease, border-color 300ms ease",
+          transition: "transform 120ms ease-out",
         }}
       >
         <div className="flex items-center justify-between border-b border-nexura-border px-4 py-3">
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-nexura-rose/50 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-nexura-rose" />
-            </span>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-nexura-muted">
-              Live
-            </span>
+          <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-nexura-muted">
+            <span
+              className="h-2 w-2 shrink-0 rounded-full bg-nexura-rose opacity-90 shadow-[0_0_0_3px_rgba(255,77,141,0.25)] motion-safe:animate-pulse"
+              aria-hidden
+            />
+            Live
           </div>
           <span className="text-xs text-nexura-muted">12.4k viendo</span>
         </div>
 
         <div className="relative aspect-video bg-gradient-to-br from-zinc-900 via-nexura-bg to-zinc-950">
-          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(124,92,255,0.12),transparent_40%,rgba(44,230,209,0.08))]" />
+          <div
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(124,92,255,0.12),transparent_40%,rgba(44,230,209,0.08))]"
+            aria-hidden
+          />
           <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3">
-            <div>
+            <div className="min-w-0">
               <p className="text-xs font-medium uppercase tracking-widest text-white/70">
                 Contenido destacado
               </p>
@@ -73,7 +74,7 @@ export default function StreamingMockup() {
           <p className="mb-2 px-1 text-[11px] font-medium uppercase tracking-widest text-nexura-muted">
             Carril de contenido
           </p>
-          <div className="relative overflow-hidden">
+          <div className="overflow-hidden">
             <div className="flex w-max animate-marquee gap-2 pr-2">
               {[...tiles, ...tiles].map((label, i) => (
                 <div

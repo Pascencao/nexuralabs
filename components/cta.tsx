@@ -23,12 +23,7 @@ export default function Cta({
             <Tag>{tag}</Tag>
             <Typography type="h2">{title}</Typography>
             <Typography type="p">{description}</Typography>
-            <div
-              className="mx-auto flex max-w-xs justify-center sm:max-w-none"
-              data-aos="fade-up"
-              data-aos-duration="450"
-              data-aos-delay="120"
-            >
+            <div className="mx-auto flex max-w-xs justify-center scroll-reveal scroll-reveal-delay-2 sm:max-w-none">
               <ButtonPrimary
                 text="Agendar una reunión"
                 href="https://calendar.app.google/xsCKdDtbHWRrH7tHA"

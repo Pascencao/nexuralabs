@@ -7,7 +7,7 @@ type ButtonPrimaryProps = {
 
 const ButtonPrimary = ({ text, href, onClick, icon = false }: ButtonPrimaryProps) => (
   <a
-    className="btn group mb-4 w-full bg-nexura-violet text-white shadow-card transition duration-300 hover:scale-[1.02] hover:shadow-glow active:scale-[0.99] sm:mb-0 sm:w-auto"
+    className="btn group mb-4 w-full bg-nexura-violet text-white shadow-card transition-transform duration-300 ease-out hover:scale-[1.02] active:scale-[0.99] sm:mb-0 sm:w-auto"
     href={href}
     onClick={onClick}
   >

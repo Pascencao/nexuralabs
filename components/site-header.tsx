@@ -19,7 +19,7 @@ export default function SiteHeader() {
             NEXURA LABS
           </span>
         </Link>
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Principal">
+        <nav className="hidden min-[450px]:flex items-center gap-8" aria-label="Principal">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="link-nexura text-sm">
               {l.label}
@@ -28,7 +28,7 @@ export default function SiteHeader() {
         </nav>
         <Link
           href="https://calendar.app.google/xsCKdDtbHWRrH7tHA"
-          className="btn shrink-0 bg-nexura-violet px-4 py-2.5 text-xs text-white shadow-card transition duration-300 hover:scale-[1.02] hover:shadow-glow sm:text-sm"
+          className="btn shrink-0 bg-nexura-violet px-4 py-2.5 text-xs text-white shadow-card transition-transform duration-300 ease-out hover:scale-[1.02] sm:text-sm"
         >
           Agendar reunión
         </Link>

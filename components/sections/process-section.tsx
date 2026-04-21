@@ -1,4 +1,6 @@
 import LandingSection from "@/components/ui/landing-section";
+import { GPU_HOVER } from "@/lib/interaction-classes";
+import { scrollRevealClass } from "@/lib/scroll-reveal";
 
 const steps = [
   "Análisis de oportunidad y estrategia",
@@ -10,7 +12,7 @@ const steps = [
 export default function ProcessSection() {
   return (
     <LandingSection id="proceso">
-      <div className="mx-auto max-w-3xl text-center" data-aos="fade-up" data-aos-duration="450">
+      <div className={`mx-auto max-w-3xl text-center ${scrollRevealClass(0)}`}>
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nexura-turquoise">
           Cómo trabajamos
         </p>
@@ -22,10 +24,7 @@ export default function ProcessSection() {
         {steps.map((label, i) => (
           <li
             key={label}
-            data-aos="fade-up"
-            data-aos-duration="450"
-            data-aos-delay={i * 80}
-            className="flex gap-4 rounded-2xl border border-nexura-border bg-nexura-surface/80 p-6 shadow-card transition duration-300 hover:scale-[1.02] hover:border-nexura-muted/30 hover:shadow-card-hover"
+            className={`flex gap-4 rounded-2xl border border-nexura-border bg-nexura-surface/80 p-6 shadow-card ${GPU_HOVER} ${scrollRevealClass(i + 1)}`}
           >
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-nexura-border bg-nexura-bg text-sm font-semibold text-nexura-turquoise">
               {i + 1}

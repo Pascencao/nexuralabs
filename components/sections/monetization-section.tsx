@@ -1,4 +1,6 @@
 import LandingSection from "@/components/ui/landing-section";
+import { GPU_HOVER } from "@/lib/interaction-classes";
+import { scrollRevealClass } from "@/lib/scroll-reveal";
 
 const bullets = [
   "Modelo de suscripción (ingreso recurrente)",
@@ -11,7 +13,7 @@ export default function MonetizationSection() {
   return (
     <LandingSection id="diferencial">
       <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-        <div data-aos="fade-up" data-aos-duration="450">
+        <div className={scrollRevealClass(0)}>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nexura-rose">
             Diferencial
           </p>
@@ -27,10 +29,7 @@ export default function MonetizationSection() {
           {bullets.map((b, i) => (
             <li
               key={b}
-              data-aos="fade-up"
-              data-aos-duration="450"
-              data-aos-delay={80 + i * 70}
-              className="rounded-2xl border border-nexura-border bg-nexura-bg/60 p-5 shadow-card backdrop-blur-sm transition duration-300 hover:scale-[1.02] hover:border-nexura-muted/30 hover:shadow-card-hover"
+              className={`rounded-2xl border border-nexura-border bg-nexura-bg/60 p-5 shadow-card backdrop-blur-sm ${GPU_HOVER} ${scrollRevealClass(i + 1)}`}
             >
               <p className="text-[15px] font-medium text-white">{b}</p>
             </li>

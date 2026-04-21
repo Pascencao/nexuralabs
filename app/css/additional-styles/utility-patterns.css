@@ -41,7 +41,7 @@
 /* Buttons */
 .btn,
 .btn-sm {
-  @apply inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-semibold transition-all duration-300;
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-semibold transition-transform duration-300;
 }
 
 .btn {
@@ -92,4 +92,86 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .form-checkbox {
   @apply rounded;
+}
+
+/* ---------- Scroll reveal (sustituye AOS; sin JS ni CSS bloqueante) ---------- */
+@keyframes nexura-reveal-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Navegadores sin view timeline: contenido visible de inmediato */
+.scroll-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    animation: nexura-reveal-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+  }
+
+  .scroll-reveal-slow {
+    animation-duration: 0.58s;
+    animation-range: entry 0% cover 24%;
+  }
+
+  .scroll-reveal-delay-1 {
+    animation-range: entry 5% cover 24%;
+  }
+  .scroll-reveal-delay-2 {
+    animation-range: entry 10% cover 28%;
+  }
+  .scroll-reveal-delay-3 {
+    animation-range: entry 16% cover 32%;
+  }
+  .scroll-reveal-delay-4 {
+    animation-range: entry 22% cover 36%;
+  }
+  .scroll-reveal-delay-5 {
+    animation-range: entry 28% cover 40%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal-slow,
+  .scroll-reveal-delay-1,
+  .scroll-reveal-delay-2,
+  .scroll-reveal-delay-3,
+  .scroll-reveal-delay-4,
+  .scroll-reveal-delay-5 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Lista tipo pilar sin span-bala extra (menos nodos DOM) */
+.nexura-pillar-lines {
+  @apply mt-6 space-y-3 text-nexura-muted;
+}
+
+.nexura-pillar-lines > p {
+  @apply flex gap-2 text-[15px] leading-relaxed;
+}
+
+.nexura-pillar-lines > p::before {
+  content: "";
+  margin-top: 0.5rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background-color: rgba(44, 230, 209, 0.8);
 }

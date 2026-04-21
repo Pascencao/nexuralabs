@@ -1,4 +1,6 @@
 import LandingSection from "@/components/ui/landing-section";
+import { GPU_HOVER } from "@/lib/interaction-classes";
+import { scrollRevealClass } from "@/lib/scroll-reveal";
 
 const pillars = [
   {
@@ -24,7 +26,7 @@ const pillars = [
 export default function SolutionSection() {
   return (
     <LandingSection id="solucion">
-      <div className="mx-auto max-w-3xl text-center" data-aos="fade-up" data-aos-duration="450">
+      <div className={`mx-auto max-w-3xl text-center ${scrollRevealClass(0)}`}>
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nexura-violet">
           Solución
         </p>
@@ -39,20 +41,14 @@ export default function SolutionSection() {
         {pillars.map((p, i) => (
           <div
             key={p.title}
-            data-aos="fade-up"
-            data-aos-duration="450"
-            data-aos-delay={i * 90}
-            className="flex h-full flex-col rounded-2xl border border-nexura-border bg-nexura-surface p-8 shadow-card transition duration-300 hover:scale-[1.02] hover:border-nexura-muted/30 hover:shadow-card-hover"
+            className={`flex h-full flex-col rounded-2xl border border-nexura-border bg-nexura-surface p-8 shadow-card ${GPU_HOVER} ${scrollRevealClass(i + 1)}`}
           >
             <h3 className="text-xl font-semibold text-white">{p.title}</h3>
-            <ul className="mt-6 space-y-3 text-nexura-muted">
+            <div className="nexura-pillar-lines">
               {p.lines.map((line) => (
-                <li key={line} className="flex gap-2 text-[15px] leading-relaxed">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-nexura-turquoise/80" />
-                  {line}
-                </li>
+                <p key={line}>{line}</p>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>

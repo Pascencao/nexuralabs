@@ -27,7 +27,7 @@ import MonetizationSection from "@/components/sections/monetization-section";
 import CaseStudiesSection from "@/components/sections/case-studies-section";
 import ProcessSection from "@/components/sections/process-section";
 import Cta from "@/components/cta";
-import Calendar from "@/components/ui/calendar";
+import DeferredCalendar from "@/components/deferred-calendar";
 
 export default function Home() {
   return (
@@ -44,7 +44,7 @@ export default function Home() {
         title="Exploremos cómo monetizar tu audiencia"
         description="Podemos analizar tu caso y proponerte un enfoque basado en tu contenido, audiencia y modelo actual. Monetización directa e ingresos recurrentes, con control sobre tu audiencia."
       />
-      <Calendar />
+      <DeferredCalendar />
     </>
   );
 }

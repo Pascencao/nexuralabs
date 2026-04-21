@@ -13,6 +13,7 @@ export default function Logo({
       alt="Nexura Labs"
       width={size}
       height={size}
+      sizes={`${size}px`}
       className="rounded-lg object-cover"
       priority={priority}
     />

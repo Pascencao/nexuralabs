@@ -6,7 +6,7 @@ type ButtonSecondaryProps = {
 
 const ButtonSecondary = ({ text, href, onClick }: ButtonSecondaryProps) => (
   <a
-    className="btn w-full border border-nexura-border bg-transparent text-white transition duration-300 hover:scale-[1.02] hover:border-nexura-muted hover:bg-nexura-surface/50 sm:ml-0 sm:w-auto"
+    className="btn w-full border border-nexura-border bg-transparent text-white transition-transform duration-300 ease-out hover:scale-[1.02] sm:ml-0 sm:w-auto"
     href={href}
     onClick={onClick}
   >

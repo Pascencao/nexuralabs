@@ -1,4 +1,6 @@
 import LandingSection from "@/components/ui/landing-section";
+import { GPU_HOVER } from "@/lib/interaction-classes";
+import { scrollRevealClass } from "@/lib/scroll-reveal";
 
 const bullets = [
   "Los ingresos dependen de reglas externas",
@@ -11,7 +13,7 @@ export default function ProblemSection() {
   return (
     <LandingSection id="problema">
       <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-        <div className="lg:col-span-5" data-aos="fade-up" data-aos-duration="450">
+        <div className={`lg:col-span-5 ${scrollRevealClass(0)}`}>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nexura-violet">
             Problema
           </p>
@@ -27,10 +29,7 @@ export default function ProblemSection() {
           {bullets.map((item, i) => (
             <li
               key={item}
-              data-aos="fade-up"
-              data-aos-duration="450"
-              data-aos-delay={i * 80}
-              className="rounded-2xl border border-nexura-border bg-nexura-surface p-6 shadow-card transition duration-300 hover:scale-[1.02] hover:border-nexura-muted/30 hover:shadow-card-hover"
+              className={`rounded-2xl border border-nexura-border bg-nexura-surface p-6 shadow-card ${GPU_HOVER} ${scrollRevealClass(i + 1)}`}
             >
               <span className="text-sm font-medium text-white">{item}</span>
             </li>
