@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { Dictionary } from "@/lib/i18n/types";
 import HeroMockupPlaceholder from "@/components/hero-mockup-placeholder";
 
 const StreamingMockup = dynamic(() => import("@/components/streaming-mockup"), {
@@ -8,10 +9,14 @@ const StreamingMockup = dynamic(() => import("@/components/streaming-mockup"), {
   loading: () => <HeroMockupPlaceholder />,
 });
 
-export default function HeroVisualClient() {
+export default function HeroVisualClient({
+  mockup,
+}: {
+  mockup: Dictionary["mockup"];
+}) {
   return (
     <div className="relative scroll-reveal scroll-reveal-slow scroll-reveal-delay-1 animate-mockup-float will-change-transform">
-      <StreamingMockup />
+      <StreamingMockup copy={mockup} />
     </div>
   );
 }

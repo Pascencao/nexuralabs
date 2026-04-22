@@ -1,27 +1,25 @@
 import LandingSection from "@/components/ui/landing-section";
 import { GPU_HOVER } from "@/lib/interaction-classes";
 import { scrollRevealClass } from "@/lib/scroll-reveal";
+import type { Dictionary } from "@/lib/i18n/types";
 
-const steps = [
-  "Análisis de oportunidad y estrategia",
-  "Definición del MVP",
-  "Desarrollo e integración",
-  "Lanzamiento y escalabilidad",
-];
-
-export default function ProcessSection() {
+export default function ProcessSection({
+  copy,
+}: {
+  copy: Dictionary["process"];
+}) {
   return (
     <LandingSection id="proceso">
       <div className={`mx-auto max-w-3xl text-center ${scrollRevealClass(0)}`}>
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nexura-turquoise">
-          Cómo trabajamos
+          {copy.kicker}
         </p>
         <h2 className="mt-4 font-inter text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          De la idea al lanzamiento
+          {copy.title}
         </h2>
       </div>
       <ol className="mx-auto mt-14 grid max-w-4xl gap-6 md:grid-cols-2">
-        {steps.map((label, i) => (
+        {copy.steps.map((label, i) => (
           <li
             key={label}
             className={`flex gap-4 rounded-2xl border border-nexura-border bg-nexura-surface/80 p-6 shadow-card ${GPU_HOVER} ${scrollRevealClass(i + 1)}`}

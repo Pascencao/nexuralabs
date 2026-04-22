@@ -1,18 +1,35 @@
-'use client'
+"use client";
 
+import Link from "next/link";
+import type { Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/types";
 
-export const PrivacyPolicy = () => {
+export function PrivacyPolicy({
+  homeHref,
+  labels,
+  locale,
+}: {
+  homeHref: string;
+  labels: Dictionary["legal"]["privacy"];
+  locale: Locale;
+}) {
+  const dateLocale = locale === "en" ? "en-US" : "es-AR";
+
   return (
     <div className="min-h-screen bg-neutral-50 py-16">
       <div className="container-custom">
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Privacy Policy
+        <div className="mx-auto max-w-4xl rounded-2xl bg-white p-8 shadow-lg md:p-12">
+          <div className="mb-12 text-center">
+            <h1 className="mb-4 text-3xl font-bold text-primary md:text-4xl">
+              {labels.title}
             </h1>
             <p className="text-gray-600">
-              Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              {labels.lastUpdated}:{" "}
+              {new Date().toLocaleDateString(dateLocale, {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </p>
           </div>
 
@@ -144,17 +161,13 @@ export const PrivacyPolicy = () => {
             </section>
           </div>
 
-          {/* Back Button */}
-          <div className="text-center mt-12">
-            <a 
-              href="/" 
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              Back to Home
-            </a>
+          <div className="mt-12 text-center">
+            <Link href={homeHref} className="btn-primary inline-flex items-center gap-2">
+              {labels.backHome}
+            </Link>
           </div>
         </div>
       </div>
     </div>
-  )
-} 
+  );
+}

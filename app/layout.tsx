@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./css/style.css";
 import "./css/additional-styles/utility-patterns.css";
 import { Inter } from "next/font/google";
+import { headers } from "next/headers";
 import JsonLd from "@/components/json-ld";
+import { isLocale } from "@/lib/i18n/config";
 import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
     "Nexura Labs",
     "desarrollo de software",
   ],
-  authors: [{ name: "Nexura Labs", url: new URL("/", SITE_URL).href }],
+  authors: [{ name: "Nexura Labs", url: new URL("/es", SITE_URL).href }],
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
@@ -57,13 +59,18 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const h = await headers();
+  const raw = h.get("x-next-locale");
+  const locale = raw && isLocale(raw) ? raw : "es";
+  const lang = locale === "en" ? "en" : "es";
+
   return (
-    <html lang="es">
+    <html lang={lang}>
       <head>
         <meta
           name="facebook-domain-verification"

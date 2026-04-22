@@ -9,7 +9,7 @@ export default function Logo({
 }) {
   return (
     <Image
-      src="/images/logo.jpg"
+      src="/images/logo.png"
       alt="Nexura Labs"
       width={size}
       height={size}

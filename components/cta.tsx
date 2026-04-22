@@ -6,10 +6,12 @@ export default function Cta({
   title,
   description,
   tag,
+  buttonText,
 }: {
   title: string;
   description: string;
   tag: string;
+  buttonText: string;
 }) {
   return (
     <section id="contacto" className="relative overflow-hidden border-t border-nexura-border/80">
@@ -25,7 +27,7 @@ export default function Cta({
             <Typography type="p">{description}</Typography>
             <div className="mx-auto flex max-w-xs justify-center scroll-reveal scroll-reveal-delay-2 sm:max-w-none">
               <ButtonPrimary
-                text="Agendar una reunión"
+                text={buttonText}
                 href="https://calendar.app.google/xsCKdDtbHWRrH7tHA"
                 icon
               />
