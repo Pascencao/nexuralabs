@@ -1,11 +1,6 @@
 import Link from "next/link";
+import { SOCIAL_LINKS } from "@/lib/social";
 import Logo from "./logo";
-
-const links = [
-  { href: "https://www.linkedin.com/company/nexuralabs/", label: "LinkedIn" },
-  { href: "https://www.instagram.com/nexuralabs/", label: "Instagram" },
-  { href: "https://www.facebook.com/profile.php?id=61571246217894", label: "Facebook" },
-];
 
 export default function Footer() {
   return (
@@ -29,8 +24,14 @@ export default function Footer() {
             Seguinos
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            {links.map((s) => (
-              <a key={s.href} href={s.href} className="link-nexura">
+            {SOCIAL_LINKS.map((s) => (
+              <a
+                key={s.href}
+                href={s.href}
+                className="link-nexura"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 {s.label}
               </a>
             ))}

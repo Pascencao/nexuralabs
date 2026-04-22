@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./css/style.css";
 import "./css/additional-styles/utility-patterns.css";
 import { Inter } from "next/font/google";
+import JsonLd from "@/components/json-ld";
+import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,10 +15,15 @@ const inter = Inter({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#0B0B0F",
 };
 
 export const metadata: Metadata = {
-  title: "Nexura Labs | Plataforma de streaming y monetización",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Nexura Labs | Plataforma de streaming y monetización",
+    template: "%s | Nexura Labs",
+  },
   description:
     "Construí tu propia plataforma de streaming y monetizá tu audiencia de forma directa. Web, mobile y Smart TV.",
   keywords: [
@@ -26,15 +33,20 @@ export const metadata: Metadata = {
     "Nexura Labs",
     "desarrollo de software",
   ],
-  authors: [{ name: "Nexura Labs" }],
+  authors: [{ name: "Nexura Labs", url: new URL("/", SITE_URL).href }],
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/manifest.json",
   openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: "/",
+    siteName: "Nexura Labs",
     title: "Nexura Labs | Plataforma de streaming y monetización",
     description:
       "Ayudamos a empresas de medios a operar su propia plataforma en Web, Mobile y Smart TV con monetización directa.",
-    url: "https://www.nexuralabs.com",
-    siteName: "Nexura Labs",
-    locale: "es_AR",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
@@ -42,6 +54,7 @@ export const metadata: Metadata = {
     description:
       "Construí tu propia plataforma de streaming y monetizá tu audiencia de forma directa.",
   },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -56,10 +69,15 @@ export default function RootLayout({
           name="facebook-domain-verification"
           content="v5cm45amulqa7mjolp5odm6njwfaus"
         />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest"></link>
       </head>
       <body
         className={`${inter.variable} relative min-h-screen bg-nexura-bg font-inter text-base font-normal text-white antialiased`}
       >
+        <JsonLd />
         <div className="nexura-noise" aria-hidden />
         <div
           className="nexura-radial pointer-events-none fixed inset-0 -z-10"
@@ -93,7 +111,7 @@ export default function RootLayout({
             width="1"
             style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=1111392737090271&ev=PageView&noscript=1"
-            alt=""
+            alt="Pixel de medición Meta (sin JavaScript)"
           />
         </noscript>
       </body>
