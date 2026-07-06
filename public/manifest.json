@@ -1,7 +1,7 @@
 {
-  "short_name": "Nexura Labs",
-  "name": "Nexura Labs — Plataformas de streaming",
-  "description": "Plataforma de streaming y monetización para empresas de medios.",
+  "short_name": "Nexuralabs",
+  "name": "Nexuralabs — Consultoría en tecnología y crecimiento",
+  "description": "Consultoría de tecnología y crecimiento para startups y pymes de Latinoamérica.",
   "icons": [
     {
       "src": "/favicon.png",
@@ -19,7 +19,7 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "theme_color": "#0B0B0F",
-  "background_color": "#0B0B0F",
+  "theme_color": "#0F1B2D",
+  "background_color": "#F5F6F8",
   "lang": "es"
 }

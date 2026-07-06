@@ -2,178 +2,181 @@ import type { Dictionary } from "../types";
 
 const es: Dictionary = {
   meta: {
-    homeTitle: "Plataforma de streaming y monetización",
+    homeTitle: "Nexuralabs | Consultoría en tecnología y crecimiento",
     homeDescription:
-      "Tené tu propia plataforma de streaming. Controlá tu monetización. Experiencia en TNT, DIRECTV GO y WarnerMedia.",
+      "Ayudamos a startups en crecimiento y pymes de Latinoamérica a ordenar procesos, construir la tecnología que hace falta y escalar sin que la operación se rompa.",
     homeKeywords: [
-      "streaming",
-      "plataforma OTT",
-      "monetización directa",
-      "suscripciones",
-      "Smart TV",
-      "Nexura Labs",
+      "consultoría tecnológica",
+      "transformación digital",
+      "desarrollo de software a medida",
+      "consultoría de procesos",
+      "crecimiento empresarial",
+      "Latinoamérica",
     ],
-    privacyTitle: "Política de privacidad",
-    privacyDescription:
-      "Política de privacidad de Nexura Labs. Cómo recopilamos, utilizamos y protegemos tu información personal.",
-    privacyKeywords: [
-      "política de privacidad",
-      "protección de datos",
-      "Nexura Labs",
-      "privacidad",
-    ],
-    termsTitle: "Términos del servicio",
-    termsDescription: "Términos y condiciones de uso de los servicios de Nexura Labs.",
-    termsKeywords: ["términos de servicio", "Nexura Labs", "legal"],
+    privacyTitle: "Política de privacidad | Nexuralabs",
+    privacyDescription: "Política de privacidad de Nexuralabs.",
+    termsTitle: "Términos de servicio | Nexuralabs",
+    termsDescription: "Términos de servicio de Nexuralabs.",
   },
   jsonLd: {
     organizationDescription:
-      "Plataformas de streaming y monetización directa para empresas de medios.",
+      "Consultoría de tecnología y crecimiento para startups y pymes de Latinoamérica: procesos, software a medida y escalamiento.",
     websiteLanguage: "es-AR",
   },
   header: {
-    navAria: "Principal",
+    navAria: "Navegación principal",
     links: {
-      problem: "Problema",
-      solution: "Solución",
-      monetization: "Monetización",
-      experience: "Experiencia",
+      problem: "El problema",
+      services: "Cómo trabajamos",
+      about: "Sobre mí",
       contact: "Contacto",
     },
-    schedule: "Agendar reunión",
-    languageSwitcherAria: "Idioma del sitio",
+    cta: "Hablemos",
+    languageSwitcherAria: "Cambiar idioma",
   },
   hero: {
-    badge: "Pensado para plataformas de streaming a gran escala",
-    titleLead: "Tené tu propia plataforma de streaming.",
-    titleHighlight: "Controlá tu monetización.",
-    body: "Ayudamos a empresas de medios a pasar de depender de YouTube a operar su propia plataforma en Web, Mobile y Smart TV.",
-    bodyEmphasis1: "Más allá de YouTube",
-    bodyEmphasis2: "monetización directa",
-    bodyEmphasis3: "ingresos recurrentes",
-    experienceLine:
-      "Experiencia en plataformas como TNT, DIRECTV GO y WarnerMedia.",
-    primaryCta: "Agendar una reunión",
-    secondaryCta: "Ver cómo trabajamos",
-  },
-  mockup: {
-    tiles: ["En vivo", "Serie", "Doc", "Original", "Live", "VOD"],
-    liveLabel: "En vivo",
-    viewers: "12.4k viendo",
-    featuredLabel: "Contenido destacado",
-    featuredTitle: "Tu catálogo. Tu regla.",
-    buyNow: "Comprar ahora",
-    monetizationBadge: "Monetización directa",
-    railTitle: "Carril de contenido",
+    badge: "Consultoría en tecnología y crecimiento",
+    titleLead: "Crecer sin",
+    titleHighlight: "explotar.",
+    body: "Pablo Ascencao ayuda a startups en crecimiento y pymes de Latinoamérica a poner orden en la operación, construir la tecnología que hace falta cuando una herramienta genérica ya no alcanza, y preparar la estructura para escalar sin que el equipo se queme en el intento.",
+    primaryCta: "Hablemos",
   },
   problem: {
-    kicker: "Problema",
-    title: "Tu audiencia crece pero no sabés quiénes son.",
-    subtitle:
-      "Sin control sobre tu audiencia, la monetización queda atada a terceros y al algoritmo.",
-    bullets: [
-      "Los ingresos dependen de reglas externas",
-      "Monetización limitada",
-      "Sin relación directa con el usuario",
-      "Sin control sobre los datos",
-    ],
-  },
-  opportunity: {
-    kicker: "Oportunidad",
-    title: "Convertí tu audiencia en un canal de ingresos directo",
-    subtitle:
-      "Ingresos recurrentes, relación directa con el usuario y control real sobre datos y experiencia.",
-    items: [
-      "Suscripciones con ingresos recurrentes",
-      "Live, VOD y shorts en una misma plataforma",
-      "Comercio integrado dentro del contenido",
-      "Monetización directa sin intermediarios",
-    ],
-  },
-  solution: {
-    kicker: "Solución",
-    title: "Tu propio ecosistema de streaming",
-    subtitle: "Un producto coherente en cada pantalla, pensado para escala y negocio.",
-    pillars: [
-      {
-        title: "Web",
-        lines: [
-          "Plataforma completa de streaming",
-          "Usuarios, perfiles y suscripciones",
-        ],
-      },
-      {
-        title: "Smart TV",
-        lines: [
-          "Experiencia de living (Android TV)",
-          "Consumo multiplataforma",
-        ],
-      },
-      {
-        title: "Mobile",
-        lines: ["Apps iOS y Android", "Notificaciones y engagement"],
-      },
-    ],
-  },
-  monetization: {
-    kicker: "Diferencial",
-    title: "Pensalo para monetizar: no es solo streaming.",
-    subtitle:
-      "Mostrá producto en vivo, botón de compra y suscripciones donde la atención ya está: en la pantalla de reproducción.",
-    bullets: [
-      "Modelo de suscripción (ingreso recurrente)",
-      "Comercio en tiempo real dentro del contenido",
-      "Marketplace integrado",
-      "Activaciones con sponsors y eventos",
-    ],
-  },
-  cases: {
-    kicker: "Casos de éxito",
-    title: "Experiencia comprobada en plataformas de streaming",
+    kicker: "El problema",
+    title: "Crecer rompe cosas.",
     items: [
       {
-        alt: "TNT",
-        text: "Plataformas de streaming en vivo con alta concurrencia",
+        name: "Procesos",
+        description:
+          "Los que armaste al principio ya no alcanzan para el volumen ni la complejidad de hoy.",
       },
       {
-        alt: "DIRECTV GO",
-        text: "Ecosistema multiplataforma de distribución de contenido",
+        name: "Software",
+        description:
+          "Ninguna herramienta genérica resuelve lo específico de tu operación.",
       },
       {
-        alt: "Warner Bros.",
-        text: "Integración de contenido y plataformas digitales (WarnerMedia)",
+        name: "Estructura",
+        description:
+          "El equipo y la forma de organizarse no aguantan el ritmo que pide el negocio.",
       },
     ],
   },
-  process: {
+  services: {
     kicker: "Cómo trabajamos",
-    title: "De la idea al lanzamiento",
-    steps: [
-      "Análisis de oportunidad y estrategia",
-      "Definición del MVP",
-      "Desarrollo e integración",
-      "Lanzamiento y escalabilidad",
+    title: "Tres líneas, un mismo objetivo",
+    lines: [
+      {
+        name: "Ops",
+        description:
+          "Diagnóstico y rediseño de procesos, selección e implementación de herramientas, capacitación al equipo.",
+      },
+      {
+        name: "Build",
+        description:
+          "Desarrollo de software a medida, para cuando el problema ya no lo resuelve una herramienta que existe.",
+      },
+      {
+        name: "Scale",
+        description:
+          "La capa estratégica para crecer con orden, o para poner en caja una estructura que ya creció de más.",
+      },
+    ],
+    connectionNote:
+      "No son compartimentos estancos: Ops resuelve lo urgente y también funciona sola, Scale casi siempre se apoya en un diagnóstico de Ops, y Build aparece cuando cualquiera de las dos necesita algo que no existe todavía.",
+  },
+  serviceDetail: {
+    ops: {
+      name: "Ops",
+      problem:
+        "Sabés que algo no funciona bien, pero no tenés tiempo ni método para pararte a mirarlo.",
+      whatWeDo:
+        "Diagnosticamos cómo se hacen las cosas hoy, encontramos dónde se pierde tiempo o dinero y rediseñamos el proceso antes de elegir cualquier herramienta. Después seleccionamos o implementamos el software que corresponde y capacitamos al equipo para que lo sostenga solo.",
+      differentiators: [
+        "Empezamos por el proceso: la herramienta viene después.",
+        "Funciona como proyecto puntual o como base de un trabajo más grande de Scale.",
+        "El equipo queda capacitado para operar sin depender de un consultor permanente.",
+      ],
+    },
+    build: {
+      name: "Build",
+      problem:
+        "Necesitás una plataforma o un sistema y no tenés del todo claro qué pedirle a quien te lo construya.",
+      whatWeDo:
+        "Antes de escribir una línea de código, revisamos qué necesita resolver el negocio. El pedido inicial suele cambiar bastante una vez que entendemos el proceso real detrás. Diseñamos y desarrollamos el software a medida, integrado con lo que ya usa la empresa.",
+      differentiators: [
+        "Postura consultiva: primero preguntamos qué hace falta, después programamos.",
+        "Aparece como continuación de un trabajo de Ops o Scale, o como pedido directo del cliente.",
+        "Se integra con las herramientas que ya usa el equipo, sin islas de datos nuevas.",
+      ],
+    },
+    scale: {
+      name: "Scale",
+      problem:
+        "El negocio creció, pero la estructura que armaste para diez personas cruje con cincuenta.",
+      whatWeDo:
+        "Trabajamos la capa estratégica de crecimiento: qué hay que cambiar en la organización, los procesos y la tecnología para escalar sin que todo se vuelva caótico. Muchas veces alcanza con destrabar uno o dos procesos clave, identificados en un diagnóstico de Ops.",
+      differentiators: [
+        "Mirada de conjunto: organización, procesos y tecnología en la misma conversación.",
+        "Se apoya en un diagnóstico concreto, no en un plan genérico de crecimiento.",
+        "Pensado para decisiones de mediano plazo, con foco en que la operación aguante.",
+      ],
+    },
+  },
+  connection: {
+    kicker: "Cómo se conectan",
+    title: "Tres líneas, un mismo trabajo",
+    body: "Ops es la puerta de entrada táctica y funciona perfecto sola. Scale es la capa estratégica y casi siempre se nutre de un diagnóstico de Ops. Build aparece como derivación de cualquiera de las dos, o porque el cliente llega directo pidiendo una plataforma.",
+    labels: { ops: "Ops", build: "Build", scale: "Scale" },
+  },
+  about: {
+    kicker: "Sobre mí",
+    name: "Pablo Ascencao",
+    role: "Consultor en tecnología y transformación digital",
+    points: [
+      "14 años de experiencia en tecnología, liderazgo de equipos de ingeniería y transformación digital.",
+      "En Globant pasó de Web UI Developer a Tech Manager, liderando equipos de más de 40 ingenieros.",
+      "Experiencia adicional en startups y scale-ups, en distintas etapas de crecimiento.",
+      "Basado en Rosario, Argentina. Trabaja de forma remota con clientes en toda Latinoamérica.",
+    ],
+    photoAlt: "Foto de Pablo Ascencao",
+  },
+  companies: {
+    kicker: "Experiencia",
+    title: "Empresas donde trabajó o con las que colaboró",
+    names: [
+      "Globant",
+      "TNT",
+      "AT&T",
+      "Uniqlo",
+      "State Farm",
+      "Turner International",
+      "Warner Bros.",
+      "American Century Investments",
+      "iManage",
+      "XPO Logistics",
+      "Dell",
+    ],
+    moreLabel: "+ más",
+  },
+  stats: {
+    kicker: "Por qué Nexuralabs",
+    title: "Antes que nada, un diagnóstico.",
+    items: [
+      { value: "14", label: "años liderando equipos de tecnología" },
+      { value: "40+", label: "personas en los equipos que lideró" },
+      { value: "100%", label: "del trabajo cobrado por resultado, no por hora" },
+      { value: "1°", label: "paso siempre: un diagnóstico, antes de proponer nada" },
     ],
   },
-  cta: {
-    tag: "Próximo paso",
-    title: "Exploremos cómo monetizar tu audiencia",
-    description:
-      "Podemos analizar tu caso y proponerte un enfoque basado en tu contenido, audiencia y modelo actual. Monetización directa e ingresos recurrentes, con control sobre tu audiencia.",
-    button: "Agendar una reunión",
-  },
-  calendar: {
-    loadingAria: "Cargando calendario",
-    title: "Reservá un horario",
-    subtitle:
-      "Elegí un momento para conversar sobre tu plataforma y modelo de monetización.",
-    iframeTitle: "Calendario de reuniones Nexura Labs",
+  contact: {
+    kicker: "Contacto",
+    title: "Hablemos",
+    body: "Escribime y coordinamos veinte minutos sin costo para hablar de tu situación puntual: qué está rompiendo con el crecimiento, o qué necesitás construir para el próximo paso.",
+    emailLabel: "pablo@nexuralabs.agency",
+    linkedinLabel: "LinkedIn de Nexuralabs",
   },
   footer: {
-    blurb:
-      "Construí tu propia plataforma de streaming y monetizá tu audiencia de forma directa. Control sobre tu audiencia, ingresos recurrentes y monetización directa.",
-    socialHeading: "Seguinos",
-    socialNavAria: "Redes sociales",
     rights: "Todos los derechos reservados.",
   },
   legal: {
@@ -183,7 +186,7 @@ const es: Dictionary = {
       lastUpdated: "Última actualización",
     },
     terms: {
-      title: "Términos del servicio",
+      title: "Términos de servicio",
       backHome: "Volver al inicio",
       lastUpdated: "Última actualización",
     },

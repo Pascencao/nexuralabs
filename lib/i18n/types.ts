@@ -5,10 +5,8 @@ export type Dictionary = {
     homeKeywords: string[];
     privacyTitle: string;
     privacyDescription: string;
-    privacyKeywords: string[];
     termsTitle: string;
     termsDescription: string;
-    termsKeywords: string[];
   };
   jsonLd: {
     organizationDescription: string;
@@ -18,12 +16,11 @@ export type Dictionary = {
     navAria: string;
     links: {
       problem: string;
-      solution: string;
-      monetization: string;
-      experience: string;
+      services: string;
+      about: string;
       contact: string;
     };
-    schedule: string;
+    cta: string;
     languageSwitcherAria: string;
   };
   hero: {
@@ -31,73 +28,71 @@ export type Dictionary = {
     titleLead: string;
     titleHighlight: string;
     body: string;
-    bodyEmphasis1: string;
-    bodyEmphasis2: string;
-    bodyEmphasis3: string;
-    experienceLine: string;
     primaryCta: string;
-    secondaryCta: string;
-  };
-  mockup: {
-    tiles: string[];
-    liveLabel: string;
-    viewers: string;
-    featuredLabel: string;
-    featuredTitle: string;
-    buyNow: string;
-    monetizationBadge: string;
-    railTitle: string;
   };
   problem: {
     kicker: string;
     title: string;
-    subtitle: string;
-    bullets: string[];
+    items: { name: string; description: string }[];
   };
-  opportunity: {
+  services: {
     kicker: string;
     title: string;
-    subtitle: string;
-    items: string[];
+    lines: { name: string; description: string }[];
+    connectionNote: string;
   };
-  solution: {
+  serviceDetail: {
+    ops: {
+      name: string;
+      problem: string;
+      whatWeDo: string;
+      differentiators: string[];
+    };
+    build: {
+      name: string;
+      problem: string;
+      whatWeDo: string;
+      differentiators: string[];
+    };
+    scale: {
+      name: string;
+      problem: string;
+      whatWeDo: string;
+      differentiators: string[];
+    };
+  };
+  connection: {
     kicker: string;
     title: string;
-    subtitle: string;
-    pillars: { title: string; lines: string[] }[];
+    body: string;
+    labels: { ops: string; build: string; scale: string };
   };
-  monetization: {
+  about: {
+    kicker: string;
+    name: string;
+    role: string;
+    points: string[];
+    photoAlt: string;
+  };
+  companies: {
     kicker: string;
     title: string;
-    subtitle: string;
-    bullets: string[];
+    names: string[];
+    moreLabel: string;
   };
-  cases: {
+  stats: {
     kicker: string;
     title: string;
-    items: { alt: string; text: string }[];
+    items: { value: string; label: string }[];
   };
-  process: {
+  contact: {
     kicker: string;
     title: string;
-    steps: string[];
-  };
-  cta: {
-    tag: string;
-    title: string;
-    description: string;
-    button: string;
-  };
-  calendar: {
-    loadingAria: string;
-    title: string;
-    subtitle: string;
-    iframeTitle: string;
+    body: string;
+    emailLabel: string;
+    linkedinLabel: string;
   };
   footer: {
-    blurb: string;
-    socialHeading: string;
-    socialNavAria: string;
     rights: string;
   };
   legal: {

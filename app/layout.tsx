@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import "./css/style.css";
-import "./css/additional-styles/utility-patterns.css";
+import "./globals.css";
 import { Inter } from "next/font/google";
-import { headers } from "next/headers";
 import JsonLd from "@/components/json-ld";
-import { isLocale } from "@/lib/i18n/config";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/components/i18n/LanguageProvider";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { defaultLocale } from "@/lib/i18n/config";
 import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({
@@ -14,28 +16,23 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
+const dict = getDictionary(defaultLocale);
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0B0B0F",
+  themeColor: "#0F1B2D",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Nexura Labs | Plataforma de streaming y monetización",
-    template: "%s | Nexura Labs",
+    default: dict.meta.homeTitle,
+    template: "%s | Nexuralabs",
   },
-  description:
-    "Construí tu propia plataforma de streaming y monetizá tu audiencia de forma directa. Web, mobile y Smart TV.",
-  keywords: [
-    "streaming",
-    "plataforma OTT",
-    "monetización directa",
-    "Nexura Labs",
-    "desarrollo de software",
-  ],
-  authors: [{ name: "Nexura Labs", url: new URL("/es", SITE_URL).href }],
+  description: dict.meta.homeDescription,
+  keywords: dict.meta.homeKeywords,
+  authors: [{ name: "Nexuralabs", url: SITE_URL }],
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
@@ -45,55 +42,39 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
     url: "/",
-    siteName: "Nexura Labs",
-    title: "Nexura Labs | Plataforma de streaming y monetización",
-    description:
-      "Ayudamos a empresas de medios a operar su propia plataforma en Web, Mobile y Smart TV con monetización directa.",
+    siteName: "Nexuralabs",
+    title: dict.meta.homeTitle,
+    description: dict.meta.homeDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexura Labs | Plataforma de streaming y monetización",
-    description:
-      "Construí tu propia plataforma de streaming y monetizá tu audiencia de forma directa.",
+    title: dict.meta.homeTitle,
+    description: dict.meta.homeDescription,
   },
   robots: { index: true, follow: true },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const h = await headers();
-  const raw = h.get("x-next-locale");
-  const locale = raw && isLocale(raw) ? raw : "es";
-  const lang = locale === "en" ? "en" : "es";
-
   return (
-    <html lang={lang}>
+    <html lang="es">
       <head>
         <meta
           name="facebook-domain-verification"
           content="v5cm45amulqa7mjolp5odm6njwfaus"
         />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest"></link>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
       </head>
-      <body
-        className={`${inter.variable} relative min-h-screen bg-nexura-bg font-inter text-base font-normal text-white antialiased`}
-      >
+      <body className={`${inter.variable} min-h-screen bg-canvas font-sans text-ink antialiased`}>
         <JsonLd />
-        <div className="nexura-noise" aria-hidden />
-        <div
-          className="nexura-radial pointer-events-none fixed inset-0 -z-10"
-          aria-hidden
-        />
-
-        <div className="relative z-10 flex min-h-screen flex-col overflow-x-hidden supports-[overflow:clip]:overflow-x-clip">
-          {children}
-        </div>
+        <LanguageProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
 
         <script
           dangerouslySetInnerHTML={{
