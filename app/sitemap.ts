@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           es: absoluteUrl(ROUTES[key].es),
           en: absoluteUrl(ROUTES[key].en),
+          "x-default": absoluteUrl(ROUTES[key].es),
         },
       },
     })),

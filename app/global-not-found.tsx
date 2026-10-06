@@ -11,9 +11,9 @@ export default function GlobalNotFound() {
     <html lang="es">
       <body className="flex min-h-screen items-center justify-center bg-canvas font-sans text-ink antialiased">
         <main className="px-5 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-gold">404</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-ink">404</p>
           <h1 className="mt-3 text-3xl font-bold">
-            Página no encontrada <span className="text-muted">· Page not found</span>
+            Página no encontrada <span lang="en" className="text-muted">· Page not found</span>
           </h1>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
