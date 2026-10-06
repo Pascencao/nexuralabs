@@ -316,6 +316,16 @@ const en: Dictionary = {
     tooLong: "That's too long.",
     tooShort: "That's too short.",
   },
+  checklist: {
+    kicker: "Free resource",
+    title: "Checklist: Is your operation ready for AI?",
+    intro: "Twelve questions to go through before investing in AI. We'll email you the PDF.",
+    fields: { email: "Email", company: "Company" },
+    submit: "Send me the checklist",
+    sending: "Sending…",
+    success: "Done. We've sent it to {email}. If you don't see it in a few minutes, check your spam folder.",
+    error: "We couldn't send it. Please try again shortly.",
+  },
   footer: {
     rights: "All rights reserved.",
   },

@@ -320,6 +320,16 @@ const es: Dictionary = {
     tooLong: "Es demasiado largo.",
     tooShort: "Es demasiado corto.",
   },
+  checklist: {
+    kicker: "Recurso gratis",
+    title: "Checklist: ¿tu operación está lista para IA?",
+    intro: "Doce preguntas para revisar antes de invertir en IA. Te lo mandamos por email en PDF.",
+    fields: { email: "Email", company: "Empresa" },
+    submit: "Enviame el checklist",
+    sending: "Enviando…",
+    success: "Listo. Te lo enviamos a {email}. Si no lo ves en unos minutos, revisá spam.",
+    error: "No pudimos enviarlo. Probá de nuevo en un rato.",
+  },
   footer: {
     rights: "Todos los derechos reservados.",
   },

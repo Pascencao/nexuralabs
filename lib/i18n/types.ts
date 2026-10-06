@@ -121,6 +121,17 @@ export type Dictionary = {
     };
   };
   formErrors: Record<FieldError, string>;
+  checklist: {
+    kicker: string;
+    title: string;
+    intro: string;
+    fields: { email: string; company: string };
+    submit: string;
+    sending: string;
+    /** Contiene el token {email}. */
+    success: string;
+    error: string;
+  };
   footer: {
     rights: string;
   };
