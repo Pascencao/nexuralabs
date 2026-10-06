@@ -1,13 +1,31 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/site";
+import { locales } from "@/lib/i18n/config";
+import { ROUTES, type PageKey } from "@/lib/i18n/routes";
+import { absoluteUrl } from "@/lib/site";
+
+const SETTINGS: Record<
+  PageKey,
+  { priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }
+> = {
+  home: { priority: 1, changeFrequency: "weekly" },
+  privacy: { priority: 0.4, changeFrequency: "yearly" },
+  terms: { priority: 0.4, changeFrequency: "yearly" },
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = SITE_URL.replace(/\/$/, "");
   const now = new Date();
 
-  return [
-    { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${base}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
-    { url: `${base}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
-  ];
+  return (Object.keys(ROUTES) as PageKey[]).flatMap((key) =>
+    locales.map((locale) => ({
+      url: absoluteUrl(ROUTES[key][locale]),
+      lastModified: now,
+      ...SETTINGS[key],
+      alternates: {
+        languages: {
+          es: absoluteUrl(ROUTES[key].es),
+          en: absoluteUrl(ROUTES[key].en),
+        },
+      },
+    })),
+  );
 }

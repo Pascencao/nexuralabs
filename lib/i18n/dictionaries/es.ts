@@ -2,9 +2,9 @@ import type { Dictionary } from "../types";
 
 const es: Dictionary = {
   meta: {
-    homeTitle: "Nexuralabs | Consultoría en tecnología y crecimiento",
+    homeTitle: "Nexura Labs: operaciones, software e IA aplicada para pymes",
     homeDescription:
-      "Ayudamos a startups en crecimiento y pymes de Latinoamérica a ordenar procesos, construir la tecnología que hace falta y escalar sin que la operación se rompa.",
+      "Ordenamos tu operación, construimos la tecnología que falta y aplicamos IA donde rinde.",
     homeKeywords: [
       "consultoría tecnológica",
       "transformación digital",
@@ -13,10 +13,10 @@ const es: Dictionary = {
       "crecimiento empresarial",
       "Latinoamérica",
     ],
-    privacyTitle: "Política de privacidad | Nexuralabs",
-    privacyDescription: "Política de privacidad de Nexuralabs.",
-    termsTitle: "Términos de servicio | Nexuralabs",
-    termsDescription: "Términos de servicio de Nexuralabs.",
+    privacyTitle: "Política de privacidad | Nexura Labs",
+    privacyDescription: "Política de privacidad de Nexura Labs.",
+    termsTitle: "Términos de servicio | Nexura Labs",
+    termsDescription: "Términos de servicio de Nexura Labs.",
   },
   jsonLd: {
     organizationDescription:
