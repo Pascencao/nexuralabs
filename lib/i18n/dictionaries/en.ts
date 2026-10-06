@@ -138,6 +138,45 @@ const en: Dictionary = {
     body: "Ops is the tactical entry point and works perfectly on its own. Scale is the strategic layer and almost always feeds off an Ops diagnosis. Build shows up as a derivation of either one, or because the client comes in directly asking for a platform.",
     labels: { ops: "Ops", build: "Build", scale: "Scale" },
   },
+  aiApproach: {
+    kicker: "Applied AI",
+    title: "AI, done right",
+    intro:
+      "Most AI projects fail for the same reason: they automate a process nobody understood, and nobody measures whether it worked. We start the other way around.",
+    methodLabel: "Four-step method",
+    steps: [
+      {
+        name: "Diagnose",
+        description: "We understand the process and the data before proposing anything.",
+      },
+      {
+        name: "Business case",
+        description: "Cost, expected savings and risk. If the numbers don't work, we'll tell you.",
+      },
+      {
+        name: "Production",
+        description:
+          "We build it into your operation, with human oversight where it matters.",
+      },
+      {
+        name: "Measure",
+        description:
+          "Quality, usage and cost metrics. What isn't working gets fixed or switched off.",
+      },
+    ],
+    comparison: {
+      caption: "Comparison between what usually happens in AI projects and how we do it",
+      headers: ["What usually happens", "How we do it"],
+      rows: [
+        ["Starts with the tool", "Starts with the process and the business"],
+        ["Impressive demo that never ships", "Built for production from day one"],
+        ["Nobody knows if it's working", "Quality, usage and cost metrics"],
+        ["Costs that grow unchecked", "Budget and usage monitored"],
+        ["\"AI for everything\"", "AI only where it pays off; if it doesn't, we'll say so"],
+      ],
+    },
+    cta: "Got a stalled AI pilot? Let's take a look →",
+  },
   about: {
     kicker: "About me",
     name: "Pablo Ascencao",

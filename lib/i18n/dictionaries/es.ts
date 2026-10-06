@@ -139,6 +139,48 @@ const es: Dictionary = {
     body: "Ops es la puerta de entrada táctica y funciona perfecto sola. Scale es la capa estratégica y casi siempre se nutre de un diagnóstico de Ops. Build aparece como derivación de cualquiera de las dos, o porque el cliente llega directo pidiendo una plataforma.",
     labels: { ops: "Ops", build: "Build", scale: "Scale" },
   },
+  aiApproach: {
+    kicker: "IA aplicada",
+    title: "IA con criterio",
+    intro:
+      "La mayoría de los proyectos de IA fallan por lo mismo: se automatiza un proceso que nadie entendió y nadie mide si funcionó. Nosotros empezamos al revés.",
+    methodLabel: "Método en 4 pasos",
+    steps: [
+      {
+        name: "Diagnóstico",
+        description: "Entendemos el proceso y los datos antes de proponer nada.",
+      },
+      {
+        name: "Caso de negocio",
+        description: "Costo, ahorro esperado y riesgo. Si no cierra, te lo decimos.",
+      },
+      {
+        name: "Producción",
+        description:
+          "Lo construimos dentro de tu operación, con supervisión humana donde importa.",
+      },
+      {
+        name: "Medición",
+        description:
+          "Métricas de calidad, uso y costo. Lo que no se mide, se ajusta o se apaga.",
+      },
+    ],
+    comparison: {
+      caption: "Comparación entre lo que suele pasar en proyectos de IA y cómo lo hacemos",
+      headers: ["Lo que suele pasar", "Cómo lo hacemos"],
+      rows: [
+        ["Se arranca por la herramienta", "Se arranca por el proceso y el negocio"],
+        [
+          "Demo impresionante que no llega a producción",
+          "Diseñado para producción desde el día uno",
+        ],
+        ["Nadie sabe si está funcionando", "Métricas de calidad, uso y costo"],
+        ["Costos que crecen sin control", "Presupuesto y consumo monitoreados"],
+        ["\"IA para todo\"", "IA solo donde rinde; si no conviene, lo decimos"],
+      ],
+    },
+    cta: "¿Tenés un piloto de IA trabado? Lo revisamos →",
+  },
   about: {
     kicker: "Sobre mí",
     name: "Pablo Ascencao",

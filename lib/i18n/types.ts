@@ -54,6 +54,19 @@ export type Dictionary = {
     body: string;
     labels: { ops: string; build: string; scale: string };
   };
+  aiApproach: {
+    kicker: string;
+    title: string;
+    intro: string;
+    methodLabel: string;
+    steps: { name: string; description: string }[];
+    comparison: {
+      caption: string;
+      headers: [string, string];
+      rows: [string, string][];
+    };
+    cta: string;
+  };
   about: {
     kicker: string;
     name: string;

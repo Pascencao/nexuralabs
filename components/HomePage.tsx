@@ -3,6 +3,7 @@ import ProblemSection from "@/components/ProblemSection";
 import ServiceLines from "@/components/ServiceLines";
 import ServiceDetails from "@/components/ServiceDetails";
 import ConnectionDiagram from "@/components/ConnectionDiagram";
+import AiApproach from "@/components/AiApproach";
 import About from "@/components/About";
 import Companies from "@/components/Companies";
 import Stats from "@/components/Stats";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <ServiceLines />
       <ServiceDetails />
       <ConnectionDiagram />
+      <AiApproach />
       <About />
       <Companies />
       <Stats />
