@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { FieldShell, inputClass } from "@/components/forms/Field";
 import { useFormSubmit } from "@/components/forms/useFormSubmit";
+import { track } from "@/lib/analytics/track";
 import {
   NEED_OPTIONS,
   validateContact,
@@ -25,7 +26,9 @@ export default function ContactForm({ defaultNeed }: { defaultNeed?: Need } = {}
   const [values, setValues] = useState<ContactInput>({ ...EMPTY, need: defaultNeed ?? "" });
   const [errors, setErrors] = useState<Errors<ContactInput>>({});
   const [website, setWebsite] = useState("");
-  const { status, serverErrors, submit } = useFormSubmit<Errors<ContactInput>>("/api/contact");
+  const { status, serverErrors, submit } = useFormSubmit<Errors<ContactInput>>("/api/contact", {
+    onSuccess: (payload) => track({ name: "form_submit", need: String(payload.need ?? "") }),
+  });
   const successRef = useRef<HTMLDivElement>(null);
 
   // Al reemplazar el formulario por el mensaje de éxito, el foco pasa al mensaje

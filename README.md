@@ -87,3 +87,18 @@ El contenido vive en `content/checklist.json` (ES/EN). Después de editarlo:
 ```bash
 npm run build:checklist   # regenera public/downloads/checklist-ia-{es,en}.pdf
 ```
+
+## Medición
+
+- **Píxel de Meta** (`1111392737090271`): siempre activo, en `components/SiteShell.tsx`.
+- **GA4**: se activa al configurar `NEXT_PUBLIC_GA_ID` en Vercel (`components/Analytics.tsx`). Sin la variable no se carga.
+- Los eventos se envían con `track()` (`lib/analytics/track.ts`); el mapeo vive en `lib/analytics/events.ts` (con tests).
+
+| Evento GA4 | Parámetros | Píxel (estándar) | Cuándo |
+|---|---|---|---|
+| `click_hablemos` | `location` (`header`, `hero`, `landing_hero`) | `Contact` | Clic en cualquier "Hablemos" |
+| `form_submit` | `need` | `Lead` | Envío exitoso del formulario de contacto |
+| `download_checklist` | — | `CompleteRegistration` | Envío exitoso del checklist |
+| `view_case` | `case_id` | `ViewContent` | Card de un caso visible al 50 % (una vez por carga) |
+
+Todos los eventos GA4 llevan `page_locale`.

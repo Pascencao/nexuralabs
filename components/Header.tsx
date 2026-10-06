@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import type { Locale } from "@/lib/i18n/config";
 import { ROUTES, homeAnchor, isLandingPath } from "@/lib/i18n/routes";
+import { track } from "@/lib/analytics/track";
 
 export default function Header() {
   const { dict, locale, switchLocale } = useLanguage();
@@ -28,6 +29,7 @@ export default function Header() {
             />
             <a
               href="#contacto"
+              onClick={() => track({ name: "click_hablemos", location: "header" })}
               className="whitespace-nowrap rounded-full bg-ink px-4 py-2.5 text-sm font-semibold text-canvas transition-colors hover:bg-gold sm:px-5"
             >
               {dict.header.cta}
@@ -76,6 +78,7 @@ export default function Header() {
           />
           <a
             href={contactHref}
+            onClick={() => track({ name: "click_hablemos", location: "header" })}
             className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-canvas transition-colors hover:bg-gold"
           >
             {dict.header.cta}
@@ -115,7 +118,10 @@ export default function Header() {
             />
             <a
               href={contactHref}
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                track({ name: "click_hablemos", location: "header" });
+              }}
               className="flex-1 rounded-full bg-ink px-5 py-2.5 text-center text-sm font-semibold text-canvas"
             >
               {dict.header.cta}

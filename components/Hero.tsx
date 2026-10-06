@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import VennCircles from "@/components/VennCircles";
+import { track } from "@/lib/analytics/track";
 
 export default function Hero() {
   const { dict } = useLanguage();
@@ -24,6 +25,7 @@ export default function Hero() {
           <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
             <a
               href="#contacto"
+              onClick={() => track({ name: "click_hablemos", location: "hero" })}
               className="inline-flex items-center rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink-dark transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink-dark"
             >
               {dict.hero.primaryCta}

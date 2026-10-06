@@ -5,6 +5,7 @@ import { useLanguage } from "@/components/i18n/LanguageProvider";
 import Kicker from "@/components/Kicker";
 import { FieldShell, inputClass } from "@/components/forms/Field";
 import { useFormSubmit } from "@/components/forms/useFormSubmit";
+import { track } from "@/lib/analytics/track";
 import { validateChecklist, type ChecklistInput, type Errors } from "@/lib/forms/validate";
 
 type Field = keyof ChecklistInput;
@@ -20,7 +21,9 @@ export default function ChecklistOffer() {
   const [errors, setErrors] = useState<Errors<ChecklistInput>>({});
   const [website, setWebsite] = useState("");
   const [sentTo, setSentTo] = useState("");
-  const { status, serverErrors, submit } = useFormSubmit<Errors<ChecklistInput>>("/api/checklist");
+  const { status, serverErrors, submit } = useFormSubmit<Errors<ChecklistInput>>("/api/checklist", {
+    onSuccess: () => track({ name: "download_checklist" }),
+  });
   const successRef = useRef<HTMLParagraphElement>(null);
 
   // Al reemplazar el formulario por el mensaje de éxito, el foco pasa al mensaje

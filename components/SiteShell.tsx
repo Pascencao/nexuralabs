@@ -1,6 +1,7 @@
 import "@/app/globals.css";
 import { Inter } from "next/font/google";
 import JsonLd from "@/components/json-ld";
+import Analytics from "@/components/Analytics";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/components/i18n/LanguageProvider";
@@ -31,6 +32,7 @@ export default function SiteShell({
       </head>
       <body className={`${inter.variable} min-h-screen bg-canvas font-sans text-ink antialiased`}>
         <JsonLd locale={locale} />
+        <Analytics />
         <LanguageProvider locale={locale}>
           <Header />
           <main>{children}</main>

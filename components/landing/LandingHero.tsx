@@ -1,4 +1,7 @@
+"use client";
+
 import type { LandingHeroCopy } from "@/lib/i18n/types";
+import { track } from "@/lib/analytics/track";
 
 /** Hero de landing: un mensaje y un CTA que baja al formulario de la misma página. */
 export default function LandingHero({ copy }: { copy: LandingHeroCopy }) {
@@ -14,6 +17,7 @@ export default function LandingHero({ copy }: { copy: LandingHeroCopy }) {
           <div className="mt-10">
             <a
               href="#contacto"
+              onClick={() => track({ name: "click_hablemos", location: "landing_hero" })}
               className="inline-flex items-center rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink-dark transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink-dark"
             >
               {copy.cta}

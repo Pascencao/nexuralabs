@@ -1,5 +1,9 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Placeholder from "@/components/Placeholder";
 import type { CaseStudy } from "@/lib/i18n/types";
+import { track } from "@/lib/analytics/track";
 
 export default function CaseCard({
   item,
@@ -9,9 +13,27 @@ export default function CaseCard({
   labels: { problem: string; solution: string; results: string };
 }) {
   const [clientBefore, clientAfter = ""] = item.client.split("{sector}");
+  const ref = useRef<HTMLElement>(null);
+
+  // view_case: una vez por carga de página, cuando la card queda al menos 50 % visible.
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          track({ name: "view_case", caseId: item.id });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [item.id]);
 
   return (
-    <article className="rounded-2xl bg-canvas p-8 shadow-card sm:p-10">
+    <article ref={ref} className="rounded-2xl bg-canvas p-8 shadow-card sm:p-10">
       <span className="inline-block rounded-full bg-build/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-build">
         {item.tag}
       </span>
