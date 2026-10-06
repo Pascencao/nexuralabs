@@ -28,6 +28,8 @@ const en: Dictionary = {
     links: {
       problem: "The problem",
       services: "How we work",
+      ai: "AI, done right",
+      cases: "Work",
       about: "About",
       contact: "Contact",
     },

@@ -17,6 +17,8 @@ export type Dictionary = {
     links: {
       problem: string;
       services: string;
+      ai: string;
+      cases: string;
       about: string;
       contact: string;
     };

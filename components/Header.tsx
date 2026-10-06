@@ -13,6 +13,8 @@ export default function Header() {
   const links = [
     { anchor: "problema", label: dict.header.links.problem },
     { anchor: "servicios", label: dict.header.links.services },
+    { anchor: "ia", label: dict.header.links.ai },
+    { anchor: "casos", label: dict.header.links.cases },
     { anchor: "sobre-mi", label: dict.header.links.about },
     { anchor: "contacto", label: dict.header.links.contact },
   ].map((link) => ({ href: homeAnchor(locale, link.anchor), label: link.label }));
@@ -26,7 +28,7 @@ export default function Header() {
           NEXURA<span className="text-gold">LABS</span>
         </a>
 
-        <nav aria-label={dict.header.navAria} className="hidden items-center gap-8 lg:flex">
+        <nav aria-label={dict.header.navAria} className="hidden items-center gap-7 xl:flex">
           {links.map((link) => (
             <a
               key={link.href}
@@ -38,7 +40,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-4 xl:flex">
           <LanguageToggle
             locale={locale}
             onSelect={switchLocale}
@@ -55,7 +57,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center text-ink lg:hidden"
+          className="flex h-10 w-10 items-center justify-center text-ink xl:hidden"
           aria-label={dict.header.navAria}
           aria-expanded={open}
         >
@@ -64,7 +66,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-ink/5 bg-canvas px-5 pb-6 pt-2 lg:hidden">
+        <div className="border-t border-ink/5 bg-canvas px-5 pb-6 pt-2 xl:hidden">
           <nav aria-label={dict.header.navAria} className="flex flex-col gap-1">
             {links.map((link) => (
               <a
