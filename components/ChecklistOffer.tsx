@@ -21,6 +21,13 @@ export default function ChecklistOffer() {
   const [website, setWebsite] = useState("");
   const [sentTo, setSentTo] = useState("");
   const { status, serverErrors, submit } = useFormSubmit<Errors<ChecklistInput>>("/api/checklist");
+  const successRef = useRef<HTMLParagraphElement>(null);
+
+  // Al reemplazar el formulario por el mensaje de éxito, el foco pasa al mensaje
+  // (si no, queda en <body> y el lector de pantalla puede no anunciarlo).
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   useEffect(() => {
     if (serverErrors) {
@@ -88,7 +95,12 @@ export default function ChecklistOffer() {
           </div>
 
           {status === "success" ? (
-            <p role="status" className="text-lg font-semibold text-ink">
+            <p
+              ref={successRef}
+              role="status"
+              tabIndex={-1}
+              className="text-lg font-semibold text-ink focus:outline-none"
+            >
               {c.success.replace("{email}", sentTo)}
             </p>
           ) : (

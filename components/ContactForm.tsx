@@ -24,6 +24,13 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Errors<ContactInput>>({});
   const [website, setWebsite] = useState("");
   const { status, serverErrors, submit } = useFormSubmit<Errors<ContactInput>>("/api/contact");
+  const successRef = useRef<HTMLDivElement>(null);
+
+  // Al reemplazar el formulario por el mensaje de éxito, el foco pasa al mensaje
+  // (si no, queda en <body> y el lector de pantalla puede no anunciarlo).
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   useEffect(() => {
     if (serverErrors) {
@@ -80,7 +87,12 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div role="status" className="rounded-2xl bg-white p-8 text-left shadow-card">
+      <div
+        ref={successRef}
+        role="status"
+        tabIndex={-1}
+        className="rounded-2xl bg-white p-8 text-left shadow-card focus:outline-none"
+      >
         <p className="text-lg font-semibold text-ink">{f.success}</p>
       </div>
     );
