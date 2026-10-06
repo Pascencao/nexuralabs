@@ -36,10 +36,11 @@ const en: Dictionary = {
   },
   hero: {
     badge: "Technology and growth consulting",
-    titleLead: "Growing without",
+    titleLead: "Grow without",
     titleHighlight: "breaking.",
-    body: "Pablo Ascencao helps growth stage startups and established Latin American companies bring order to the operation, build the technology a generic tool can no longer handle, and prepare the structure to scale without burning out the team.",
+    body: "We fix how your operation runs, build the technology you're missing, and put AI to work where it actually pays off. No hype, just results you can measure.",
     primaryCta: "Let's talk",
+    secondaryCta: "See how we use AI →",
   },
   problem: {
     kicker: "The problem",
@@ -58,6 +59,11 @@ const en: Dictionary = {
         name: "Structure",
         description:
           "The team and the way it's organized can't keep up with the pace the business demands.",
+      },
+      {
+        name: "AI",
+        description:
+          "Everyone's talking about AI. Few have it actually working. Maybe you ran a pilot that never left the demo stage, or you're not sure where to start, or whether it's worth it.",
       },
     ],
   },

@@ -38,8 +38,9 @@ const es: Dictionary = {
     badge: "Consultoría en tecnología y crecimiento",
     titleLead: "Crecer sin",
     titleHighlight: "explotar.",
-    body: "Pablo Ascencao ayuda a startups en crecimiento y pymes de Latinoamérica a poner orden en la operación, construir la tecnología que hace falta cuando una herramienta genérica ya no alcanza, y preparar la estructura para escalar sin que el equipo se queme en el intento.",
+    body: "Ordenamos tu operación, construimos la tecnología que te falta y ponemos la IA a trabajar donde realmente rinde. Sin humo, con números.",
     primaryCta: "Hablemos",
+    secondaryCta: "Ver cómo aplicamos IA →",
   },
   problem: {
     kicker: "El problema",
@@ -59,6 +60,11 @@ const es: Dictionary = {
         name: "Estructura",
         description:
           "El equipo y la forma de organizarse no aguantan el ritmo que pide el negocio.",
+      },
+      {
+        name: "IA",
+        description:
+          "Todos hablan de IA. Pocos la tienen funcionando. Probaste un piloto que no pasó de la demo, o directamente no sabés por dónde empezar ni si te conviene.",
       },
     ],
   },

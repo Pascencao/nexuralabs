@@ -29,6 +29,7 @@ export type Dictionary = {
     titleHighlight: string;
     body: string;
     primaryCta: string;
+    secondaryCta: string;
   };
   problem: {
     kicker: string;

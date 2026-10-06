@@ -1,9 +1,9 @@
 "use client";
 
-import { Workflow, Code2, Building2 } from "lucide-react";
+import { Workflow, Code2, Building2, ScanSearch } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 
-const icons = [Workflow, Code2, Building2];
+const icons = [Workflow, Code2, Building2, ScanSearch];
 
 export default function ProblemSection() {
   const { dict } = useLanguage();
@@ -18,13 +18,13 @@ export default function ProblemSection() {
           {dict.problem.title}
         </h2>
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {dict.problem.items.map((item, i) => {
             const Icon = icons[i];
             return (
               <div key={item.name}>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-ink text-canvas">
-                  <Icon size={22} />
+                  <Icon size={22} aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 text-xl font-semibold text-ink">{item.name}</h3>
                 <p className="mt-2 text-base text-muted">{item.description}</p>

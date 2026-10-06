@@ -21,12 +21,18 @@ export default function Hero() {
             {dict.hero.titleLead} <span className="text-gold">{dict.hero.titleHighlight}</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/70">{dict.hero.body}</p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
             <a
               href="#contacto"
-              className="inline-flex items-center rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink-dark transition-transform hover:scale-[1.02]"
+              className="inline-flex items-center rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink-dark transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink-dark"
             >
               {dict.hero.primaryCta}
+            </a>
+            <a
+              href="#ia"
+              className="rounded text-sm font-semibold text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink-dark"
+            >
+              {dict.hero.secondaryCta}
             </a>
           </div>
         </div>
