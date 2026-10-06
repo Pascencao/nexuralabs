@@ -43,24 +43,10 @@ export type Dictionary = {
     connectionNote: string;
   };
   serviceDetail: {
-    ops: {
-      name: string;
-      problem: string;
-      whatWeDo: string;
-      differentiators: string[];
-    };
-    build: {
-      name: string;
-      problem: string;
-      whatWeDo: string;
-      differentiators: string[];
-    };
-    scale: {
-      name: string;
-      problem: string;
-      whatWeDo: string;
-      differentiators: string[];
-    };
+    aiBadge: string;
+    ops: ServiceDetail;
+    build: ServiceDetail;
+    scale: ServiceDetail;
   };
   connection: {
     kicker: string;
@@ -100,4 +86,12 @@ export type Dictionary = {
     privacy: { title: string; backHome: string; lastUpdated: string };
     terms: { title: string; backHome: string; lastUpdated: string };
   };
+};
+
+export type ServiceDetail = {
+  name: string;
+  problem: string;
+  whatWeDo: string;
+  differentiators: string[];
+  ai: string;
 };

@@ -91,6 +91,7 @@ const en: Dictionary = {
       "They are not separate boxes: Ops solves what's urgent and also works on its own, Scale almost always builds on an Ops diagnosis, and Build shows up whenever either one needs something that doesn't exist yet.",
   },
   serviceDetail: {
+    aiBadge: "With AI",
     ops: {
       name: "Ops",
       problem:
@@ -102,6 +103,7 @@ const en: Dictionary = {
         "Works as a standalone project or as the foundation of a bigger Scale engagement.",
         "The team ends up trained to operate without depending on a permanent consultant.",
       ],
+      ai: "We map your processes and pinpoint where AI has real ROI, where simple automation is enough, and where you shouldn't touch a thing. You leave with a business case for every initiative.",
     },
     build: {
       name: "Build",
@@ -114,6 +116,7 @@ const en: Dictionary = {
         "Shows up as a continuation of an Ops or Scale engagement, or as a direct client request.",
         "Integrates with the tools the team already uses, no new data silos.",
       ],
+      ai: "AI agents built into your real workflows (WhatsApp, CRM, ERP, email), with human review where it matters, quality metrics and cost control from day one. In production, not in a demo.",
     },
     scale: {
       name: "Scale",
@@ -126,6 +129,7 @@ const en: Dictionary = {
         "Built on a concrete diagnosis, not a generic growth plan.",
         "Aimed at medium term decisions, focused on making sure the operation can take the weight.",
       ],
+      ai: "Fractional AI leadership: we maintain, measure and improve what's running, set usage guidelines, and help your team actually adopt it.",
     },
   },
   connection: {

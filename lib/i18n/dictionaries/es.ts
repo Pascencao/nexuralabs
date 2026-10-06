@@ -92,6 +92,7 @@ const es: Dictionary = {
       "No son compartimentos estancos: Ops resuelve lo urgente y también funciona sola, Scale casi siempre se apoya en un diagnóstico de Ops, y Build aparece cuando cualquiera de las dos necesita algo que no existe todavía.",
   },
   serviceDetail: {
+    aiBadge: "Con IA",
     ops: {
       name: "Ops",
       problem:
@@ -103,6 +104,7 @@ const es: Dictionary = {
         "Funciona como proyecto puntual o como base de un trabajo más grande de Scale.",
         "El equipo queda capacitado para operar sin depender de un consultor permanente.",
       ],
+      ai: "Mapeamos tus procesos y detectamos dónde la IA tiene retorno real, dónde alcanza con automatizar y dónde no conviene tocar nada. Salís con un caso de negocio por iniciativa.",
     },
     build: {
       name: "Build",
@@ -115,6 +117,7 @@ const es: Dictionary = {
         "Aparece como continuación de un trabajo de Ops o Scale, o como pedido directo del cliente.",
         "Se integra con las herramientas que ya usa el equipo, sin islas de datos nuevas.",
       ],
+      ai: "Agentes que entran en tu operación (WhatsApp, CRM, ERP, email) con supervisión humana donde hace falta, métricas de calidad y control de costos desde el día uno. En producción, no en una demo.",
     },
     scale: {
       name: "Scale",
@@ -127,6 +130,7 @@ const es: Dictionary = {
         "Se apoya en un diagnóstico concreto, no en un plan genérico de crecimiento.",
         "Pensado para decisiones de mediano plazo, con foco en que la operación aguante.",
       ],
+      ai: "Liderazgo técnico de IA mensual: mantenemos, medimos y mejoramos lo que está en producción, definimos reglas de uso y acompañamos la adopción de tu equipo.",
     },
   },
   connection: {

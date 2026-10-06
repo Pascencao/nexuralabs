@@ -2,9 +2,9 @@
 
 import { Check, Settings2, Hammer, Rocket } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
-import type { Dictionary } from "@/lib/i18n/types";
+import type { ServiceDetail } from "@/lib/i18n/types";
 
-type Detail = Dictionary["serviceDetail"]["ops"];
+type Detail = ServiceDetail;
 
 function LineLabel({
   icon: Icon,
@@ -39,6 +39,17 @@ function Differentiators({ items, colorClass }: { items: string[]; colorClass: s
         </li>
       ))}
     </ul>
+  );
+}
+
+function AiLayer({ badge, text }: { badge: string; text: string }) {
+  return (
+    <div className="mt-8 rounded-2xl border-l-4 border-ops bg-white p-6 shadow-card sm:p-8">
+      <span className="inline-block rounded-full bg-ops/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-ops">
+        {badge}
+      </span>
+      <p className="mt-4 max-w-3xl text-base text-ink/80">{text}</p>
+    </div>
   );
 }
 
@@ -96,14 +107,23 @@ function BuildDetail({ detail }: { detail: Detail }) {
 
 export default function ServiceDetails() {
   const { dict } = useLanguage();
-  const { ops, build, scale } = dict.serviceDetail;
+  const { aiBadge, ops, build, scale } = dict.serviceDetail;
 
   return (
     <div className="bg-canvas pt-20 pb-20 sm:pt-28 sm:pb-28">
       <div className="mx-auto max-w-site space-y-20 px-5 sm:space-y-24 sm:px-8">
-        <OpsDetail detail={ops} />
-        <BuildDetail detail={build} />
-        <ScaleDetail detail={scale} />
+        <div>
+          <OpsDetail detail={ops} />
+          <AiLayer badge={aiBadge} text={ops.ai} />
+        </div>
+        <div>
+          <BuildDetail detail={build} />
+          <AiLayer badge={aiBadge} text={build.ai} />
+        </div>
+        <div>
+          <ScaleDetail detail={scale} />
+          <AiLayer badge={aiBadge} text={scale.ai} />
+        </div>
       </div>
     </div>
   );
