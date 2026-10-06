@@ -72,3 +72,18 @@ npm run dev     # desarrollo
 npm run build   # build de producción
 npm start        # servir build de producción
 ```
+
+## Formularios y emails
+
+- `/api/contact` (formulario de contacto) y `/api/checklist` (checklist descargable) envían emails con [Resend](https://resend.com).
+- Variables de entorno (ver `.env.example`): `RESEND_API_KEY` (obligatoria en producción), `MAIL_FROM`, `MAIL_TO`.
+- En desarrollo, sin `RESEND_API_KEY`, los emails se imprimen en la consola del servidor en vez de enviarse.
+- Anti-spam: campo honeypot `website` y rechazo de envíos en menos de 2 segundos (`lib/forms/spam.ts`).
+
+## Checklist en PDF
+
+El contenido vive en `content/checklist.json` (ES/EN). Después de editarlo:
+
+```bash
+npm run build:checklist   # regenera public/downloads/checklist-ia-{es,en}.pdf
+```

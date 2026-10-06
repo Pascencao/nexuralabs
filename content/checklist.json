@@ -1,0 +1,90 @@
+{
+  "es": {
+    "title": "Checklist: ¿tu operación está lista para IA?",
+    "intro": "Si respondés «no» a varias, probablemente el primer paso no sea la IA sino ordenar el proceso. Eso también es avanzar.",
+    "groups": [
+      {
+        "name": "Proceso",
+        "questions": [
+          "¿Podés describir el proceso que querés mejorar, paso a paso y de punta a punta?",
+          "¿Sabés cuánto tiempo o dinero consume hoy, aunque sea aproximado?",
+          "¿El proceso se hace igual cada vez, o depende de quién lo haga?"
+        ]
+      },
+      {
+        "name": "Datos",
+        "questions": [
+          "¿La información que usa ese proceso está escrita en algún lado (sistemas, documentos, manuales) y no solo en la cabeza de alguien?",
+          "¿Podés acceder a esos datos sin pedir favores ni copiar a mano?",
+          "¿Sabés qué datos son sensibles y quién puede verlos?"
+        ]
+      },
+      {
+        "name": "Equipo",
+        "questions": [
+          "¿Hay una persona responsable del proceso que pueda decir si una solución realmente funciona?",
+          "¿El equipo que lo va a usar participa desde el principio?"
+        ]
+      },
+      {
+        "name": "Negocio",
+        "questions": [
+          "¿Tenés claro qué cambiaría si el proceso funcionara mejor (tiempos de respuesta, errores, ventas)?",
+          "¿Definiste cómo vas a medir si funcionó?",
+          "¿Tenés presupuesto para operar la solución todos los meses, no solo para construirla?"
+        ]
+      },
+      {
+        "name": "Riesgo",
+        "questions": [
+          "¿Sabés qué pasa si la IA se equivoca, y quién revisa los casos dudosos?"
+        ]
+      }
+    ],
+    "closing": "¿Más de tres «no»? Empecemos por un diagnóstico. Escribime: pablo@nexuralabs.agency · nexuralabs.agency"
+  },
+  "en": {
+    "title": "Checklist: Is your operation ready for AI?",
+    "intro": "If you answer “no” to several, the first step probably isn't AI but getting the process in order. That counts as progress too.",
+    "groups": [
+      {
+        "name": "Process",
+        "questions": [
+          "Can you describe the process you want to improve, step by step, end to end?",
+          "Do you know roughly how much time or money it takes today?",
+          "Is it done the same way every time, or does it depend on who's doing it?"
+        ]
+      },
+      {
+        "name": "Data",
+        "questions": [
+          "Is the information it relies on written down somewhere (systems, documents, manuals), not just in someone's head?",
+          "Can you get to that data without asking for favors or copying it by hand?",
+          "Do you know which data is sensitive and who's allowed to see it?"
+        ]
+      },
+      {
+        "name": "Team",
+        "questions": [
+          "Is there someone who owns the process and can tell whether a solution actually works?",
+          "Is the team that will use it involved from the start?"
+        ]
+      },
+      {
+        "name": "Business",
+        "questions": [
+          "Are you clear on what would change if the process worked better (response times, errors, sales)?",
+          "Have you decided how you'll measure whether it worked?",
+          "Do you have a monthly budget to run the solution, not just to build it?"
+        ]
+      },
+      {
+        "name": "Risk",
+        "questions": [
+          "Do you know what happens when the AI gets it wrong, and who reviews the unclear cases?"
+        ]
+      }
+    ],
+    "closing": "More than three “no”s? Let's start with a diagnosis. Write to me: pablo@nexuralabs.agency · nexuralabs.agency"
+  }
+}
