@@ -1,6 +1,6 @@
 # Nexuralabs
 
-Landing page de una sola página para Nexuralabs, la consultoría de tecnología y crecimiento de Pablo Ascencao. Construida con Next.js (App Router) y TailwindCSS, bilingüe (ES/EN) con selector de idioma client-side.
+Landing page de una sola página para Nexuralabs, la consultoría de tecnología y crecimiento de Pablo Ascencao. Construida con Next.js (App Router) y TailwindCSS, bilingüe (ES en `/`, EN en `/en`).
 
 ## Tecnologías
 
@@ -21,28 +21,48 @@ Landing page de una sola página para Nexuralabs, la consultoría de tecnología
 
 ```
 ├── app/
-│   ├── layout.tsx        # Layout raíz: fuentes, metadata, Header/Footer, LanguageProvider
-│   ├── page.tsx          # Página única: ensambla todas las secciones
-│   ├── globals.css       # Tailwind + estilos base
-│   ├── privacy/page.tsx  # Política de privacidad
-│   └── terms/page.tsx    # Términos de servicio
+│   ├── (es)/                 # Árbol en español (layout raíz con <html lang="es">)
+│   │   ├── page.tsx          # Home → components/HomePage
+│   │   ├── privacy/, terms/
+│   │   └── opengraph-image.tsx
+│   ├── (en)/en/              # Árbol en inglés, mismas páginas bajo /en
+│   ├── global-not-found.tsx  # 404 bilingüe
+│   ├── sitemap.ts, robots.ts
+│   └── globals.css
+├── proxy.ts                  # Redirección a /en en la primera visita con navegador en inglés
 ├── components/
-│   ├── i18n/LanguageProvider.tsx  # Contexto ES/EN (localStorage, sin routing)
-│   ├── Header.tsx, Footer.tsx
-│   ├── Hero.tsx, ProblemSection.tsx, ServiceLines.tsx, ServiceDetails.tsx
-│   ├── ConnectionDiagram.tsx, VennCircles.tsx
-│   ├── About.tsx, Companies.tsx, Stats.tsx, Contact.tsx
-│   └── PrivacyPolicy.tsx, TermsOfService.tsx, json-ld.tsx
-├── lib/i18n/
-│   ├── config.ts          # locales, default, storage key
-│   ├── types.ts           # tipo Dictionary
-│   └── dictionaries/es.ts, en.ts
-└── public/                # Archivos estáticos
+│   ├── SiteShell.tsx         # <html>, fuente, Header/Footer, JSON-LD, píxel de Meta
+│   ├── HomePage.tsx          # Orden de secciones de la home
+│   ├── i18n/LanguageProvider.tsx  # { locale, dict, switchLocale }
+│   └── …secciones
+└── lib/i18n/
+    ├── routes.ts             # ROUTES: única fuente de verdad de URLs por idioma
+    ├── negotiate.ts          # Accept-Language → idioma preferido
+    ├── metadata.ts           # baseMetadata / buildMetadata (canonical, hreflang, OG)
+    ├── types.ts              # Dictionary (obliga a que es.ts y en.ts tengan las mismas claves)
+    └── dictionaries/es.ts, en.ts
 ```
 
 ## Idioma
 
-El sitio es una sola página (sin rutas `/es` o `/en`). El selector ES/EN del header cambia el idioma en el cliente vía contexto de React y persiste la preferencia en `localStorage`. El contenido para SEO (metadata, JSON-LD) se renderiza en español por default.
+- Español en `/`, inglés en `/en`. Cada página nueva se agrega en `lib/i18n/routes.ts` y en los dos árboles de `app/`.
+- El toggle ES/EN guarda la elección en la cookie `nexuralabs-locale` y navega a la página equivalente.
+- La primera visita a una página en español con el navegador en inglés redirige a `/en` (`proxy.ts`). Si ya hay cookie, se respeta.
+
+## Placeholders
+
+Los datos pendientes se muestran con `<Placeholder>` y llevan `// TODO(placeholder)` en el diccionario.
+**Antes de mergear a `develop` (que publica en producción), esto tiene que dar vacío:**
+
+```bash
+git grep -n "TODO(placeholder)"
+```
+
+## Tests
+
+```bash
+npm test   # lógica pura de rutas e idioma (node:test, sin dependencias)
+```
 
 ## Instalación
 
