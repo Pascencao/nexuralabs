@@ -176,7 +176,7 @@ const es: Dictionary = {
         ],
         ["Nadie sabe si está funcionando", "Métricas de calidad, uso y costo"],
         ["Costos que crecen sin control", "Presupuesto y consumo monitoreados"],
-        ["\"IA para todo\"", "IA solo donde rinde; si no conviene, lo decimos"],
+        ["“IA para todo”", "IA solo donde rinde; si no conviene, lo decimos"],
       ],
     },
     cta: "¿Tenés un piloto de IA trabado? Lo revisamos →",

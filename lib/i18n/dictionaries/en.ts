@@ -172,7 +172,7 @@ const en: Dictionary = {
         ["Impressive demo that never ships", "Built for production from day one"],
         ["Nobody knows if it's working", "Quality, usage and cost metrics"],
         ["Costs that grow unchecked", "Budget and usage monitored"],
-        ["\"AI for everything\"", "AI only where it pays off; if it doesn't, we'll say so"],
+        ["“AI for everything”", "AI only where it pays off; if it doesn't, we'll say so"],
       ],
     },
     cta: "Got a stalled AI pilot? Let's take a look →",
