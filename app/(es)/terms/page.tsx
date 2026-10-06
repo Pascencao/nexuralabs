@@ -1,5 +1,5 @@
 import { TermsOfService } from "@/components/TermsOfService";
 
-export default function TermsPage() {
+export default function Page() {
   return <TermsOfService />;
 }

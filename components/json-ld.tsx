@@ -1,10 +1,10 @@
 import { getDictionary } from "@/lib/i18n/dictionaries";
-import { defaultLocale } from "@/lib/i18n/config";
+import type { Locale } from "@/lib/i18n/config";
 import { SITE_URL, absoluteUrl } from "@/lib/site";
 import { SOCIAL_LINKS } from "@/lib/social";
 
-export default function JsonLd() {
-  const dict = getDictionary(defaultLocale);
+export default function JsonLd({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
 
   const organizationJson = {
     "@context": "https://schema.org",

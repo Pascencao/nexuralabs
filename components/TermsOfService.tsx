@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { ROUTES } from "@/lib/i18n/routes";
 
 export function TermsOfService() {
   const { dict, locale } = useLanguage();
@@ -191,7 +192,7 @@ export function TermsOfService() {
 
           <div className="mt-12 text-center">
             <a
-              href="/"
+              href={ROUTES.home[locale]}
               className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-canvas transition-colors hover:bg-gold"
             >
               {labels.backHome}

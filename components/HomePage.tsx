@@ -8,7 +8,7 @@ import Companies from "@/components/Companies";
 import Stats from "@/components/Stats";
 import Contact from "@/components/Contact";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Hero />

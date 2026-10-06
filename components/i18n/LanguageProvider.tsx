@@ -1,41 +1,44 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { defaultLocale, isLocale, LOCALE_STORAGE_KEY, type Locale } from "@/lib/i18n/config";
+import { createContext, useContext, useMemo } from "react";
+import { LOCALE_COOKIE, LOCALE_COOKIE_MAX_AGE, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { alternatePath } from "@/lib/i18n/routes";
 import type { Dictionary } from "@/lib/i18n/types";
 
 type LanguageContextValue = {
   locale: Locale;
-  setLocale: (locale: Locale) => void;
   dict: Dictionary;
+  /** Guarda la preferencia y navega a la página equivalente en `target`, conservando el #ancla. */
+  switchLocale: (target: Locale) => void;
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
+function rememberLocale(locale: Locale) {
+  document.cookie = `${LOCALE_COOKIE}=${locale}; path=/; max-age=${LOCALE_COOKIE_MAX_AGE}; SameSite=Lax`;
+}
 
-  useEffect(() => {
-    const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (stored && isLocale(stored)) {
-      setLocaleState(stored);
-    }
-  }, []);
-
-  const setLocale = (next: Locale) => {
-    setLocaleState(next);
-    window.localStorage.setItem(LOCALE_STORAGE_KEY, next);
-  };
-
+export function LanguageProvider({
+  locale,
+  children,
+}: {
+  locale: Locale;
+  children: React.ReactNode;
+}) {
   const value = useMemo<LanguageContextValue>(
-    () => ({ locale, setLocale, dict: getDictionary(locale) }),
+    () => ({
+      locale,
+      dict: getDictionary(locale),
+      switchLocale: (target) => {
+        rememberLocale(target);
+        if (target === locale) return;
+        const { pathname, hash } = window.location;
+        window.location.assign(`${alternatePath(pathname, target)}${hash}`);
+      },
+    }),
     [locale],
   );
-
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }

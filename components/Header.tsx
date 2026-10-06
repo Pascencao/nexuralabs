@@ -3,22 +3,26 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import type { Locale } from "@/lib/i18n/config";
+import { homeAnchor } from "@/lib/i18n/routes";
 
 export default function Header() {
-  const { dict, locale, setLocale } = useLanguage();
+  const { dict, locale, switchLocale } = useLanguage();
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "/#problema", label: dict.header.links.problem },
-    { href: "/#servicios", label: dict.header.links.services },
-    { href: "/#sobre-mi", label: dict.header.links.about },
-    { href: "/#contacto", label: dict.header.links.contact },
-  ];
+    { anchor: "problema", label: dict.header.links.problem },
+    { anchor: "servicios", label: dict.header.links.services },
+    { anchor: "sobre-mi", label: dict.header.links.about },
+    { anchor: "contacto", label: dict.header.links.contact },
+  ].map((link) => ({ href: homeAnchor(locale, link.anchor), label: link.label }));
+
+  const contactHref = homeAnchor(locale, "contacto");
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-canvas/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-site items-center justify-between px-5 sm:px-8">
-        <a href="/#inicio" className="text-lg font-bold tracking-tight text-ink">
+        <a href={homeAnchor(locale, "inicio")} className="text-lg font-bold tracking-tight text-ink">
           NEXURA<span className="text-gold">LABS</span>
         </a>
 
@@ -37,11 +41,11 @@ export default function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <LanguageToggle
             locale={locale}
-            setLocale={setLocale}
+            onSelect={switchLocale}
             aria={dict.header.languageSwitcherAria}
           />
           <a
-            href="/#contacto"
+            href={contactHref}
             className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-canvas transition-colors hover:bg-gold"
           >
             {dict.header.cta}
@@ -76,11 +80,11 @@ export default function Header() {
           <div className="mt-4 flex items-center justify-between gap-4">
             <LanguageToggle
               locale={locale}
-              setLocale={setLocale}
+              onSelect={switchLocale}
               aria={dict.header.languageSwitcherAria}
             />
             <a
-              href="/#contacto"
+              href={contactHref}
               onClick={() => setOpen(false)}
               className="flex-1 rounded-full bg-ink px-5 py-2.5 text-center text-sm font-semibold text-canvas"
             >
@@ -95,11 +99,11 @@ export default function Header() {
 
 function LanguageToggle({
   locale,
-  setLocale,
+  onSelect,
   aria,
 }: {
-  locale: "es" | "en";
-  setLocale: (l: "es" | "en") => void;
+  locale: Locale;
+  onSelect: (l: Locale) => void;
   aria: string;
 }) {
   return (
@@ -112,8 +116,9 @@ function LanguageToggle({
         <button
           key={l}
           type="button"
-          onClick={() => setLocale(l)}
+          onClick={() => onSelect(l)}
           aria-pressed={locale === l}
+          lang={l}
           className={`rounded-full px-2.5 py-1 transition-colors ${
             locale === l ? "bg-ink text-canvas" : "text-muted hover:text-ink"
           }`}
