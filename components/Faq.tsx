@@ -2,6 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import Kicker from "@/components/Kicker";
 
 export default function Faq() {
   const { dict } = useLanguage();
@@ -24,7 +25,7 @@ export default function Faq() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <div className="mx-auto max-w-site px-5 sm:px-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-gold">{faq.kicker}</p>
+        <Kicker>{faq.kicker}</Kicker>
         <h2 className="mt-3 max-w-xl text-3xl font-bold text-ink sm:text-4xl">{faq.title}</h2>
 
         <div className="mt-12 max-w-3xl divide-y divide-ink/10 rounded-2xl bg-white shadow-card">

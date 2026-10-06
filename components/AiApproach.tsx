@@ -3,6 +3,7 @@
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import MethodSteps from "@/components/MethodSteps";
 import ComparisonTable from "@/components/ComparisonTable";
+import Kicker from "@/components/Kicker";
 
 export default function AiApproach() {
   const { dict } = useLanguage();
@@ -11,7 +12,7 @@ export default function AiApproach() {
   return (
     <section id="ia" className="bg-canvas py-20 sm:py-28">
       <div className="mx-auto max-w-site px-5 sm:px-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-gold">{ai.kicker}</p>
+        <Kicker>{ai.kicker}</Kicker>
         <h2 className="mt-3 max-w-xl text-3xl font-bold text-ink sm:text-4xl">{ai.title}</h2>
         <p className="mt-6 max-w-2xl text-lg text-muted">{ai.intro}</p>
 

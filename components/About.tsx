@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Award, Building2, Users, MapPin, Layers } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import Kicker from "@/components/Kicker";
 
 const icons = [Award, Building2, Users, MapPin, Layers];
 
@@ -30,9 +31,9 @@ export default function About() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-gold">
+          <Kicker>
             {dict.about.kicker}
-          </p>
+          </Kicker>
           <ul className="mt-6 space-y-6">
             {dict.about.points.map((point, i) => {
               const Icon = icons[i];

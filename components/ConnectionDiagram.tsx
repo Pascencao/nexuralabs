@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import VennCircles from "@/components/VennCircles";
+import Kicker from "@/components/Kicker";
 
 export default function ConnectionDiagram() {
   const { dict } = useLanguage();
@@ -10,9 +11,9 @@ export default function ConnectionDiagram() {
     <section id="conexion" className="bg-ink-dark py-20 sm:py-28">
       <div className="mx-auto grid max-w-site items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-gold">
+          <Kicker tone="dark">
             {dict.connection.kicker}
-          </p>
+          </Kicker>
           <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
             {dict.connection.title}
           </h2>

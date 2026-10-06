@@ -2,6 +2,7 @@
 
 import { Workflow, Code2, Building2, ScanSearch } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import Kicker from "@/components/Kicker";
 
 const icons = [Workflow, Code2, Building2, ScanSearch];
 
@@ -11,9 +12,9 @@ export default function ProblemSection() {
   return (
     <section id="problema" className="bg-canvas py-20 sm:py-28">
       <div className="mx-auto max-w-site px-5 sm:px-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-gold">
+        <Kicker>
           {dict.problem.kicker}
-        </p>
+        </Kicker>
         <h2 className="mt-3 max-w-xl text-3xl font-bold text-ink sm:text-4xl">
           {dict.problem.title}
         </h2>

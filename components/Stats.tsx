@@ -2,6 +2,7 @@
 
 import { CircleCheck } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import Kicker from "@/components/Kicker";
 
 export default function Stats() {
   const { dict } = useLanguage();
@@ -9,9 +10,9 @@ export default function Stats() {
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-site px-5 sm:px-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-gold">
+        <Kicker>
           {dict.stats.kicker}
-        </p>
+        </Kicker>
         <h2 className="mt-3 max-w-xl text-3xl font-bold text-ink sm:text-4xl">
           {dict.stats.title}
         </h2>

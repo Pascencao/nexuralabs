@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import CaseCard from "@/components/CaseCard";
+import Kicker from "@/components/Kicker";
 
 export default function CaseStudies() {
   const { dict } = useLanguage();
@@ -15,7 +16,7 @@ export default function CaseStudies() {
   return (
     <section id="casos" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-site px-5 sm:px-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-gold">{cases.kicker}</p>
+        <Kicker>{cases.kicker}</Kicker>
         <h2 className="mt-3 max-w-xl text-3xl font-bold text-ink sm:text-4xl">{cases.title}</h2>
 
         <div className={`mt-14 grid gap-6 ${cases.items.length > 1 ? "lg:grid-cols-2" : ""}`}>
