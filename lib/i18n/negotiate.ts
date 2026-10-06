@@ -19,16 +19,27 @@ export function preferredLocale(acceptLanguage: string | null | undefined): Loca
   return best?.locale ?? null;
 }
 
+const BOT_PATTERN =
+  /bot|crawler|spider|crawling|facebookexternalhit|facebookcatalog|meta-externalagent|linkedin|slack|whatsapp|twitter|telegram|discord|preview|embedly|skype/i;
+
+/** Rastreadores y previsualizadores de enlaces: no guardan cookies, así que nunca se redirigen. */
+export function isBot(userAgent: string | null | undefined): boolean {
+  if (!userAgent) return false;
+  return BOT_PATTERN.test(userAgent);
+}
+
 /**
  * Primera visita a una página en español desde un navegador que prefiere inglés.
- * Si ya hay una preferencia guardada (cookie), se respeta siempre.
+ * Si ya hay una preferencia guardada (cookie), se respeta siempre. Los bots nunca se redirigen.
  */
 export function shouldRedirectToEnglish(input: {
   isSpanishPage: boolean;
   cookieLocale: string | undefined;
   acceptLanguage: string | null;
+  userAgent: string | null;
 }): boolean {
   if (!input.isSpanishPage) return false;
   if (input.cookieLocale) return false;
+  if (isBot(input.userAgent)) return false;
   return preferredLocale(input.acceptLanguage) === "en";
 }

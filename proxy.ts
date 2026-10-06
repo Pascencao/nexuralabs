@@ -6,6 +6,7 @@ import { ROUTES, pageKeyFromPath } from "@/lib/i18n/routes";
 /**
  * Primera visita a una página en español con el navegador en inglés → versión en inglés.
  * La cookie de idioma (toggle o esta misma redirección) desactiva la redirección.
+ * Los bots y previsualizadores de enlaces (WhatsApp, LinkedIn, Slack, etc.) nunca se redirigen.
  */
 export function proxy(request: NextRequest) {
   const match = pageKeyFromPath(request.nextUrl.pathname);
@@ -14,6 +15,7 @@ export function proxy(request: NextRequest) {
     isSpanishPage: match?.locale === "es",
     cookieLocale: request.cookies.get(LOCALE_COOKIE)?.value,
     acceptLanguage: request.headers.get("accept-language"),
+    userAgent: request.headers.get("user-agent"),
   });
   if (!match || !redirect) return NextResponse.next();
 
