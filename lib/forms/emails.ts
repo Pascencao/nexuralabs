@@ -12,6 +12,11 @@ export function escapeHtml(value: string): string {
     .replace(/'/g, "&#39;");
 }
 
+/** Para asuntos: colapsa saltos de línea, tabs y otros caracteres de control en un solo espacio. */
+function oneLine(value: string): string {
+  return value.replace(/[\u0000-\u001f\u007f]+/g, " ").replace(/ {2,}/g, " ").trim();
+}
+
 export function checklistPdfPath(locale: Locale): string {
   return `/downloads/checklist-ia-${locale}.pdf`;
 }
@@ -56,7 +61,7 @@ export function contactNotification(
     ["Fecha", ctx.date.toISOString()],
   ];
   return {
-    subject: `Nuevo contacto web: ${input.name} (${need})`,
+    subject: `Nuevo contacto web: ${oneLine(input.name)} (${need})`,
     text: rowsToText(rows),
     html: rowsToHtml(rows),
   };
@@ -73,7 +78,7 @@ export function checklistNotification(
     ["Fecha", ctx.date.toISOString()],
   ];
   return {
-    subject: `Nuevo lead checklist: ${input.company}`,
+    subject: `Nuevo lead checklist: ${oneLine(input.company)}`,
     text: rowsToText(rows),
     html: rowsToHtml(rows),
   };

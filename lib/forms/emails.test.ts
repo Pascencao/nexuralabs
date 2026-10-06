@@ -62,3 +62,13 @@ test("checklistDelivery usa el idioma y el link al PDF", () => {
   assert.equal(es.subject, "Tu checklist: ¿tu operación está lista para IA?");
   assert.ok(es.html.includes('href="https://x.test/a.pdf?a=1&amp;b=2"'));
 });
+
+test("los asuntos no llevan saltos de línea ni caracteres de control", () => {
+  const contact = contactNotification(
+    { name: "Ana\r\nBcc: x@y.com\tPérez", email: "ana@empresa.com", need: "ai", message: "" },
+    { locale: "es", date },
+  );
+  assert.equal(contact.subject, "Nuevo contacto web: Ana Bcc: x@y.com Pérez (Aplicar IA)");
+  const lead = checklistNotification({ email: "ana@empresa.com", company: "Acme\nCorp" }, { locale: "es", date });
+  assert.equal(lead.subject, "Nuevo lead checklist: Acme Corp");
+});
