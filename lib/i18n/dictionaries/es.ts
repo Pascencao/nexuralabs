@@ -17,6 +17,12 @@ const es: Dictionary = {
     privacyDescription: "Política de privacidad de Nexura Labs.",
     termsTitle: "Términos de servicio | Nexura Labs",
     termsDescription: "Términos de servicio de Nexura Labs.",
+    posventaTitle: "Agente de IA para soporte técnico y posventa | Nexura Labs",
+    posventaDescription:
+      "Un agente que consulta tus manuales, guía el diagnóstico y sugiere el repuesto correcto por WhatsApp, con una persona cuando hace falta.",
+    rescueTitle: "Rescate de proyectos de IA trabados | Nexura Labs",
+    rescueDescription:
+      "Tu piloto de IA no llegó a producción. Auditamos lo técnico y lo de negocio en 2 semanas, armamos un plan de corrección y lo ponemos a funcionar con métricas.",
   },
   jsonLd: {
     organizationDescription:
@@ -329,6 +335,122 @@ const es: Dictionary = {
     sending: "Enviando…",
     success: "Listo. Te lo enviamos a {email}. Si no lo ves en unos minutos, revisá spam.",
     error: "No pudimos enviarlo. Probá de nuevo en un rato.",
+  },
+  landings: {
+    posventa: {
+      hero: {
+        kicker: "IA para posventa",
+        title: "Tu soporte técnico, disponible siempre y con el conocimiento de tu mejor técnico",
+        intro:
+          "Para fabricantes y distribuidores con soporte técnico, servicio posventa y venta de repuestos.",
+        cta: "Hablemos",
+      },
+      pain: {
+        kicker: "El problema",
+        title: "Lo que pasa hoy en tu posventa",
+        items: [
+          {
+            name: "Consultas repetidas",
+            description:
+              "El equipo responde una y otra vez las mismas preguntas, y las urgentes esperan en la fila.",
+          },
+          {
+            name: "Conocimiento en pocas cabezas",
+            description:
+              "Lo que sabe tu mejor técnico no está escrito en ningún lado. Si no está, nadie resuelve.",
+          },
+          {
+            name: "Manuales que nadie lee",
+            description:
+              "La respuesta está en un manual extenso, pero encontrarla lleva más que llamar por teléfono.",
+          },
+          {
+            name: "Repuestos mal pedidos",
+            description:
+              "Un diagnóstico incompleto termina en el repuesto equivocado, un envío de más y un cliente que espera.",
+          },
+        ],
+      },
+      build: {
+        kicker: "Qué construimos",
+        title: "Un agente que trabaja como tu mejor técnico",
+        items: [
+          "Consulta los manuales y la documentación del fabricante para responder con la fuente correcta.",
+          "Guía el diagnóstico paso a paso, con las preguntas que haría un técnico.",
+          "Sugiere el repuesto correcto antes de que se haga el pedido.",
+          "Deriva a una persona cuando el caso lo requiere, con todo el contexto de la conversación.",
+        ],
+        note: "Funciona por WhatsApp y se conecta con las herramientas que ya usás.",
+      },
+      method: { kicker: "Método", title: "Cuatro pasos, siempre medidos" },
+      faq: [
+        {
+          q: "¿Necesito tener los manuales digitalizados?",
+          a: "No hace falta que estén ordenados. Partimos de lo que tengas (PDF, fichas técnicas, listas de repuestos) y en el diagnóstico vemos qué falta.",
+        },
+        {
+          q: "¿Qué pasa cuando el agente no sabe la respuesta?",
+          a: "Lo dice y deriva la consulta a una persona de tu equipo, con el historial de la conversación para que nadie empiece de cero.",
+        },
+        {
+          q: "¿Funciona solo con WhatsApp?",
+          a: "WhatsApp es el canal más común, pero el mismo agente puede atender email o el sitio web, y conectarse con tu CRM.",
+        },
+      ],
+    },
+    rescue: {
+      hero: {
+        kicker: "Rescate de proyectos de IA",
+        title: "Tu proyecto de IA no pasó del piloto. Lo hacemos funcionar.",
+        intro:
+          "Ya invertiste tiempo y plata en un piloto. Antes de tirarlo o seguir sumando parches, miremos qué está fallando y qué hace falta para que funcione.",
+        cta: "Hablemos",
+      },
+      symptoms: {
+        kicker: "Síntomas",
+        title: "¿Te suena alguno?",
+        items: [
+          {
+            name: "No llega a producción",
+            description: "Funcionó en la demo, pero nunca quedó integrado a la operación real.",
+          },
+          {
+            name: "Respuestas poco confiables",
+            description: "A veces acierta y a veces inventa, y nadie sabe cuándo confiar.",
+          },
+          {
+            name: "Costos que se disparan",
+            description: "La factura mensual crece y no está claro qué la mueve ni qué devuelve.",
+          },
+          {
+            name: "Nadie lo usa",
+            description:
+              "El equipo volvió a hacerlo como antes porque la herramienta no encaja en su trabajo.",
+          },
+        ],
+      },
+      approach: {
+        kicker: "Cómo lo encaramos",
+        title: "De piloto trabado a producción, en tres pasos",
+        steps: [
+          {
+            name: "Auditoría (2 semanas)",
+            description:
+              "Revisamos lo técnico y lo de negocio: datos, arquitectura, calidad de respuestas, costos y adopción.",
+          },
+          {
+            name: "Plan de corrección",
+            description:
+              "Qué se arregla, qué se rehace y qué se apaga, con costo y prioridad. Si no conviene seguir, te lo decimos.",
+          },
+          {
+            name: "Puesta en producción",
+            description:
+              "Lo dejamos funcionando dentro de tu operación, con métricas de calidad, uso y costo.",
+          },
+        ],
+      },
+    },
   },
   footer: {
     rights: "Todos los derechos reservados.",

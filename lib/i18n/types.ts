@@ -9,6 +9,10 @@ export type Dictionary = {
     privacyDescription: string;
     termsTitle: string;
     termsDescription: string;
+    posventaTitle: string;
+    posventaDescription: string;
+    rescueTitle: string;
+    rescueDescription: string;
   };
   jsonLd: {
     organizationDescription: string;
@@ -132,6 +136,20 @@ export type Dictionary = {
     success: string;
     error: string;
   };
+  landings: {
+    posventa: {
+      hero: LandingHeroCopy;
+      pain: { kicker: string; title: string; items: { name: string; description: string }[] };
+      build: { kicker: string; title: string; items: string[]; note: string };
+      method: { kicker: string; title: string };
+      faq: { q: string; a: string }[];
+    };
+    rescue: {
+      hero: LandingHeroCopy;
+      symptoms: { kicker: string; title: string; items: { name: string; description: string }[] };
+      approach: { kicker: string; title: string; steps: { name: string; description: string }[] };
+    };
+  };
   footer: {
     rights: string;
   };
@@ -167,3 +185,5 @@ export type CaseStudy = {
   clientPlaceholder?: string;
   results: CaseResult[];
 };
+
+export type LandingHeroCopy = { kicker: string; title: string; intro: string; cta: string };

@@ -17,6 +17,12 @@ const en: Dictionary = {
     privacyDescription: "Nexura Labs privacy policy.",
     termsTitle: "Terms of Service | Nexura Labs",
     termsDescription: "Nexura Labs terms of service.",
+    posventaTitle: "AI Agent for Technical Support & After-Sales | Nexura Labs",
+    posventaDescription:
+      "An agent that searches your manuals, guides the diagnosis and suggests the right spare part over WhatsApp, with a person in the loop when needed.",
+    rescueTitle: "Rescue for Stalled AI Projects | Nexura Labs",
+    rescueDescription:
+      "Your AI pilot never reached production. We audit the tech and the business case in 2 weeks, build a fix plan and get it running with metrics.",
   },
   jsonLd: {
     organizationDescription:
@@ -325,6 +331,123 @@ const en: Dictionary = {
     sending: "Sending…",
     success: "Done. We've sent it to {email}. If you don't see it in a few minutes, check your spam folder.",
     error: "We couldn't send it. Please try again shortly.",
+  },
+  landings: {
+    posventa: {
+      hero: {
+        kicker: "AI for after-sales",
+        title: "Technical support that's always on, with the knowledge of your best technician",
+        intro:
+          "For manufacturers and distributors with technical support, after-sales service and spare parts sales.",
+        cta: "Let's talk",
+      },
+      pain: {
+        kicker: "The problem",
+        title: "What's happening in your after-sales today",
+        items: [
+          {
+            name: "Repeat questions",
+            description:
+              "Your team answers the same questions over and over, and the urgent ones wait in line.",
+          },
+          {
+            name: "Knowledge in a few heads",
+            description:
+              "What your best technician knows isn't written down anywhere. When they're out, nobody can solve it.",
+          },
+          {
+            name: "Manuals nobody reads",
+            description:
+              "The answer is in a long manual, but finding it takes longer than picking up the phone.",
+          },
+          {
+            name: "Wrong parts ordered",
+            description:
+              "An incomplete diagnosis ends with the wrong part, an extra shipment and a customer who keeps waiting.",
+          },
+        ],
+      },
+      build: {
+        kicker: "What we build",
+        title: "An agent that works like your best technician",
+        items: [
+          "Searches the manufacturer's manuals and documentation to answer from the right source.",
+          "Guides the diagnosis step by step, asking the questions a technician would.",
+          "Suggests the right spare part before the order is placed.",
+          "Hands off to a person when the case calls for it, with the full conversation context.",
+        ],
+        note: "It runs on WhatsApp and connects to the tools you already use.",
+      },
+      method: { kicker: "Method", title: "Four steps, always measured" },
+      faq: [
+        {
+          q: "Do my manuals need to be digitized?",
+          a: "They don't need to be organized. We start from what you have (PDFs, spec sheets, parts lists) and the diagnosis shows what's missing.",
+        },
+        {
+          q: "What happens when the agent doesn't know the answer?",
+          a: "It says so and hands the question to someone on your team, with the conversation history so nobody starts from scratch.",
+        },
+        {
+          q: "Does it only work on WhatsApp?",
+          a: "WhatsApp is the most common channel, but the same agent can handle email or your website, and connect to your CRM.",
+        },
+      ],
+    },
+    rescue: {
+      hero: {
+        kicker: "AI project rescue",
+        title: "Your AI project never made it past the pilot. We'll get it working.",
+        intro:
+          "You've already put time and money into a pilot. Before scrapping it or piling on more patches, let's look at what's failing and what it takes to make it work.",
+        cta: "Let's talk",
+      },
+      symptoms: {
+        kicker: "Symptoms",
+        title: "Sound familiar?",
+        items: [
+          {
+            name: "It never reaches production",
+            description: "It worked in the demo but never got wired into the real operation.",
+          },
+          {
+            name: "Unreliable answers",
+            description:
+              "Sometimes it's right and sometimes it makes things up, and nobody knows when to trust it.",
+          },
+          {
+            name: "Costs out of control",
+            description:
+              "The monthly bill keeps growing and it's unclear what drives it or what it returns.",
+          },
+          {
+            name: "Nobody uses it",
+            description: "The team went back to the old way because the tool doesn't fit how they work.",
+          },
+        ],
+      },
+      approach: {
+        kicker: "How we approach it",
+        title: "From stalled pilot to production in three steps",
+        steps: [
+          {
+            name: "Audit (2 weeks)",
+            description:
+              "We review both the tech and the business side: data, architecture, answer quality, costs and adoption.",
+          },
+          {
+            name: "Fix plan",
+            description:
+              "What gets fixed, what gets rebuilt and what gets switched off, with cost and priority. If it isn't worth continuing, we'll tell you.",
+          },
+          {
+            name: "Production rollout",
+            description:
+              "We get it running inside your operation, with quality, usage and cost metrics.",
+          },
+        ],
+      },
+    },
   },
   footer: {
     rights: "All rights reserved.",
