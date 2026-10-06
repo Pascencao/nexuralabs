@@ -177,6 +177,41 @@ const en: Dictionary = {
     },
     cta: "Got a stalled AI pilot? Let's take a look →",
   },
+  cases: {
+    kicker: "Work",
+    title: "What's already running",
+    problemLabel: "The problem",
+    solutionLabel: "The solution",
+    resultsLabel: "Results",
+    items: [
+      {
+        id: "posventa-whatsapp",
+        tag: "Build + AI · After-sales / technical support",
+        title: "An AI agent that diagnoses failures and suggests spare parts over WhatsApp",
+        problem:
+          "Technical knowledge lived in long manuals and in the heads of a few people. Every customer question depended on someone from the team being available.",
+        solution:
+          "A WhatsApp agent that searches the manufacturer's manuals, guides the diagnosis step by step and suggests the right part, handing off to a person when needed.",
+        client: "Client in the {sector} sector",
+        // TODO(placeholder): client's real industry (anonymized).
+        clientPlaceholder: "industry",
+        results: [
+          // TODO(placeholder): real metric; % of questions resolved without a person.
+          {
+            value: "% of questions resolved without a person",
+            label: "of questions resolved without a person stepping in",
+            placeholder: true,
+          },
+          // TODO(placeholder): real metric; response time.
+          {
+            value: "response time",
+            label: "average response time",
+            placeholder: true,
+          },
+        ],
+      },
+    ],
+  },
   about: {
     kicker: "About me",
     name: "Pablo Ascencao",

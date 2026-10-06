@@ -181,6 +181,41 @@ const es: Dictionary = {
     },
     cta: "¿Tenés un piloto de IA trabado? Lo revisamos →",
   },
+  cases: {
+    kicker: "Casos",
+    title: "Lo que ya está funcionando",
+    problemLabel: "Problema",
+    solutionLabel: "Solución",
+    resultsLabel: "Resultados",
+    items: [
+      {
+        id: "posventa-whatsapp",
+        tag: "Build + IA · Posventa / soporte técnico",
+        title: "Un agente que diagnostica fallas y sugiere repuestos por WhatsApp",
+        problem:
+          "El conocimiento técnico estaba en manuales extensos y en la cabeza de pocas personas. Cada consulta de un cliente dependía de que alguien del equipo estuviera disponible.",
+        solution:
+          "Un agente por WhatsApp que consulta los manuales del fabricante, guía el diagnóstico paso a paso y sugiere el repuesto correcto, derivando a una persona cuando hace falta.",
+        client: "Cliente del sector {sector}",
+        // TODO(placeholder): rubro real del cliente (anonimizado).
+        clientPlaceholder: "rubro",
+        results: [
+          // TODO(placeholder): métrica real; % de consultas resueltas sin intervención.
+          {
+            value: "% de consultas resueltas sin intervención",
+            label: "de las consultas, resueltas sin que intervenga una persona",
+            placeholder: true,
+          },
+          // TODO(placeholder): métrica real; tiempo de respuesta.
+          {
+            value: "tiempo de respuesta",
+            label: "tiempo promedio de respuesta",
+            placeholder: true,
+          },
+        ],
+      },
+    ],
+  },
   about: {
     kicker: "Sobre mí",
     name: "Pablo Ascencao",

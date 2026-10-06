@@ -67,6 +67,14 @@ export type Dictionary = {
     };
     cta: string;
   };
+  cases: {
+    kicker: string;
+    title: string;
+    problemLabel: string;
+    solutionLabel: string;
+    resultsLabel: string;
+    items: CaseStudy[];
+  };
   about: {
     kicker: string;
     name: string;
@@ -107,4 +115,23 @@ export type ServiceDetail = {
   whatWeDo: string;
   differentiators: string[];
   ai: string;
+};
+
+export type CaseResult = {
+  value: string;
+  label: string;
+  /** true: `value` es el texto del placeholder, todavía sin dato real. */
+  placeholder?: boolean;
+};
+
+export type CaseStudy = {
+  id: string;
+  tag: string;
+  title: string;
+  problem: string;
+  solution: string;
+  /** Puede incluir el token {sector}, que se reemplaza por `clientPlaceholder`. */
+  client: string;
+  clientPlaceholder?: string;
+  results: CaseResult[];
 };
