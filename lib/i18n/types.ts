@@ -94,6 +94,11 @@ export type Dictionary = {
     /** `icon: "check"` reemplaza al número grande cuando no hay una cifra real. */
     items: { value?: string; icon?: "check"; label: string }[];
   };
+  faq: {
+    kicker: string;
+    title: string;
+    items: { q: string; a: string }[];
+  };
   contact: {
     kicker: string;
     title: string;

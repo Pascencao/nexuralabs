@@ -8,6 +8,7 @@ import CaseStudies from "@/components/CaseStudies";
 import About from "@/components/About";
 import Companies from "@/components/Companies";
 import Stats from "@/components/Stats";
+import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
       <About />
       <Companies />
       <Stats />
+      <Faq />
       <Contact />
     </>
   );

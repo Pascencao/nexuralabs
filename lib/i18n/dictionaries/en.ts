@@ -253,6 +253,32 @@ const en: Dictionary = {
       { value: "1st", label: "step is always a diagnosis, before proposing anything" },
     ],
   },
+  faq: {
+    kicker: "FAQ",
+    title: "What people usually ask",
+    items: [
+      {
+        q: "How much does it cost?",
+        a: "It depends on scope. The first call is free; then we run a diagnosis and give you a clear quote before any work starts.",
+      },
+      {
+        q: "What happens to my data?",
+        a: "We work with minimum access, NDAs, and providers that don't train models on your data. We decide together which data gets used and which doesn't.",
+      },
+      {
+        q: "What if AI isn't right for us?",
+        a: "We'll tell you. Often the problem is solved by fixing the process or with simple automation, and that's part of the job too.",
+      },
+      {
+        q: "Do you work outside Argentina?",
+        a: "Yes. We work remotely with companies across Latin America and the US.",
+      },
+      {
+        q: "How soon will we see results?",
+        a: "Diagnosis takes weeks, not months. We prioritize a first initiative that shows results quickly before scaling.",
+      },
+    ],
+  },
   contact: {
     kicker: "Contact",
     title: "Let's talk",

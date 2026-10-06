@@ -257,6 +257,32 @@ const es: Dictionary = {
       { value: "1°", label: "paso siempre: un diagnóstico, antes de proponer nada" },
     ],
   },
+  faq: {
+    kicker: "Preguntas frecuentes",
+    title: "Lo que suelen preguntarnos",
+    items: [
+      {
+        q: "¿Cuánto cuesta?",
+        a: "Depende del alcance. La primera charla es sin cargo; después hacemos un diagnóstico y te damos un presupuesto cerrado antes de arrancar.",
+      },
+      {
+        q: "¿Qué pasa con mis datos?",
+        a: "Trabajamos con acceso mínimo, acuerdos de confidencialidad y proveedores que no entrenan modelos con tu información. Definimos juntos qué datos se usan y cuáles no.",
+      },
+      {
+        q: "¿Y si la IA no me conviene?",
+        a: "Te lo decimos. Muchas veces el problema se resuelve ordenando el proceso o con una automatización simple, y eso también es parte del trabajo.",
+      },
+      {
+        q: "¿Trabajan con empresas fuera de Argentina?",
+        a: "Sí. Trabajamos de forma remota con empresas de Latinoamérica y Estados Unidos.",
+      },
+      {
+        q: "¿Cuánto tarda en verse un resultado?",
+        a: "El diagnóstico lleva semanas, no meses. Priorizamos una primera iniciativa que muestre resultados rápido antes de escalar.",
+      },
+    ],
+  },
   contact: {
     kicker: "Contacto",
     title: "Hablemos",
