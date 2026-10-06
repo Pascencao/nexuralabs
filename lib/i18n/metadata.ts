@@ -38,6 +38,8 @@ const PAGE_TEXT: Record<PageKey, (d: Dictionary) => { title: string; description
   home: (d) => ({ title: d.meta.homeTitle, description: d.meta.homeDescription }),
   privacy: (d) => ({ title: d.meta.privacyTitle, description: d.meta.privacyDescription }),
   terms: (d) => ({ title: d.meta.termsTitle, description: d.meta.termsDescription }),
+  iaPosventa: (d) => ({ title: d.meta.posventaTitle, description: d.meta.posventaDescription }),
+  rescateIa: (d) => ({ title: d.meta.rescueTitle, description: d.meta.rescueDescription }),
 };
 
 /** Metadata de una página: título, canonical, hreflang (es/en/x-default), Open Graph y Twitter. */

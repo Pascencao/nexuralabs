@@ -10,6 +10,8 @@ const SETTINGS: Record<
   home: { priority: 1, changeFrequency: "weekly" },
   privacy: { priority: 0.4, changeFrequency: "yearly" },
   terms: { priority: 0.4, changeFrequency: "yearly" },
+  iaPosventa: { priority: 0.8, changeFrequency: "monthly" },
+  rescateIa: { priority: 0.8, changeFrequency: "monthly" },
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
