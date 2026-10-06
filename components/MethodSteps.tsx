@@ -1,9 +1,12 @@
 type Step = { name: string; description: string };
 
-/** Timeline numerada: vertical en móvil, horizontal (4 columnas) desde lg. */
+/** Clases literales para que Tailwind las genere; una columna por paso desde lg. */
+const LG_COLS: Record<number, string> = { 3: "lg:grid-cols-3", 4: "lg:grid-cols-4" };
+
+/** Timeline numerada: vertical en móvil, horizontal (una columna por paso) desde lg. */
 export default function MethodSteps({ label, steps }: { label: string; steps: Step[] }) {
   return (
-    <ol aria-label={label} className="grid gap-8 lg:grid-cols-4 lg:gap-6">
+    <ol aria-label={label} className={`grid gap-8 lg:gap-6 ${LG_COLS[steps.length] ?? "lg:grid-cols-4"}`}>
       {steps.map((step, i) => (
         <li key={step.name} className="relative flex gap-5 lg:flex-col lg:gap-0">
           {i < steps.length - 1 && (

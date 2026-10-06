@@ -1,12 +1,13 @@
 "use client";
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { ROUTES } from "@/lib/i18n/routes";
 import MethodSteps from "@/components/MethodSteps";
 import ComparisonTable from "@/components/ComparisonTable";
 import Kicker from "@/components/Kicker";
 
 export default function AiApproach() {
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
   const ai = dict.aiApproach;
 
   return (
@@ -29,9 +30,8 @@ export default function AiApproach() {
         </div>
 
         <div className="mt-10">
-          {/* Etapa D: apuntar a ROUTES.rescateIa[locale] cuando exista /rescate-ia. */}
           <a
-            href="#contacto"
+            href={ROUTES.rescateIa[locale]}
             className="rounded text-base font-semibold text-ops underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
           >
             {ai.cta}

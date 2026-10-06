@@ -9,6 +9,7 @@ import {
   validateContact,
   type ContactInput,
   type Errors,
+  type Need,
 } from "@/lib/forms/validate";
 
 type Field = keyof ContactInput;
@@ -16,11 +17,12 @@ type Field = keyof ContactInput;
 const FIELD_ORDER: Field[] = ["name", "email", "need", "message"];
 const EMPTY: ContactInput = { name: "", email: "", need: "", message: "" };
 
-export default function ContactForm() {
+/** `defaultNeed` preselecciona "¿Qué querés resolver?" (lo usan las landings). */
+export default function ContactForm({ defaultNeed }: { defaultNeed?: Need } = {}) {
   const { dict, locale } = useLanguage();
   const f = dict.contact.form;
   const formRef = useRef<HTMLFormElement>(null);
-  const [values, setValues] = useState<ContactInput>(EMPTY);
+  const [values, setValues] = useState<ContactInput>({ ...EMPTY, need: defaultNeed ?? "" });
   const [errors, setErrors] = useState<Errors<ContactInput>>({});
   const [website, setWebsite] = useState("");
   const { status, serverErrors, submit } = useFormSubmit<Errors<ContactInput>>("/api/contact");

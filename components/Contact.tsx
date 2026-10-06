@@ -4,8 +4,9 @@ import { Mail, Linkedin } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import Kicker from "@/components/Kicker";
 import ContactForm from "@/components/ContactForm";
+import type { Need } from "@/lib/forms/validate";
 
-export default function Contact() {
+export default function Contact({ defaultNeed }: { defaultNeed?: Need } = {}) {
   const { dict } = useLanguage();
 
   return (
@@ -38,7 +39,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <ContactForm />
+        <ContactForm defaultNeed={defaultNeed} />
       </div>
     </section>
   );

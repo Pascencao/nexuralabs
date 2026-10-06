@@ -4,9 +4,20 @@ import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import Kicker from "@/components/Kicker";
 
-export default function Faq() {
+type FaqItem = { q: string; a: string };
+
+/** Sin props usa las preguntas de la home; las landings pasan las suyas. */
+export default function Faq({
+  kicker,
+  title,
+  items,
+}: { kicker?: string; title?: string; items?: FaqItem[] } = {}) {
   const { dict } = useLanguage();
-  const faq = dict.faq;
+  const faq = {
+    kicker: kicker ?? dict.faq.kicker,
+    title: title ?? dict.faq.title,
+    items: items ?? dict.faq.items,
+  };
 
   const faqJsonLd = {
     "@context": "https://schema.org",
