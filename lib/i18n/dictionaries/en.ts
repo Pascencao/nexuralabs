@@ -221,6 +221,7 @@ const en: Dictionary = {
       "At Globant he went from Web UI Developer to Tech Manager, leading teams of over 40 engineers.",
       "Additional experience across startups and scale-ups, at different growth stages.",
       "Based in Rosario, Argentina. Works remotely with clients across Latin America.",
+      "Beyond leading teams, I design and build production AI systems: agents, search over internal documentation (RAG), and integrations with the tools a company already uses.",
     ],
     photoAlt: "Photo of Pablo Ascencao",
   },
@@ -248,7 +249,7 @@ const en: Dictionary = {
     items: [
       { value: "14", label: "years leading technology teams" },
       { value: "40+", label: "people in the teams he led" },
-      { value: "100%", label: "of the work billed on results, not hours" },
+      { icon: "check", label: "Clear budget before we start" },
       { value: "1st", label: "step is always a diagnosis, before proposing anything" },
     ],
   },

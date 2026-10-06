@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Award, Building2, Users, MapPin } from "lucide-react";
+import { Award, Building2, Users, MapPin, Layers } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 
-const icons = [Award, Building2, Users, MapPin];
+const icons = [Award, Building2, Users, MapPin, Layers];
 
 export default function About() {
   const { dict } = useLanguage();

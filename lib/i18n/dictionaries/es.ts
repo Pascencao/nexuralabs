@@ -225,6 +225,7 @@ const es: Dictionary = {
       "En Globant pasó de Web UI Developer a Tech Manager, liderando equipos de más de 40 ingenieros.",
       "Experiencia adicional en startups y scale-ups, en distintas etapas de crecimiento.",
       "Basado en Rosario, Argentina. Trabaja de forma remota con clientes en toda Latinoamérica.",
+      "Además de liderar equipos, diseño y construyo sistemas de IA en producción: agentes, búsqueda sobre documentación interna (RAG) e integraciones con las herramientas que la empresa ya usa.",
     ],
     photoAlt: "Foto de Pablo Ascencao",
   },
@@ -252,7 +253,7 @@ const es: Dictionary = {
     items: [
       { value: "14", label: "años liderando equipos de tecnología" },
       { value: "40+", label: "personas en los equipos que lideró" },
-      { value: "100%", label: "del trabajo cobrado por resultado, no por hora" },
+      { icon: "check", label: "Presupuesto claro antes de empezar" },
       { value: "1°", label: "paso siempre: un diagnóstico, antes de proponer nada" },
     ],
   },

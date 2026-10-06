@@ -91,7 +91,8 @@ export type Dictionary = {
   stats: {
     kicker: string;
     title: string;
-    items: { value: string; label: string }[];
+    /** `icon: "check"` reemplaza al número grande cuando no hay una cifra real. */
+    items: { value?: string; icon?: "check"; label: string }[];
   };
   contact: {
     kicker: string;
