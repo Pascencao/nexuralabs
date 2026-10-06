@@ -1,3 +1,5 @@
+import type { FieldError, Need } from "@/lib/forms/validate";
+
 export type Dictionary = {
   meta: {
     homeTitle: string;
@@ -107,7 +109,18 @@ export type Dictionary = {
     body: string;
     emailLabel: string;
     linkedinLabel: string;
+    form: {
+      fields: { name: string; email: string; need: string; message: string };
+      optional: string;
+      needPlaceholder: string;
+      needOptions: Record<Need, string>;
+      submit: string;
+      sending: string;
+      success: string;
+      error: string;
+    };
   };
+  formErrors: Record<FieldError, string>;
   footer: {
     rights: string;
   };
