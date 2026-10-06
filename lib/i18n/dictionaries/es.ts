@@ -250,7 +250,7 @@ const es: Dictionary = {
     moreLabel: "+ más",
   },
   stats: {
-    kicker: "Por qué Nexuralabs",
+    kicker: "Por qué Nexura Labs",
     title: "Antes que nada, un diagnóstico.",
     items: [
       { value: "14", label: "años liderando equipos de tecnología" },
@@ -290,7 +290,7 @@ const es: Dictionary = {
     title: "Hablemos",
     body: "Escribime y coordinamos veinte minutos sin costo para hablar de tu situación puntual: qué está rompiendo con el crecimiento, o qué necesitás construir para el próximo paso.",
     emailLabel: "pablo@nexuralabs.agency",
-    linkedinLabel: "LinkedIn de Nexuralabs",
+    linkedinLabel: "LinkedIn de Nexura Labs",
   },
   footer: {
     rights: "Todos los derechos reservados.",

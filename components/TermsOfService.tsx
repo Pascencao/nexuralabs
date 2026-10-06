@@ -31,14 +31,14 @@ export function TermsOfService() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-ink mb-4">1. Acceptance of Terms</h2>
               <p className="text-gray-700 mb-4">
-                By accessing and using the services provided by NexuraLabs ("we," "us," or "our"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                By accessing and using the services provided by Nexura Labs ("we," "us," or "our"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-ink mb-4">2. Description of Service</h2>
               <p className="text-gray-700 mb-4">
-                NexuraLabs provides custom software development, process automation, system integration, and related technology consulting services. Our services include but are not limited to:
+                Nexura Labs provides custom software development, process automation, system integration, and related technology consulting services. Our services include but are not limited to:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Custom software development and programming</li>
@@ -69,7 +69,7 @@ export function TermsOfService() {
                 <div>
                   <h3 className="text-xl font-medium text-gray-800 mb-2">Our Intellectual Property</h3>
                   <p className="text-gray-700">
-                    All content, features, and functionality of our services, including but not limited to text, graphics, logos, and software, are owned by NexuraLabs and are protected by copyright, trademark, and other intellectual property laws.
+                    All content, features, and functionality of our services, including but not limited to text, graphics, logos, and software, are owned by Nexura Labs and are protected by copyright, trademark, and other intellectual property laws.
                   </p>
                 </div>
                 <div>
@@ -129,7 +129,7 @@ export function TermsOfService() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-ink mb-4">8. Limitation of Liability</h2>
               <p className="text-gray-700 mb-4">
-                To the maximum extent permitted by law, NexuraLabs shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities.
+                To the maximum extent permitted by law, Nexura Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities.
               </p>
               <p className="text-gray-700">
                 Our total liability for any claims arising from the use of our services shall not exceed the amount paid by you for the specific service giving rise to the claim.
@@ -146,7 +146,7 @@ export function TermsOfService() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-ink mb-4">10. Indemnification</h2>
               <p className="text-gray-700">
-                You agree to indemnify and hold harmless NexuraLabs from any claims, damages, or expenses arising from your use of our services, violation of these terms, or infringement of any third-party rights.
+                You agree to indemnify and hold harmless Nexura Labs from any claims, damages, or expenses arising from your use of our services, violation of these terms, or infringement of any third-party rights.
               </p>
             </section>
 
@@ -184,7 +184,7 @@ export function TermsOfService() {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700">
                   <strong>Email:</strong> legal@nexuralabs.agency<br />
-                  <strong>Address:</strong> NexuraLabs, 123 Tech Street, Suite 100, San Francisco, CA 94105
+                  <strong>Address:</strong> Nexura Labs, 123 Tech Street, Suite 100, San Francisco, CA 94105
                 </p>
               </div>
             </section>

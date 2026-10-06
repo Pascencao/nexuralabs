@@ -1,6 +1,6 @@
-# Nexuralabs
+# Nexura Labs
 
-Landing page de una sola página para Nexuralabs, la consultoría de tecnología y crecimiento de Pablo Ascencao. Construida con Next.js (App Router) y TailwindCSS, bilingüe (ES en `/`, EN en `/en`).
+Sitio de Nexura Labs, la consultoría de tecnología y crecimiento de Pablo Ascencao. Construida con Next.js (App Router) y TailwindCSS, bilingüe (ES en `/`, EN en `/en`).
 
 ## Tecnologías
 
@@ -45,7 +45,7 @@ Landing page de una sola página para Nexuralabs, la consultoría de tecnología
 
 ## Idioma
 
-- Español en `/`, inglés en `/en`. Cada página nueva se agrega en `lib/i18n/routes.ts` y en los dos árboles de `app/`.
+- Español en `/`, inglés en `/en`. Cada página nueva se agrega en `lib/i18n/routes.ts` y en los dos árboles de `app/`; además, `PAGE_TEXT` en `lib/i18n/metadata.ts` y `SETTINGS` en `app/sitemap.ts` (el compilador avisa si falta).
 - El toggle ES/EN guarda la elección en la cookie `nexuralabs-locale` y navega a la página equivalente.
 - La primera visita a una página en español con el navegador en inglés redirige a `/en` (`proxy.ts`). Si ya hay cookie, se respeta.
 

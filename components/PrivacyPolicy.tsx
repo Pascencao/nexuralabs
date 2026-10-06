@@ -31,7 +31,7 @@ export function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-ink mb-4">1. Information We Collect</h2>
               <p className="text-gray-700 mb-4">
-                NexuraLabs collects information that you provide directly to us, such as when you:
+                Nexura Labs collects information that you provide directly to us, such as when you:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Register on our website</li>

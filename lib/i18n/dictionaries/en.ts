@@ -246,7 +246,7 @@ const en: Dictionary = {
     moreLabel: "+ more",
   },
   stats: {
-    kicker: "Why Nexuralabs",
+    kicker: "Why Nexura Labs",
     title: "A diagnosis before anything else.",
     items: [
       { value: "14", label: "years leading technology teams" },
@@ -286,7 +286,7 @@ const en: Dictionary = {
     title: "Let's talk",
     body: "Write to me and we'll set up twenty free minutes to talk about your specific situation: what growth is breaking, or what you need to build for the next step.",
     emailLabel: "pablo@nexuralabs.agency",
-    linkedinLabel: "Nexuralabs on LinkedIn",
+    linkedinLabel: "Nexura Labs on LinkedIn",
   },
   footer: {
     rights: "All rights reserved.",

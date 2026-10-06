@@ -13,7 +13,7 @@ export default function Footer() {
           NEXURA<span className="text-gold">LABS</span>
         </span>
         <span className="text-xs text-white/50">
-          © {year} Nexuralabs. {dict.footer.rights}
+          © {year} Nexura Labs. {dict.footer.rights}
         </span>
       </div>
     </footer>
