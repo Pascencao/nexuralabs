@@ -58,7 +58,7 @@ export default function CaseCard({
         <h4 className="sr-only">{labels.results}</h4>
         <dl className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {item.results.map((result) => (
-            <div key={result.label} className="flex flex-col-reverse">
+            <div key={result.label} className="flex flex-col-reverse justify-end">
               <dt className="mt-2 text-sm text-muted">{result.label}</dt>
               <dd>
                 {result.placeholder ? (

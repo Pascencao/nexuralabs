@@ -204,22 +204,10 @@ const es: Dictionary = {
           "El conocimiento técnico estaba en manuales extensos y en la cabeza de pocas personas. Cada consulta de un cliente dependía de que alguien del equipo estuviera disponible.",
         solution:
           "Un agente por WhatsApp que consulta los manuales del fabricante, guía el diagnóstico paso a paso y sugiere el repuesto correcto, derivando a una persona cuando hace falta.",
-        client: "Cliente del sector {sector}",
-        // TODO(placeholder): rubro real del cliente (anonimizado).
-        clientPlaceholder: "rubro",
+        client: "Cliente del sector industrial",
         results: [
-          // TODO(placeholder): métrica real; % de consultas resueltas sin intervención.
-          {
-            value: "% de consultas resueltas sin intervención",
-            label: "de las consultas, resueltas sin que intervenga una persona",
-            placeholder: true,
-          },
-          // TODO(placeholder): métrica real; tiempo de respuesta.
-          {
-            value: "tiempo de respuesta",
-            label: "tiempo promedio de respuesta",
-            placeholder: true,
-          },
+          { value: "~1.000", label: "consultas resueltas sin que intervenga una persona" },
+          { value: "~15 min", label: "tiempo de respuesta" },
         ],
       },
     ],
@@ -229,17 +217,17 @@ const es: Dictionary = {
     name: "Pablo Ascencao",
     role: "Consultor en tecnología y transformación digital",
     points: [
-      "14 años de experiencia en tecnología, liderazgo de equipos de ingeniería y transformación digital.",
-      "En Globant pasó de Web UI Developer a Tech Manager, liderando equipos de más de 40 ingenieros.",
-      "Experiencia adicional en startups y scale-ups, en distintas etapas de crecimiento.",
-      "Basado en Rosario, Argentina. Trabaja de forma remota con clientes en toda Latinoamérica.",
+      "Tengo 14 años de experiencia en tecnología, liderazgo de equipos de ingeniería y transformación digital.",
+      "En Globant pasé de Web UI Developer a Tech Manager, liderando equipos de más de 40 ingenieros.",
+      "También trabajé en startups y scale-ups, en distintas etapas de crecimiento.",
+      "Vivo en Rosario, Argentina, y trabajo de forma remota con clientes de Latinoamérica y Estados Unidos.",
       "Además de liderar equipos, diseño y construyo sistemas de IA en producción: agentes, búsqueda sobre documentación interna (RAG) e integraciones con las herramientas que la empresa ya usa.",
     ],
     photoAlt: "Foto de Pablo Ascencao",
   },
   companies: {
     kicker: "Experiencia",
-    title: "Empresas donde trabajó o con las que colaboró",
+    title: "Empresas donde trabajé o con las que colaboré",
     names: [
       "Globant",
       "TNT",
@@ -260,7 +248,7 @@ const es: Dictionary = {
     title: "Antes que nada, un diagnóstico.",
     items: [
       { value: "14", label: "años liderando equipos de tecnología" },
-      { value: "40+", label: "personas en los equipos que lideró" },
+      { value: "40+", label: "personas en los equipos que lideré" },
       { icon: "check", label: "Presupuesto claro antes de empezar" },
       { value: "1°", label: "paso siempre: un diagnóstico, antes de proponer nada" },
     ],

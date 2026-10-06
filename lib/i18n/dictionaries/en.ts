@@ -200,22 +200,10 @@ const en: Dictionary = {
           "Technical knowledge lived in long manuals and in the heads of a few people. Every customer question depended on someone from the team being available.",
         solution:
           "A WhatsApp agent that searches the manufacturer's manuals, guides the diagnosis step by step and suggests the right part, handing off to a person when needed.",
-        client: "Client in the {sector} sector",
-        // TODO(placeholder): client's real industry (anonymized).
-        clientPlaceholder: "industry",
+        client: "Client in the industrial sector",
         results: [
-          // TODO(placeholder): real metric; % of questions resolved without a person.
-          {
-            value: "% of questions resolved without a person",
-            label: "of questions resolved without a person stepping in",
-            placeholder: true,
-          },
-          // TODO(placeholder): real metric; response time.
-          {
-            value: "response time",
-            label: "average response time",
-            placeholder: true,
-          },
+          { value: "~1,000", label: "questions resolved without a person stepping in" },
+          { value: "~15 min", label: "response time" },
         ],
       },
     ],
@@ -225,17 +213,17 @@ const en: Dictionary = {
     name: "Pablo Ascencao",
     role: "Technology and digital transformation consultant",
     points: [
-      "14 years of experience in technology, engineering team leadership and digital transformation.",
-      "At Globant he went from Web UI Developer to Tech Manager, leading teams of over 40 engineers.",
-      "Additional experience across startups and scale-ups, at different growth stages.",
-      "Based in Rosario, Argentina. Works remotely with clients across Latin America.",
+      "I have 14 years of experience in technology, engineering team leadership and digital transformation.",
+      "At Globant I went from Web UI Developer to Tech Manager, leading teams of over 40 engineers.",
+      "I've also worked with startups and scale-ups at different stages of growth.",
+      "I'm based in Rosario, Argentina, and work remotely with clients across Latin America and the US.",
       "Beyond leading teams, I design and build production AI systems: agents, search over internal documentation (RAG), and integrations with the tools a company already uses.",
     ],
     photoAlt: "Photo of Pablo Ascencao",
   },
   companies: {
     kicker: "Track record",
-    title: "Companies he has worked at or with",
+    title: "Companies I've worked at or with",
     names: [
       "Globant",
       "TNT",
@@ -256,7 +244,7 @@ const en: Dictionary = {
     title: "A diagnosis before anything else.",
     items: [
       { value: "14", label: "years leading technology teams" },
-      { value: "40+", label: "people in the teams he led" },
+      { value: "40+", label: "people in the teams I led" },
       { icon: "check", label: "Clear budget before we start" },
       { value: "1st", label: "step is always a diagnosis, before proposing anything" },
     ],
