@@ -2,159 +2,53 @@
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { ROUTES } from "@/lib/i18n/routes";
+import { PRIVACY } from "@/lib/legal/privacy";
 
 export function PrivacyPolicy() {
   const { dict, locale } = useLanguage();
   const labels = dict.legal.privacy;
-  const dateLocale = locale === "en" ? "en-US" : "es-AR";
+  const doc = PRIVACY[locale];
+  const updatedOn = new Date(`${doc.updatedOn}T12:00:00Z`).toLocaleDateString(
+    locale === "en" ? "en-US" : "es-AR",
+    { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" },
+  );
 
   return (
-    <div className="min-h-screen bg-canvas py-16">
+    <div className="min-h-screen bg-canvas pb-16 pt-28">
       <div className="mx-auto max-w-site px-5 sm:px-8">
-        <div className="mx-auto max-w-4xl rounded-2xl bg-white p-8 shadow-lg md:p-12">
-          <div className="mb-12 text-center">
-            <h1 className="mb-4 text-3xl font-bold text-ink md:text-4xl">
-              {labels.title}
-            </h1>
-            <p className="text-gray-600">
-              {labels.lastUpdated}:{" "}
-              {new Date().toLocaleDateString(dateLocale, {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+        <article className="mx-auto max-w-3xl rounded-2xl bg-white p-8 shadow-card md:p-12">
+          <header className="mb-10">
+            <h1 className="text-3xl font-bold text-ink md:text-4xl">{labels.title}</h1>
+            <p className="mt-3 text-sm text-muted">
+              {labels.lastUpdated}: <time dateTime={doc.updatedOn}>{updatedOn}</time>
             </p>
+            <p className="mt-6 text-base text-ink/80">{doc.intro}</p>
+          </header>
+
+          <div className="space-y-10">
+            {doc.sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="text-xl font-semibold text-ink">{section.title}</h2>
+                <div className="mt-3 space-y-3">
+                  {section.blocks.map((block, i) =>
+                    typeof block === "string" ? (
+                      <p key={i} className="text-base text-muted">
+                        {block}
+                      </p>
+                    ) : (
+                      <ul key={i} className="list-disc space-y-2 pl-6 text-base text-muted">
+                        {block.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    ),
+                  )}
+                </div>
+              </section>
+            ))}
           </div>
 
-          {/* Content */}
-          <div className="prose prose-lg max-w-none">
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">1. Information We Collect</h2>
-              <p className="text-gray-700 mb-4">
-                Nexura Labs collects information that you provide directly to us, such as when you:
-              </p>
-              <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                <li>Register on our website</li>
-                <li>Request a free assessment</li>
-                <li>Contact us</li>
-                <li>Subscribe to our newsletter</li>
-                <li>Use our services</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">2. Types of Information</h2>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-xl font-medium text-gray-800 mb-2">Personal Information</h3>
-                  <p className="text-gray-700">
-                    Name, email address, phone number, company information, and any other information you provide to us.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-medium text-gray-800 mb-2">Technical Information</h3>
-                  <p className="text-gray-700">
-                    IP address, browser type, operating system, pages visited, and time spent on our site.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">3. How We Use Your Information</h2>
-              <p className="text-gray-700 mb-4">We use the collected information to:</p>
-              <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                <li>Provide and improve our services</li>
-                <li>Communicate with you about our services</li>
-                <li>Send relevant technical and marketing information</li>
-                <li>Respond to your inquiries and requests</li>
-                <li>Personalize your experience on our website</li>
-                <li>Comply with legal obligations</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">4. Sharing Information</h2>
-              <p className="text-gray-700 mb-4">
-                We do not sell, rent, or share your personal information with third parties, except:
-              </p>
-              <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                <li>With your explicit consent</li>
-                <li>To comply with legal obligations</li>
-                <li>With service providers who help us operate our business</li>
-                <li>In the event of a merger or business acquisition</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">5. Data Security</h2>
-              <p className="text-gray-700 mb-4">
-                We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">6. Cookies and Similar Technologies</h2>
-              <p className="text-gray-700 mb-4">
-                We use cookies and similar technologies to enhance your experience on our website, analyze traffic, and personalize content.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">7. Your Rights</h2>
-              <p className="text-gray-700 mb-4">You have the right to:</p>
-              <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                <li>Access your personal information</li>
-                <li>Correct inaccurate information</li>
-                <li>Request the deletion of your data</li>
-                <li>Object to the processing of your data</li>
-                <li>Withdraw your consent at any time</li>
-                <li>Request the portability of your data</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">8. Data Retention</h2>
-              <p className="text-gray-700">
-                We retain your personal information only for as long as necessary to fulfill the purposes described in this policy, unless the law requires a longer retention period.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">9. International Transfers</h2>
-              <p className="text-gray-700">
-                Your information may be transferred to and processed in countries other than your own. We ensure that such transfers comply with applicable data protection laws.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">10. Minors</h2>
-              <p className="text-gray-700">
-                Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from minors.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">11. Changes to this Policy</h2>
-              <p className="text-gray-700">
-                We may update this privacy policy from time to time. We will notify you of any significant changes by posting the new policy on our website.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-ink mb-4">12. Contact</h2>
-              <p className="text-gray-700 mb-4">
-                If you have questions about this privacy policy or our data practices, contact us at:
-              </p>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="text-gray-700">
-                  <strong>Email:</strong> privacy@nexuralabs.agency<br />
-                </p>
-              </div>
-            </section>
-          </div>
-
-          <div className="mt-12 text-center">
+          <div className="mt-12">
             <a
               href={ROUTES.home[locale]}
               className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-canvas transition-colors hover:bg-gold"
@@ -162,7 +56,7 @@ export function PrivacyPolicy() {
               {labels.backHome}
             </a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   );

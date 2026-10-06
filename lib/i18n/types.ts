@@ -152,6 +152,9 @@ export type Dictionary = {
   };
   footer: {
     rights: string;
+    privacy: string;
+    terms: string;
+    legalNavAria: string;
   };
   legal: {
     privacy: { title: string; backHome: string; lastUpdated: string };

@@ -451,6 +451,9 @@ const en: Dictionary = {
   },
   footer: {
     rights: "All rights reserved.",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service",
+    legalNavAria: "Legal",
   },
   legal: {
     privacy: {

@@ -454,6 +454,9 @@ const es: Dictionary = {
   },
   footer: {
     rights: "Todos los derechos reservados.",
+    privacy: "Política de privacidad",
+    terms: "Términos de servicio",
+    legalNavAria: "Legales",
   },
   legal: {
     privacy: {
