@@ -7,7 +7,8 @@ export type AnalyticsEvent =
   | { name: "click_hablemos"; location: CtaLocation }
   | { name: "form_submit"; need: string }
   | { name: "download_checklist" }
-  | { name: "view_case"; caseId: string };
+  | { name: "view_case"; caseId: string }
+  | { name: "view_landing"; landing: string };
 
 export type PixelStandardEvent = "Contact" | "Lead" | "CompleteRegistration" | "ViewContent";
 
@@ -25,6 +26,8 @@ export function toGa(event: AnalyticsEvent, locale: Locale): [string, Params] {
       return [event.name, base];
     case "view_case":
       return [event.name, { ...base, case_id: event.caseId }];
+    case "view_landing":
+      return [event.name, { ...base, landing: event.landing }];
   }
 }
 
@@ -39,5 +42,7 @@ export function toPixel(event: AnalyticsEvent): [PixelStandardEvent, Params] {
       return ["CompleteRegistration", { content_name: "ai-readiness-checklist" }];
     case "view_case":
       return ["ViewContent", { content_ids: [event.caseId] }];
+    case "view_landing":
+      return ["ViewContent", { content_name: event.landing, content_category: "landing" }];
   }
 }

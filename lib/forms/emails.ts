@@ -1,5 +1,12 @@
 import type { Locale } from "../i18n/config";
-import type { ChecklistInput, ContactInput } from "./validate";
+import type {
+  ChecklistInput,
+  CompanyLeadInput,
+  ContactInput,
+  RigiOrigin,
+  SupplierLeadInput,
+  Utm,
+} from "./validate";
 
 export type EmailContent = { subject: string; text: string; html: string };
 
@@ -27,6 +34,34 @@ const NEED_LABEL_ES: Record<string, string> = {
   software: "Construir software",
   ai: "Aplicar IA",
   "ai-rescue": "Rescatar un proyecto de IA",
+  "rigi-supplier": "Soy proveedor del RIGI",
+  "rigi-company": "Represento una empresa del RIGI",
+  other: "Otro",
+};
+
+const SECTOR_LABEL_ES: Record<string, string> = {
+  "capital-goods": "Bienes de capital",
+  metalworking: "Metalmecánica",
+  logistics: "Operador logístico",
+  engineering: "Ingeniería",
+  construction: "Constructora",
+  "specialized-services": "Servicios especializados",
+  other: "Otro",
+};
+
+const CHANNEL_LABEL_ES: Record<string, string> = {
+  whatsapp: "WhatsApp",
+  email: "Email",
+  call: "Llamada",
+};
+
+const SYSTEM_LABEL_ES: Record<string, string> = {
+  erp: "ERP",
+  fleet: "Flota y maquinaria",
+  plant: "Planta",
+  hr: "RR.HH.",
+  logistics: "Logística",
+  docs: "Documentación",
   other: "Otro",
 };
 
@@ -62,6 +97,55 @@ export function contactNotification(
   ];
   return {
     subject: `Nuevo contacto web: ${oneLine(input.name)} (${need})`,
+    text: rowsToText(rows),
+    html: rowsToHtml(rows),
+  };
+}
+
+export type RigiLead =
+  | { origin: "rigi-proveedores"; input: SupplierLeadInput }
+  | { origin: "rigi-empresas"; input: CompanyLeadInput };
+
+const ORIGIN_LABEL_ES: Record<RigiOrigin, string> = {
+  "rigi-proveedores": "RIGI proveedores (diagnóstico 4.0)",
+  "rigi-empresas": "RIGI empresas (hub / prueba de valor)",
+};
+
+export function rigiNotification(
+  lead: RigiLead,
+  ctx: { locale: Locale; date: Date; utm: Utm },
+): EmailContent {
+  const { input } = lead;
+  const rows: Row[] = [
+    ["Origen", ORIGIN_LABEL_ES[lead.origin]],
+    ["Nombre", input.name],
+    ["Empresa", input.company],
+    ["Cargo", input.role],
+    ["Email", input.email],
+    ["Teléfono", input.phone],
+  ];
+  if (lead.origin === "rigi-proveedores") {
+    rows.push(
+      ["Rubro", SECTOR_LABEL_ES[lead.input.sector] ?? lead.input.sector],
+      ["Prefiere contacto por", CHANNEL_LABEL_ES[lead.input.channel] ?? lead.input.channel],
+    );
+  } else {
+    rows.push(
+      ["Sistemas", lead.input.systems.map((v) => SYSTEM_LABEL_ES[v] ?? v).join(", ")],
+      ["Quiere resolver", lead.input.goal],
+    );
+  }
+  rows.push(
+    ["Aceptó privacidad", input.privacy ? "Sí" : "No"],
+    ["utm_source", ctx.utm.utm_source ?? "-"],
+    ["utm_medium", ctx.utm.utm_medium ?? "-"],
+    ["utm_campaign", ctx.utm.utm_campaign ?? "-"],
+    ["Idioma", ctx.locale],
+    ["Fecha", ctx.date.toISOString()],
+  );
+  const kind = lead.origin === "rigi-proveedores" ? "proveedores" : "empresas";
+  return {
+    subject: `Nuevo lead RIGI ${kind}: ${oneLine(input.company)} (${oneLine(input.name)})`,
     text: rowsToText(rows),
     html: rowsToHtml(rows),
   };

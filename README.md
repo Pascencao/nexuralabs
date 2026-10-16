@@ -79,6 +79,7 @@ npm start        # servir build de producción
 - Variables de entorno (ver `.env.example`): `RESEND_API_KEY` (obligatoria en producción), `MAIL_FROM`, `MAIL_TO`.
 - En desarrollo, sin `RESEND_API_KEY`, los emails se imprimen en la consola del servidor en vez de enviarse.
 - Anti-spam: campo honeypot `website` y rechazo de envíos en menos de 2 segundos (`lib/forms/spam.ts`).
+- Las landings RIGI (`/rigi-proveedores`, `/rigi-empresas`) usan el mismo `/api/contact`: mandan el campo `origen` y las UTM (`utm_source`, `utm_medium`, `utm_campaign`) de la URL, y el servidor valida con `validateSupplierLead` / `validateCompanyLead`.
 
 ## Checklist en PDF
 
@@ -100,5 +101,8 @@ npm run build:checklist   # regenera public/downloads/checklist-ia-{es,en}.pdf
 | `form_submit` | `need` | `Lead` | Envío exitoso del formulario de contacto |
 | `download_checklist` | — | `CompleteRegistration` | Envío exitoso del checklist |
 | `view_case` | `case_id` | `ViewContent` | Card de un caso visible al 50 % (una vez por carga) |
+| `view_landing` | `landing` (`rigi-proveedores`, `rigi-empresas`) | `ViewContent` | Carga de una landing RIGI |
+
+Los formularios de las landings RIGI disparan `form_submit` con `need` = `rigi-proveedores` o `rigi-empresas` (→ `Lead` en el píxel).
 
 Todos los eventos GA4 llevan `page_locale`.

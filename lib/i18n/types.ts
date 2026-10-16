@@ -1,4 +1,10 @@
-import type { FieldError, Need } from "@/lib/forms/validate";
+import type {
+  ContactChannel,
+  FieldError,
+  Need,
+  SupplierSector,
+  SystemOption,
+} from "@/lib/forms/validate";
 
 export type Dictionary = {
   meta: {
@@ -13,6 +19,10 @@ export type Dictionary = {
     posventaDescription: string;
     rescueTitle: string;
     rescueDescription: string;
+    rigiSuppliersTitle: string;
+    rigiSuppliersDescription: string;
+    rigiCompaniesTitle: string;
+    rigiCompaniesDescription: string;
   };
   jsonLd: {
     organizationDescription: string;
@@ -136,7 +146,33 @@ export type Dictionary = {
     success: string;
     error: string;
   };
+  /** Etiquetas comunes de los formularios de las landings RIGI. */
+  rigiForm: {
+    fields: {
+      name: string;
+      company: string;
+      companyOrProject: string;
+      role: string;
+      email: string;
+      workEmail: string;
+      phone: string;
+      phoneWhatsapp: string;
+      sector: string;
+      channel: string;
+      systems: string;
+      goal: string;
+    };
+    sectorPlaceholder: string;
+    sectorOptions: Record<SupplierSector, string>;
+    channelOptions: Record<ContactChannel, string>;
+    systemOptions: Record<SystemOption, string>;
+    privacy: { before: string; link: string; after: string };
+    sending: string;
+    error: string;
+  };
   landings: {
+    /** Leyenda obligatoria en todo gráfico o pantalla de ejemplo. */
+    illustrative: string;
     posventa: {
       hero: LandingHeroCopy;
       pain: { kicker: string; title: string; items: { name: string; description: string }[] };
@@ -149,12 +185,78 @@ export type Dictionary = {
       symptoms: { kicker: string; title: string; items: { name: string; description: string }[] };
       approach: { kicker: string; title: string; steps: { name: string; description: string }[] };
     };
+    rigiSuppliers: {
+      hero: LandingHeroCopy;
+      why: { kicker: string; title: string; intro: string; items: NamedItem[]; note: string };
+      areas: { kicker: string; title: string; items: NamedItem[] };
+      deliverables: {
+        kicker: string;
+        title: string;
+        items: NamedItem[];
+        chart: {
+          title: string;
+          scaleLabel: string;
+          /** Un puntaje (0–5) por área, en el mismo orden que `areas.items`. */
+          scores: number[];
+        };
+      };
+      process: SectionWithSteps;
+      audience: { kicker: string; title: string; items: string[] };
+      precedent: { kicker: string; title: string; intro: string };
+      faq: FaqCopy;
+      form: RigiFormCopy;
+    };
+    rigiCompanies: {
+      hero: LandingHeroCopy;
+      problem: { kicker: string; title: string; intro: string; items: NamedItem[] };
+      solution: {
+        kicker: string;
+        title: string;
+        intro: string;
+        sourcesLabel: string;
+        sources: string[];
+        hubName: string;
+        hubCaption: string;
+        outputsLabel: string;
+        outputs: NamedItem[];
+      };
+      value: { kicker: string; title: string; blocks: { name: string; title: string; description: string }[] };
+      process: SectionWithSteps;
+      console: {
+        kicker: string;
+        title: string;
+        intro: string;
+        windowTitle: string;
+        kpis: { label: string; value: string }[];
+        alertsTitle: string;
+        alerts: string[];
+        assistantTitle: string;
+        question: string;
+        answer: string;
+      };
+      ypf: {
+        kicker: string;
+        title: string;
+        intro: string;
+        stats: { value: string; label: string }[];
+        footnote: string;
+        sourcesLabel: string;
+        sources: { name: string; url: string }[];
+      };
+      pilot: SectionWithSteps & { note: string };
+      security: { kicker: string; title: string; items: string[]; note: string };
+      faq: FaqCopy;
+      form: RigiFormCopy;
+    };
   };
   footer: {
     rights: string;
     privacy: string;
     terms: string;
     legalNavAria: string;
+    rigiNavAria: string;
+    rigiSuppliers: string;
+    rigiCompanies: string;
   };
   legal: {
     privacy: { title: string; backHome: string; lastUpdated: string };
@@ -190,3 +292,17 @@ export type CaseStudy = {
 };
 
 export type LandingHeroCopy = { kicker: string; title: string; intro: string; cta: string };
+
+export type NamedItem = { name: string; description: string };
+
+export type SectionWithSteps = { kicker: string; title: string; steps: NamedItem[] };
+
+export type FaqCopy = { kicker: string; title: string; items: { q: string; a: string }[] };
+
+export type RigiFormCopy = {
+  kicker: string;
+  title: string;
+  body: string;
+  submit: string;
+  success: string;
+};

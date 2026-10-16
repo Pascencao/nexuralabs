@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import type { Locale } from "@/lib/i18n/config";
-import { ROUTES, homeAnchor, isLandingPath } from "@/lib/i18n/routes";
+import { ROUTES, homeAnchor, isLandingPath, landingFormAnchor } from "@/lib/i18n/routes";
 import { track } from "@/lib/analytics/track";
 
 export default function Header() {
@@ -28,7 +28,7 @@ export default function Header() {
               aria={dict.header.languageSwitcherAria}
             />
             <a
-              href="#contacto"
+              href={`#${landingFormAnchor(pathname)}`}
               onClick={() => track({ name: "click_hablemos", location: "header" })}
               className="whitespace-nowrap rounded-full bg-ink px-4 py-2.5 text-sm font-semibold text-canvas transition-colors hover:bg-gold sm:px-5"
             >
