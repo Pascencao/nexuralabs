@@ -365,6 +365,7 @@ const en: Dictionary = {
       logistics: "Logistics",
       docs: "Documents",
       other: "Other",
+      unsure: "I'm not sure, I'd like help defining it",
     },
     privacy: { before: "I accept the ", link: "privacy policy", after: "." },
     sending: "Sending…",
@@ -517,7 +518,7 @@ const en: Dictionary = {
           },
         ],
         // Ver nota de verificación en es.ts.
-        note: "One example: Vicuña asks its suppliers to register on its digital platform to take part in its tenders.",
+        note: "A concrete case: to take part in Vicuña's tenders, suppliers have to register on its supplier portal. That's Vicuña's own requirement, not a RIGI one.",
       },
       areas: {
         kicker: "What we assess",
@@ -755,11 +756,11 @@ const en: Dictionary = {
         stats: [
           { value: "~35 million", label: "data points per well" },
           { value: "15–30%", label: "target reduction in cycle times" },
-          { value: "−25%", label: "in well construction time" },
-          { value: "−71%", label: "in well start-up time" },
+          { value: "−25%", label: "in well construction time (Toyota Well program)" },
+          { value: "−71%", label: "in well start-up time (Toyota Well program)" },
         ],
         footnote:
-          "YPF's results combine the monitoring center with other operational initiatives, such as the Toyota Well program.",
+          "YPF's results combine the monitoring center with other operational initiatives. The 25% and 71% reductions come from the Toyota Well program, in which the monitoring center took part as a component.",
         sourcesLabel: "Sources (in Spanish)",
         sources: [
           {
@@ -794,7 +795,6 @@ const en: Dictionary = {
           "Read-only: the hub never writes to or changes anything in your systems.",
           "Least access: only the data needed for the agreed indicators.",
           "Confidentiality agreements before any system is connected.",
-          "Providers that don't train models on your information.",
         ],
         note: "We decide together which data is used and which isn't.",
       },
@@ -808,7 +808,7 @@ const en: Dictionary = {
           },
           {
             q: "What happens to our data?",
-            a: "Access is read-only and minimal, under confidentiality agreements and with providers that don't train models on your information. We decide together which data is used and which isn't.",
+            a: "Access is read-only and minimal, under confidentiality agreements. We decide together which data is used and which isn't.",
           },
           {
             q: "How long does it take?",

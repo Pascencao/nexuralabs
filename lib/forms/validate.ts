@@ -37,7 +37,16 @@ export type SupplierSector = (typeof SUPPLIER_SECTORS)[number];
 export const CONTACT_CHANNELS = ["whatsapp", "email", "call"] as const;
 export type ContactChannel = (typeof CONTACT_CHANNELS)[number];
 
-export const SYSTEM_OPTIONS = ["erp", "fleet", "plant", "hr", "logistics", "docs", "other"] as const;
+export const SYSTEM_OPTIONS = [
+  "erp",
+  "fleet",
+  "plant",
+  "hr",
+  "logistics",
+  "docs",
+  "other",
+  "unsure",
+] as const;
 export type SystemOption = (typeof SYSTEM_OPTIONS)[number];
 
 export const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign"] as const;
@@ -85,8 +94,8 @@ function checkEmail(value: string): FieldError | undefined {
 }
 
 /** Admite +, espacios, guiones y paréntesis; pide al menos 6 dígitos. */
-function checkPhone(value: string): FieldError | undefined {
-  if (!value) return "required";
+function checkPhone(value: string, required: boolean): FieldError | undefined {
+  if (!value) return required ? "required" : undefined;
   if (value.length > 30) return "tooLong";
   const digits = value.replace(/\D/g, "").length;
   return /^\+?[\d\s()-]+$/.test(value) && digits >= 6 && digits <= 15 ? undefined : "phone";
@@ -126,7 +135,11 @@ export function validateChecklist(raw: Record<string, unknown>): ValidationResul
   });
 }
 
-function rigiBase(raw: Record<string, unknown>): { data: RigiBase; errors: Errors<RigiBase> } {
+/** El teléfono es obligatorio para proveedores (se los contacta por WhatsApp) y opcional para empresas. */
+function rigiBase(
+  raw: Record<string, unknown>,
+  { phoneRequired }: { phoneRequired: boolean },
+): { data: RigiBase; errors: Errors<RigiBase> } {
   const data: RigiBase = {
     name: text(raw.name),
     company: text(raw.company),
@@ -142,14 +155,14 @@ function rigiBase(raw: Record<string, unknown>): { data: RigiBase; errors: Error
       company: checkLength(data.company, { min: 2, max: 120, required: true }),
       role: checkLength(data.role, { min: 2, max: 100, required: true }),
       email: checkEmail(data.email),
-      phone: checkPhone(data.phone),
+      phone: checkPhone(data.phone, phoneRequired),
       privacy: data.privacy ? undefined : "consent",
     },
   };
 }
 
 export function validateSupplierLead(raw: Record<string, unknown>): ValidationResult<SupplierLeadInput> {
-  const base = rigiBase(raw);
+  const base = rigiBase(raw, { phoneRequired: true });
   const data: SupplierLeadInput = { ...base.data, sector: text(raw.sector), channel: text(raw.channel) };
   return result(data, {
     ...base.errors,
@@ -159,7 +172,7 @@ export function validateSupplierLead(raw: Record<string, unknown>): ValidationRe
 }
 
 export function validateCompanyLead(raw: Record<string, unknown>): ValidationResult<CompanyLeadInput> {
-  const base = rigiBase(raw);
+  const base = rigiBase(raw, { phoneRequired: false });
   const systems = Array.isArray(raw.systems)
     ? Array.from(new Set(raw.systems.filter((v): v is string => typeof v === "string")))
     : [];

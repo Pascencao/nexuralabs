@@ -368,6 +368,7 @@ const es: Dictionary = {
       logistics: "Logística",
       docs: "Documentación",
       other: "Otro",
+      unsure: "No sé, quiero que me ayuden a definirlo",
     },
     privacy: { before: "Acepto la ", link: "política de privacidad", after: "." },
     sending: "Enviando…",
@@ -522,7 +523,7 @@ const es: Dictionary = {
         // Verificado el 2026-10-16: desde diciembre de 2025 Vicuña exige registrarse en su portal
         // de proveedores (administrado por Achilles) para participar de licitaciones.
         // Fuentes: ámbito.com (7/7/2026) y vicuna.com/portal-de-proveedores. Confirmar antes de publicar.
-        note: "Un ejemplo: Vicuña pide a sus proveedores registrarse en su plataforma digital para participar de sus licitaciones.",
+        note: "Un caso concreto: para participar de las licitaciones de Vicuña, sus proveedores tienen que registrarse en su portal de proveedores. Es un requisito de Vicuña, no del RIGI.",
       },
       areas: {
         kicker: "Qué evaluamos",
@@ -767,11 +768,11 @@ const es: Dictionary = {
         stats: [
           { value: "~35 millones", label: "de datos por pozo" },
           { value: "15–30 %", label: "meta de reducción de los tiempos de ciclo" },
-          { value: "−25 %", label: "en el tiempo de construcción de pozos" },
-          { value: "−71 %", label: "en el tiempo de puesta en marcha de pozos" },
+          { value: "−25 %", label: "en el tiempo de construcción de pozos (programa Toyota Well)" },
+          { value: "−71 %", label: "en el tiempo de puesta en marcha de pozos (programa Toyota Well)" },
         ],
         footnote:
-          "Los resultados de YPF combinan el centro de monitoreo con otras iniciativas operativas, como el programa Toyota Well.",
+          "Los resultados de YPF combinan el centro de monitoreo con otras iniciativas operativas. Las reducciones del 25 % y del 71 % corresponden al programa Toyota Well, en el que el centro de monitoreo participó como componente.",
         sourcesLabel: "Fuentes",
         sources: [
           {
@@ -812,7 +813,6 @@ const es: Dictionary = {
           "Solo lectura: el hub no escribe ni modifica nada en sus sistemas.",
           "Acceso mínimo: solo a los datos que hacen falta para los indicadores acordados.",
           "Acuerdos de confidencialidad antes de conectar cualquier sistema.",
-          "Proveedores que no entrenan modelos con su información.",
         ],
         note: "Definimos juntos qué datos se usan y cuáles no.",
       },
@@ -826,7 +826,7 @@ const es: Dictionary = {
           },
           {
             q: "¿Qué pasa con los datos?",
-            a: "El acceso es de solo lectura y mínimo, con acuerdos de confidencialidad y proveedores que no entrenan modelos con su información. Definimos juntos qué datos se usan y cuáles no.",
+            a: "El acceso es de solo lectura y mínimo, con acuerdos de confidencialidad. Definimos juntos qué datos se usan y cuáles no.",
           },
           {
             q: "¿Cuánto tarda?",

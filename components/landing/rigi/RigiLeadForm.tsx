@@ -177,8 +177,13 @@ export default function RigiLeadForm({
   }
 
   const sending = status === "sending";
-  const textInput = (field: "name" | "company" | "role" | "email" | "phone", label: string, extra: React.InputHTMLAttributes<HTMLInputElement>) => (
-    <FieldShell id={`rigi-${field}`} label={label} error={errorText(field)}>
+  const textInput = (
+    field: "name" | "company" | "role" | "email" | "phone",
+    label: string,
+    extra: React.InputHTMLAttributes<HTMLInputElement>,
+    hint?: string,
+  ) => (
+    <FieldShell id={`rigi-${field}`} label={label} hint={hint} error={errorText(field)}>
       <input
         {...a11y(field)}
         {...extra}
@@ -210,11 +215,13 @@ export default function RigiLeadForm({
           type: "email",
           autoComplete: "email",
         })}
-        {textInput("phone", isSupplier ? f.fields.phoneWhatsapp : f.fields.phone, {
-          type: "tel",
-          autoComplete: "tel",
-          inputMode: "tel",
-        })}
+        {textInput(
+          "phone",
+          isSupplier ? f.fields.phoneWhatsapp : f.fields.phone,
+          { type: "tel", autoComplete: "tel", inputMode: "tel" },
+          // Empresas: opcional (en un primer contacto, muchos gerentes prefieren no dejarlo).
+          isSupplier ? undefined : dict.contact.form.optional,
+        )}
 
         {isSupplier && (
           <FieldShell id="rigi-sector" label={f.fields.sector} error={errorText("sector")}>

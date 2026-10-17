@@ -150,3 +150,15 @@ test("cleanUtm conserva solo las 3 claves, recortadas y sin control", () => {
   assert.deepEqual(cleanUtm({ utm_source: 42 }), {});
 });
 
+
+test("validateCompanyLead: teléfono opcional, pero si viene se valida", () => {
+  const noPhone = validateCompanyLead({ ...rigiBase, phone: "", systems: ["erp"], goal: "Ver todo" });
+  assert.equal(noPhone.ok, true);
+  const badPhone = validateCompanyLead({ ...rigiBase, phone: "abc", systems: ["erp"], goal: "Ver todo" });
+  assert.equal(!badPhone.ok && badPhone.errors.phone, "phone");
+});
+
+test("validateCompanyLead acepta 'unsure' como sistema", () => {
+  const result = validateCompanyLead({ ...rigiBase, systems: ["unsure"], goal: "No sabemos" });
+  assert.equal(result.ok, true);
+});
