@@ -9,7 +9,7 @@ export const alt = dict.meta.rigiCompaniesTitle;
 
 export default function Image() {
   return renderOgImage("en", {
-    title: dict.landings.rigiCompanies.hero.title,
+    title: [...dict.landings.rigiCompanies.hero.titleLines, dict.landings.rigiCompanies.hero.titleHighlight].join(" "),
     description: dict.meta.rigiCompaniesDescription,
   });
 }

@@ -30,7 +30,7 @@ export const PRIVACY: Record<Locale, LegalDocument> = {
           [
             "Formulario de contacto: nombre, email, el tema que querés resolver y el mensaje, si lo escribís.",
             "Checklist descargable: email y empresa.",
-            "Formularios de las páginas RIGI: nombre, empresa o proyecto, cargo, email, teléfono, rubro o sistemas que usás, cómo preferís que te contactemos, lo que escribas sobre lo que querés resolver y, si llegaste desde un aviso o un link de campaña, los parámetros UTM de la URL (origen, medio y campaña).",
+            "Formularios de las páginas RIGI: nombre, empresa, cargo y email; en el de proveedores, además, teléfono, rubro y cómo preferís que te contactemos; en el de empresas, los sistemas que usás y lo que querés resolver. Si llegaste desde un aviso o un link de campaña, también los parámetros UTM de la URL (origen, medio y campaña).",
             "Si nos escribís por email o LinkedIn: los datos que incluyas en el mensaje.",
             "Datos de navegación, a través de Google Analytics 4 y el píxel de Meta: páginas visitadas, tipo de dispositivo y navegador, ubicación aproximada y algunas interacciones (por ejemplo, clics en «Hablemos» o envíos de formularios).",
           ],
@@ -125,7 +125,7 @@ export const PRIVACY: Record<Locale, LegalDocument> = {
           [
             "Contact form: name, email, the topic you want to solve and your message, if you write one.",
             "Downloadable checklist: email and company.",
-            "RIGI page forms: name, company or project, job title, email, phone, industry or the systems you use, how you'd like us to contact you, what you write about what you want to solve and, if you arrived from an ad or campaign link, the URL's UTM parameters (source, medium and campaign).",
+            "RIGI page forms: name, company, job title and email; on the supplier form, also phone, industry and how you'd like us to contact you; on the company form, the systems you use and what you want to solve. If you arrived from an ad or campaign link, also the URL's UTM parameters (source, medium and campaign).",
             "If you write to us by email or LinkedIn: whatever data you include in your message.",
             "Browsing data, through Google Analytics 4 and the Meta pixel: pages visited, device and browser type, approximate location and some interactions (for example, clicks on “Let's talk” or form submissions).",
           ],

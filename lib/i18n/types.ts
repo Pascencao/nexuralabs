@@ -151,7 +151,6 @@ export type Dictionary = {
     fields: {
       name: string;
       company: string;
-      companyOrProject: string;
       role: string;
       email: string;
       workEmail: string;
@@ -171,8 +170,6 @@ export type Dictionary = {
     error: string;
   };
   landings: {
-    /** Leyenda obligatoria en todo gráfico o pantalla de ejemplo. */
-    illustrative: string;
     posventa: {
       hero: LandingHeroCopy;
       pain: { kicker: string; title: string; items: { name: string; description: string }[] };
@@ -186,68 +183,85 @@ export type Dictionary = {
       approach: { kicker: string; title: string; steps: { name: string; description: string }[] };
     };
     rigiSuppliers: {
-      hero: LandingHeroCopy;
-      why: { kicker: string; title: string; intro: string; items: NamedItem[]; note: string };
-      areas: { kicker: string; title: string; items: NamedItem[] };
-      deliverables: {
-        kicker: string;
-        title: string;
-        items: NamedItem[];
+      nav: HubNavCopy;
+      hero: HubHeroCopy & {
         chart: {
+          windowTitle: string;
           title: string;
+          /** Leyenda obligatoria: "Ejemplo ilustrativo". */
+          tag: string;
           scaleLabel: string;
           /** Un puntaje (0–5) por área, en el mismo orden que `areas.items`. */
           scores: number[];
         };
       };
-      process: SectionWithSteps;
-      audience: { kicker: string; title: string; items: string[] };
-      precedent: { kicker: string; title: string; intro: string };
-      faq: FaqCopy;
-      form: RigiFormCopy;
+      offer: HubStat[];
+      why: HubSectionHead & { items: NamedItem[]; note: string };
+      areas: HubSectionHead & { items: NamedItem[] };
+      deliverables: HubSectionHead & { items: NamedItem[] };
+      process: HubSectionHead & { stepLabel: string; steps: NamedItem[] };
+      audience: HubSectionHead & { items: string[] };
+      /** El caso sale de `cases.items[0]` (el mismo de la home). */
+      precedent: HubSectionHead & { problemLabel: string; solutionLabel: string };
+      faq: HubFaqCopy;
+      contact: HubContactCopy;
     };
     rigiCompanies: {
-      hero: LandingHeroCopy;
-      problem: { kicker: string; title: string; intro: string; items: NamedItem[] };
-      solution: {
-        kicker: string;
-        title: string;
-        intro: string;
-        sourcesLabel: string;
-        sources: string[];
-        hubName: string;
-        hubCaption: string;
-        outputsLabel: string;
-        outputs: NamedItem[];
+      nav: HubNavCopy;
+      hero: HubHeroCopy & {
+        systems: string[];
+        console: {
+          title: string;
+          live: string;
+          kpis: { value: string; label: string; warn?: boolean }[];
+          question: string;
+          answer: string;
+        };
       };
-      value: { kicker: string; title: string; blocks: { name: string; title: string; description: string }[] };
-      process: SectionWithSteps;
-      console: {
-        kicker: string;
-        title: string;
-        intro: string;
+      offer: HubStat[];
+      beforeAfter: HubSectionHead & {
+        today: HubTimeline;
+        withHub: HubTimeline;
+        caption: string;
+        pains: NamedItem[];
+      };
+      how: HubSectionHead & { steps: NamedItem[] };
+      console: HubSectionHead & {
+        tabsLabel: string;
         windowTitle: string;
-        kpis: { label: string; value: string }[];
+        sampleTag: string;
         alertsTitle: string;
-        alerts: string[];
         assistantTitle: string;
-        question: string;
-        answer: string;
+        assistantHint: string;
+        inputPlaceholder: string;
+        sendLabel: string;
+        inRange: string;
+        attention: string;
+        roles: {
+          id: string;
+          label: string;
+          kpis: { value: string; label: string; ok: boolean; pct: number }[];
+          alerts: { t: string; x: string }[];
+          question: string;
+          answer: string;
+        }[];
       };
-      ypf: {
-        kicker: string;
-        title: string;
-        intro: string;
-        stats: { value: string; label: string }[];
+      ypf: HubSectionHead & {
+        stats: HubStat[];
         footnote: string;
         sourcesLabel: string;
         sources: { name: string; url: string }[];
       };
-      pilot: SectionWithSteps & { note: string };
-      security: { kicker: string; title: string; items: string[]; note: string };
-      faq: FaqCopy;
-      form: RigiFormCopy;
+      pilot: HubSectionHead & {
+        weekLabel: string;
+        weeks: NamedItem[];
+        security: { title: string; subtitle: string; items: { title: string; text: string }[] };
+      };
+      faq: HubFaqCopy;
+      contact: HubContactCopy;
     };
+    /** Textos comunes del nav y el footer de las landings RIGI. */
+    hub: { menuLabel: string; footerTagline: string };
   };
   footer: {
     rights: string;
@@ -295,14 +309,35 @@ export type LandingHeroCopy = { kicker: string; title: string; intro: string; ct
 
 export type NamedItem = { name: string; description: string };
 
-export type SectionWithSteps = { kicker: string; title: string; steps: NamedItem[] };
+export type HubNavCopy = { links: { anchor: string; label: string }[]; cta: string };
 
-export type FaqCopy = { kicker: string; title: string; items: { q: string; a: string }[] };
+export type HubHeroCopy = {
+  eyebrow: string;
+  /** Líneas del h1; la última (`titleHighlight`) va en ámbar. */
+  titleLines: string[];
+  titleHighlight: string;
+  lead: string;
+  primaryCta: string;
+  secondaryCta: string;
+  checks: string[];
+};
 
-export type RigiFormCopy = {
-  kicker: string;
+export type HubStat = { value: string; label: string };
+
+export type HubSectionHead = { eyebrow: string; title: string; intro?: string };
+
+export type HubTimeline = { title: string; tag: string; moments: { t: string; x: string }[] };
+
+export type HubFaqCopy = HubSectionHead & {
+  more: { before: string; link: string; after: string };
+  items: { q: string; a: string }[];
+};
+
+export type HubContactCopy = {
+  eyebrow: string;
   title: string;
   body: string;
+  steps: string[];
   submit: string;
   success: string;
 };

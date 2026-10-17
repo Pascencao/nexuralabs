@@ -1,7 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
-import { ROUTES } from "@/lib/i18n/routes";
+import { ROUTES, isHubPath } from "@/lib/i18n/routes";
 
 const LINK_CLASS =
   "rounded text-xs text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold";
@@ -9,6 +10,10 @@ const LINK_CLASS =
 export default function Footer() {
   const { dict, locale } = useLanguage();
   const year = new Date().getFullYear();
+  const pathname = usePathname() ?? "";
+
+  // Landings RIGI: usan su propio footer (components/landing/hub/HubFooter).
+  if (isHubPath(pathname)) return null;
 
   return (
     <footer className="bg-ink-dark py-10">

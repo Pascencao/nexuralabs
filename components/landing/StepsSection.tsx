@@ -1,19 +1,17 @@
 import Kicker from "@/components/Kicker";
 import MethodSteps from "@/components/MethodSteps";
 
-/** Sección con título, una timeline de pasos (3 o 4) y una nota opcional al pie. */
+/** Sección con título y una timeline de pasos (3 o 4). */
 export default function StepsSection({
   id,
   kicker,
   title,
   steps,
-  note,
 }: {
   id: string;
   kicker: string;
   title: string;
   steps: { name: string; description: string }[];
-  note?: string;
 }) {
   return (
     <section id={id} className="bg-white py-20 sm:py-28">
@@ -23,7 +21,6 @@ export default function StepsSection({
         <div className="mt-14">
           <MethodSteps label={title} steps={steps} />
         </div>
-        {note && <p className="mt-12 text-base font-semibold text-ink">{note}</p>}
       </div>
     </section>
   );

@@ -17,18 +17,10 @@ export const ROUTES = {
 export type PageKey = keyof typeof ROUTES;
 
 /** Landings de un solo mensaje: header reducido (logo, idioma y "Hablemos"). */
-export const LANDING_KEYS = [
-  "iaPosventa",
-  "rescateIa",
-  "rigiProveedores",
-  "rigiEmpresas",
-] as const satisfies readonly PageKey[];
+export const LANDING_KEYS = ["iaPosventa", "rescateIa"] as const satisfies readonly PageKey[];
 
-/** Ancla del formulario de cada landing (a dónde apunta el CTA del header). Por defecto, #contacto. */
-const LANDING_FORM_ANCHOR: Partial<Record<PageKey, string>> = {
-  rigiProveedores: "reservar",
-  rigiEmpresas: "prueba",
-};
+/** Landings RIGI: traen su propio nav y footer (handoff "sala de control"); el header y el footer del sitio no se muestran. */
+export const HUB_KEYS = ["rigiProveedores", "rigiEmpresas"] as const satisfies readonly PageKey[];
 
 const LOCALES_IN_ORDER: readonly Locale[] = ["es", "en"];
 
@@ -62,8 +54,7 @@ export function isLandingPath(pathname: string): boolean {
   return match !== null && (LANDING_KEYS as readonly PageKey[]).includes(match.key);
 }
 
-/** Ancla del formulario de la landing en `pathname` (sin "#"). */
-export function landingFormAnchor(pathname: string): string {
+export function isHubPath(pathname: string): boolean {
   const match = pageKeyFromPath(pathname);
-  return (match && LANDING_FORM_ANCHOR[match.key]) || "contacto";
+  return match !== null && (HUB_KEYS as readonly PageKey[]).includes(match.key);
 }

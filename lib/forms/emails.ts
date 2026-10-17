@@ -62,7 +62,6 @@ const SYSTEM_LABEL_ES: Record<string, string> = {
   hr: "RR.HH.",
   logistics: "Logística",
   docs: "Documentación",
-  other: "Otro",
   unsure: "No sabe, quiere ayuda para definirlo",
 };
 
@@ -123,10 +122,10 @@ export function rigiNotification(
     ["Empresa", input.company],
     ["Cargo", input.role],
     ["Email", input.email],
-    ["Teléfono", input.phone || "(no lo dejó)"],
   ];
   if (lead.origin === "rigi-proveedores") {
     rows.push(
+      ["Teléfono", lead.input.phone],
       ["Rubro", SECTOR_LABEL_ES[lead.input.sector] ?? lead.input.sector],
       ["Prefiere contacto por", CHANNEL_LABEL_ES[lead.input.channel] ?? lead.input.channel],
     );

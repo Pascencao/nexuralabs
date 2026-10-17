@@ -16,6 +16,24 @@ module.exports = {
         ops: "#1B4D4A",
         build: "#8A5A2B",
         scale: "#463A66",
+        // Landings RIGI (handoff "sala de control"): valores en las variables de .hub-theme (globals.css).
+        hub: {
+          ink: "var(--ink)",
+          "ink-2": "var(--ink-2)",
+          surface: "var(--surface)",
+          "surface-2": "var(--surface-2)",
+          line: "var(--line)",
+          "line-2": "var(--line-2)",
+          text: "var(--text)",
+          muted: "var(--text-muted)",
+          subtle: "var(--text-subtle)",
+          amber: "var(--amber)",
+          "amber-ink": "var(--amber-ink)",
+          live: "var(--live)",
+          paper: "var(--paper)",
+          "paper-line": "var(--paper-line)",
+          "paper-muted": "var(--paper-muted)",
+        },
       },
       maxWidth: {
         site: "1200px",
@@ -26,6 +44,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        plex: ["var(--font-plex)", "system-ui", "sans-serif"],
+        "plex-mono": ["var(--font-plex-mono)", "ui-monospace", "monospace"],
       },
       fontSize: {
         xs: ["0.8125rem", { lineHeight: "1.5384" }],

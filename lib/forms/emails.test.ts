@@ -79,13 +79,12 @@ const rigiInput = {
   company: "Metalúrgica Sur",
   role: "Gerenta",
   email: "ana@sur.com",
-  phone: "3415551234",
   privacy: true,
 };
 
 test("rigiNotification (proveedores) incluye origen, rubro, canal y UTM", () => {
   const email = rigiNotification(
-    { origin: "rigi-proveedores", input: { ...rigiInput, sector: "metalworking", channel: "whatsapp" } },
+    { origin: "rigi-proveedores", input: { ...rigiInput, phone: "3415551234", sector: "metalworking", channel: "whatsapp" } },
     { locale: "es", date, utm: { utm_source: "linkedin", utm_campaign: "rigi" } },
   );
   assert.equal(email.subject, "Nuevo lead RIGI proveedores: Metalúrgica Sur (Ana)");

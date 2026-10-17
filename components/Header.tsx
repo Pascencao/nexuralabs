@@ -5,13 +5,16 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import type { Locale } from "@/lib/i18n/config";
-import { ROUTES, homeAnchor, isLandingPath, landingFormAnchor } from "@/lib/i18n/routes";
+import { ROUTES, homeAnchor, isHubPath, isLandingPath } from "@/lib/i18n/routes";
 import { track } from "@/lib/analytics/track";
 
 export default function Header() {
   const { dict, locale, switchLocale } = useLanguage();
   const [open, setOpen] = useState(false);
   const pathname = usePathname() ?? "";
+
+  // Landings RIGI: usan su propio nav (components/landing/hub/HubNav).
+  if (isHubPath(pathname)) return null;
 
   // Landings: un solo mensaje y un solo CTA, sin menú de secciones.
   if (isLandingPath(pathname)) {
@@ -28,7 +31,7 @@ export default function Header() {
               aria={dict.header.languageSwitcherAria}
             />
             <a
-              href={`#${landingFormAnchor(pathname)}`}
+              href="#contacto"
               onClick={() => track({ name: "click_hablemos", location: "header" })}
               className="whitespace-nowrap rounded-full bg-ink px-4 py-2.5 text-sm font-semibold text-canvas transition-colors hover:bg-gold sm:px-5"
             >

@@ -7,7 +7,7 @@ import {
   alternatePath,
   homeAnchor,
   isLandingPath,
-  landingFormAnchor,
+  isHubPath,
 } from "./routes.ts";
 
 test("ROUTES define la home, privacidad y términos en ambos idiomas", () => {
@@ -55,7 +55,7 @@ test("ROUTES incluye las landings con slugs traducidos", () => {
   assert.deepEqual(ROUTES.rescateIa, { es: "/rescate-ia", en: "/en/ai-rescue" });
   assert.deepEqual(ROUTES.rigiProveedores, { es: "/rigi-proveedores", en: "/en/rigi-suppliers" });
   assert.deepEqual(ROUTES.rigiEmpresas, { es: "/rigi-empresas", en: "/en/rigi-companies" });
-  assert.deepEqual([...LANDING_KEYS], ["iaPosventa", "rescateIa", "rigiProveedores", "rigiEmpresas"]);
+  assert.deepEqual([...LANDING_KEYS], ["iaPosventa", "rescateIa"]);
 });
 
 test("alternatePath traduce los slugs de las landings", () => {
@@ -72,9 +72,9 @@ test("isLandingPath reconoce solo las landings", () => {
   assert.equal(isLandingPath("/no-existe"), false);
 });
 
-test("landingFormAnchor apunta al formulario de cada landing", () => {
-  assert.equal(landingFormAnchor("/rigi-proveedores"), "reservar");
-  assert.equal(landingFormAnchor("/en/rigi-companies"), "prueba");
-  assert.equal(landingFormAnchor("/rescate-ia"), "contacto");
-  assert.equal(landingFormAnchor("/no-existe"), "contacto");
+test("isHubPath reconoce solo las landings RIGI", () => {
+  assert.equal(isHubPath("/rigi-proveedores"), true);
+  assert.equal(isHubPath("/en/rigi-companies"), true);
+  assert.equal(isHubPath("/rescate-ia"), false);
+  assert.equal(isHubPath("/"), false);
 });

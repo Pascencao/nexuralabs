@@ -338,7 +338,6 @@ const es: Dictionary = {
     fields: {
       name: "Nombre",
       company: "Empresa",
-      companyOrProject: "Empresa / proyecto",
       role: "Cargo",
       email: "Email",
       workEmail: "Email de trabajo",
@@ -346,7 +345,7 @@ const es: Dictionary = {
       phoneWhatsapp: "Teléfono / WhatsApp",
       sector: "Rubro",
       channel: "¿Cómo preferís que te contactemos?",
-      systems: "Sistemas que usan",
+      systems: "¿Qué sistemas usan?",
       goal: "¿Qué querés resolver?",
     },
     sectorPlaceholder: "Elegí tu rubro",
@@ -367,7 +366,6 @@ const es: Dictionary = {
       hr: "RR.HH.",
       logistics: "Logística",
       docs: "Documentación",
-      other: "Otro",
       unsure: "No sé, quiero que me ayuden a definirlo",
     },
     privacy: { before: "Acepto la ", link: "política de privacidad", after: "." },
@@ -375,7 +373,6 @@ const es: Dictionary = {
     error: "No pudimos enviar el formulario. Probá de nuevo o escribime a pablo@nexuralabs.agency.",
   },
   landings: {
-    illustrative: "Ejemplo ilustrativo",
     posventa: {
       hero: {
         kicker: "IA para posventa",
@@ -491,16 +488,41 @@ const es: Dictionary = {
       },
     },
     rigiSuppliers: {
-      hero: {
-        kicker: "RIGI · Proveedores",
-        title: "¿Tu empresa aprueba el examen 4.0?",
-        intro:
-          "Medimos la madurez digital de tu empresa en 5 áreas, en 2 a 3 semanas, y te entregamos un puntaje y un plan de acción.",
-        cta: "Reservá tu diagnóstico",
+      nav: {
+        links: [
+          { anchor: "por-que", label: "Por qué" },
+          { anchor: "areas", label: "Las 5 áreas" },
+          { anchor: "que-recibis", label: "Qué recibís" },
+          { anchor: "como-funciona", label: "Cómo funciona" },
+          { anchor: "faq", label: "Preguntas" },
+        ],
+        cta: "Hablemos",
       },
+      hero: {
+        eyebrow: "RIGI · DIAGNÓSTICO PARA PROVEEDORES",
+        titleLines: ["¿Tu empresa aprueba"],
+        titleHighlight: "el examen 4.0?",
+        lead: "Medimos la madurez digital de tu empresa en 5 áreas, en 2 a 3 semanas, y te entregamos un puntaje y un plan de acción.",
+        primaryCta: "Reservá tu diagnóstico",
+        secondaryCta: "Ver las 5 áreas",
+        checks: ["De 2 a 3 semanas", "Puntaje de 0 a 5 por área", "Presupuesto cerrado antes de empezar"],
+        chart: {
+          windowTitle: "diagnóstico / madurez 4.0",
+          title: "Puntaje por área",
+          tag: "Ejemplo ilustrativo",
+          scaleLabel: "Escala de 0 a 5",
+          scores: [3, 2, 1.5, 2.5, 1],
+        },
+      },
+      offer: [
+        { value: "5", label: "áreas evaluadas con criterios claros" },
+        { value: "0–5", label: "puntaje por área, con su evidencia" },
+        { value: "2–3", label: "semanas del relevamiento a la entrega" },
+        { value: "1", label: "plan de acción priorizado" },
+      ],
       why: {
-        kicker: "Por qué importa",
-        title: "Los grandes proyectos compran con datos",
+        eyebrow: "POR QUÉ IMPORTA",
+        title: "Los grandes proyectos compran con datos.",
         intro:
           "Las empresas que invierten en el marco del RIGI piden a sus proveedores información ordenada y al día. Si esa información vive en planillas sueltas o en la cabeza de una persona, cada licitación cuesta el doble.",
         items: [
@@ -522,12 +544,12 @@ const es: Dictionary = {
         ],
         // Verificado el 2026-10-16: desde diciembre de 2025 Vicuña exige registrarse en su portal
         // de proveedores (administrado por Achilles) para participar de licitaciones.
-        // Fuentes: ámbito.com (7/7/2026) y vicuna.com/portal-de-proveedores. Confirmar antes de publicar.
+        // Fuentes: ámbito.com (7/7/2026) y vicuna.com/portal-de-proveedores.
         note: "Un caso concreto: para participar de las licitaciones de Vicuña, sus proveedores tienen que registrarse en su portal de proveedores. Es un requisito de Vicuña, no del RIGI.",
       },
       areas: {
-        kicker: "Qué evaluamos",
-        title: "Las 5 áreas del examen",
+        eyebrow: "QUÉ EVALUAMOS",
+        title: "Las 5 áreas del examen.",
         items: [
           {
             name: "Gestión y ERP",
@@ -557,8 +579,8 @@ const es: Dictionary = {
         ],
       },
       deliverables: {
-        kicker: "Qué recibís",
-        title: "Un puntaje, un plan y, si querés, un piloto",
+        eyebrow: "QUÉ RECIBÍS",
+        title: "Un puntaje, un plan y, si querés, un piloto.",
         items: [
           {
             name: "Puntaje de 0 a 5 por área",
@@ -575,15 +597,11 @@ const es: Dictionary = {
               "Sobre lo más urgente del plan, para salir del diagnóstico con algo funcionando.",
           },
         ],
-        chart: {
-          title: "Puntaje por área",
-          scaleLabel: "Escala de 0 a 5",
-          scores: [3, 2, 1.5, 2.5, 1],
-        },
       },
       process: {
-        kicker: "Cómo funciona",
-        title: "De 2 a 3 semanas, en tres pasos",
+        eyebrow: "CÓMO FUNCIONA",
+        title: "De 2 a 3 semanas, en tres pasos.",
+        stepLabel: "PASO",
         steps: [
           {
             name: "Relevamiento",
@@ -603,8 +621,8 @@ const es: Dictionary = {
         ],
       },
       audience: {
-        kicker: "Para quién",
-        title: "Pensado para proveedores de grandes proyectos",
+        eyebrow: "PARA QUIÉN",
+        title: "Pensado para proveedores de grandes proyectos.",
         items: [
           "Fabricantes de bienes de capital",
           "Metalmecánicas",
@@ -615,14 +633,17 @@ const es: Dictionary = {
         ],
       },
       precedent: {
-        kicker: "Antecedente",
-        title: "Tecnología que ya funciona en la industria",
+        eyebrow: "ANTECEDENTE",
+        title: "Tecnología que ya funciona en la industria.",
         intro:
           "Un caso real: un agente que atiende consultas técnicas por WhatsApp para un cliente del sector industrial.",
+        problemLabel: "El problema",
+        solutionLabel: "Lo que hicimos",
       },
       faq: {
-        kicker: "Preguntas frecuentes",
-        title: "Lo que suelen preguntarnos",
+        eyebrow: "PREGUNTAS FRECUENTES",
+        title: "Lo que suelen preguntarnos.",
+        more: { before: "¿Otra duda? ", link: "Escribinos", after: " y te respondemos." },
         items: [
           {
             q: "¿Cuánto cuesta?",
@@ -642,29 +663,90 @@ const es: Dictionary = {
           },
         ],
       },
-      form: {
-        kicker: "Reservá tu diagnóstico",
-        title: "Contanos de tu empresa",
+      contact: {
+        eyebrow: "RESERVÁ TU DIAGNÓSTICO",
+        title: "Sabé dónde estás parado antes de la próxima licitación.",
         body: "Completá el formulario y te contactamos por el medio que prefieras para coordinar el relevamiento. Presupuesto cerrado antes de empezar.",
-        submit: "Reservar diagnóstico",
+        steps: [
+          "Te contactamos por el medio que elegiste",
+          "Coordinamos el relevamiento con tu equipo",
+          "En 2 a 3 semanas, tu puntaje y tu plan de acción",
+        ],
+        submit: "Reservar mi diagnóstico",
         success:
           "¡Gracias! Recibimos tus datos. Te contactamos en menos de 48 horas hábiles para coordinar el diagnóstico.",
       },
     },
     rigiCompanies: {
-      hero: {
-        kicker: "RIGI · Empresas",
-        title: "Un solo tablero para decidir más rápido.",
-        intro:
-          "Un hub que conecta los sistemas que ya usan (ERP, flota, planta, RR.HH., logística, documentación) en una sola vista, en modo solo lectura.",
-        cta: "Pedí una prueba de valor de 30 días",
+      nav: {
+        links: [
+          { anchor: "antes-despues", label: "Por qué" },
+          { anchor: "producto", label: "Producto" },
+          { anchor: "caso", label: "Caso" },
+          { anchor: "piloto", label: "Prueba de 30 días" },
+          { anchor: "faq", label: "Preguntas" },
+        ],
+        cta: "Hablemos",
       },
-      problem: {
-        kicker: "El problema",
-        title: "Cada área tiene su sistema",
+      hero: {
+        eyebrow: "HUB PARA EMPRESAS · SOLO LECTURA",
+        titleLines: ["Seis sistemas.", "Una pantalla."],
+        titleHighlight: "Cero reportes a mano.",
+        lead: "Conectamos el ERP, la flota, la planta, RR.HH., logística y documentación en una sola consola en vivo — con alertas y un asistente con IA al que le preguntás como a un colega. Sin tocar tus sistemas.",
+        primaryCta: "Pedí tu prueba de 30 días",
+        secondaryCta: "Ver la consola",
+        checks: ["No modifica tus datos", "Sin migraciones", "Confidencialidad firmada"],
+        systems: ["ERP", "Flota", "Planta", "RR.HH.", "Logística", "Documentos"],
+        console: {
+          title: "consola / operación",
+          live: "EN VIVO",
+          kpis: [
+            { value: "87 %", label: "Disponibilidad de flota" },
+            { value: "42", label: "Órdenes abiertas" },
+            { value: "64 %", label: "Avance de obra" },
+            { value: "9", label: "Docs. por vencer", warn: true },
+          ],
+          question: "¿Qué equipos tuvieron más horas de parada este mes?",
+          answer:
+            "Excavadora EX-07 y Camión 14. La mayor parte fue mantenimiento correctivo. ¿Te armo el detalle?",
+        },
+      },
+      offer: [
+        { value: "6", label: "áreas conectadas en una vista" },
+        { value: "1", label: "modelo de datos, mismos criterios para todos" },
+        { value: "30", label: "días para verlo con tus datos reales" },
+        { value: "0", label: "cambios en tus sistemas actuales" },
+      ],
+      beforeAfter: {
+        eyebrow: "EL PROBLEMA",
+        title: "Cuando el dato llega, la decisión ya llegó tarde.",
         intro:
-          "ERP, flota, planta, RR.HH., logística y documentación viven en herramientas distintas. Para ver el cuadro completo hay que pedir reportes y cruzar planillas.",
-        items: [
+          "Cada área tiene su sistema. Para ver el cuadro completo hay que pedir reportes y cruzar planillas. Mirá la misma mañana, dos veces.",
+        today: {
+          title: "Hoy",
+          tag: "DECISIÓN EN DÍAS",
+          moments: [
+            { t: "Lun 08:00", x: "Pedís por mail los reportes de flota, planta y RR.HH." },
+            { t: "Lun 15:00", x: "Llegan tres planillas, cada una con su propio criterio." },
+            { t: "Mar 11:00", x: "Alguien las cruza a mano y aparecen diferencias." },
+            { t: "Jue 09:00", x: "Decidís con datos de la semana pasada." },
+          ],
+        },
+        withHub: {
+          title: "Con el Hub Nexura",
+          tag: "DECISIÓN EN MINUTOS",
+          moments: [
+            {
+              t: "Lun 08:00",
+              x: "Abrís la consola: todas las áreas, actualizadas y con los mismos criterios.",
+            },
+            { t: "Lun 08:03", x: "Una alerta te marca el desvío en Planta 2." },
+            { t: "Lun 08:06", x: "Le preguntás al asistente la causa y te responde con el detalle." },
+            { t: "Lun 08:15", x: "Decidís, con lo que está pasando hoy." },
+          ],
+        },
+        caption: "Escenario ilustrativo de una mañana de gestión.",
+        pains: [
           {
             name: "Reportes manuales",
             description: "Alguien pasa horas cada semana juntando datos de varios sistemas.",
@@ -676,55 +758,17 @@ const es: Dictionary = {
           },
           {
             name: "Decisiones con datos viejos",
-            description: "Se decide con la foto del mes pasado y no con lo que pasa hoy.",
+            description: "Se decide con lo que pasó el mes pasado, no con lo que está pasando hoy.",
           },
         ],
       },
-      solution: {
-        kicker: "La solución",
-        title: "Un hub que conecta lo que ya tienen",
-        intro:
-          "El Hub Nexura lee los datos de cada sistema, los ordena en un solo modelo y los pone a disposición de quien decide.",
-        sourcesLabel: "Sus sistemas",
-        sources: ["ERP", "Flota y maquinaria", "Planta", "RR.HH.", "Logística", "Documentación"],
-        hubName: "Hub Nexura",
-        hubCaption: "Solo lectura · un modelo de datos",
-        outputsLabel: "Lo que obtienen",
-        outputs: [
-          { name: "Consola en tiempo real", description: "Toda la operación en una pantalla." },
-          { name: "Alertas", description: "Aviso apenas un indicador se sale de rango." },
-          {
-            name: "Asistente con IA",
-            description: "Responde preguntas sobre sus propios datos.",
-          },
-        ],
-      },
-      value: {
-        kicker: "Propuesta de valor",
-        title: "Tiempo y control",
-        blocks: [
-          {
-            name: "Tiempo",
-            title: "Menos distancia entre que algo pasa y que alguien decide.",
-            description:
-              "Los datos llegan solos a la consola y las alertas avisan apenas algo se desvía, sin esperar al reporte de fin de mes.",
-          },
-          {
-            name: "Control",
-            title: "Una vista completa y actual de la operación.",
-            description:
-              "Todas las áreas en el mismo lugar y con los mismos criterios, para decidir con más acierto.",
-          },
-        ],
-      },
-      process: {
-        kicker: "Cómo funciona",
-        title: "Conectar, unificar, decidir",
+      how: {
+        eyebrow: "CÓMO FUNCIONA",
+        title: "Conectar. Unificar. Decidir.",
         steps: [
           {
             name: "Conectamos",
-            description:
-              "Nos integramos con sus sistemas en modo solo lectura. No se modifica nada.",
+            description: "Nos integramos con tus sistemas en modo solo lectura. No se modifica nada.",
           },
           {
             name: "Unificamos",
@@ -732,41 +776,89 @@ const es: Dictionary = {
               "Llevamos los datos a un único modelo, con las mismas definiciones para todas las áreas.",
           },
           {
-            name: "Decidimos",
-            description: "Consola, alertas y asistente con IA sobre datos actualizados.",
+            name: "Decidís",
+            description:
+              "Consola, alertas y un asistente con IA sobre datos actualizados. Preguntás en lenguaje natural.",
           },
         ],
       },
       console: {
-        kicker: "Lo que ve quien decide",
-        title: "Una pantalla, toda la operación",
-        intro:
-          "Indicadores clave, alertas y un asistente al que se le puede preguntar en lenguaje natural.",
+        eyebrow: "LA CONSOLA",
+        title: "Cada uno ve lo que necesita. Todos ven lo mismo.",
+        tabsLabel: "Vista por rol",
         windowTitle: "Consola de operación",
-        kpis: [
-          { label: "Disponibilidad de flota", value: "87 %" },
-          { label: "Órdenes de trabajo abiertas", value: "42" },
-          { label: "Avance de obra", value: "64 %" },
-          { label: "Documentos por vencer (30 días)", value: "9" },
-        ],
-        alertsTitle: "Alertas",
-        alerts: [
-          "Camión 14: consumo de combustible 22 % sobre el promedio",
-          "Planta 2: parada no programada en la línea de soldadura",
-          "3 legajos de contratistas vencen esta semana",
-        ],
+        sampleTag: "DATOS DE EJEMPLO",
+        alertsTitle: "Alertas activas",
         assistantTitle: "Asistente",
-        question: "¿Qué equipos tuvieron más horas de parada este mes?",
-        answer:
-          "Excavadora EX-03 (31 h), camión 14 (18 h) y grúa G-2 (12 h). La mayor parte fue mantenimiento correctivo.",
+        assistantHint: "Preguntale en lenguaje natural",
+        inputPlaceholder: "Escribí una pregunta…",
+        sendLabel: "Enviar pregunta",
+        inRange: "En rango",
+        attention: "Atención",
+        roles: [
+          {
+            id: "direccion",
+            label: "Dirección",
+            kpis: [
+              { value: "87 %", label: "Disponibilidad de flota", ok: true, pct: 87 },
+              { value: "64 %", label: "Avance de obra", ok: true, pct: 64 },
+              { value: "42", label: "Órdenes abiertas", ok: false, pct: 58 },
+              { value: "9", label: "Docs. por vencer", ok: false, pct: 30 },
+            ],
+            alerts: [
+              { t: "08:02", x: "Camión 14: consumo de combustible por encima de lo previsto." },
+              { t: "07:45", x: "Planta 2: parada no programada en la línea de envasado." },
+              { t: "Hoy", x: "3 legajos de contratistas vencen esta semana." },
+            ],
+            question: "¿Qué equipos tuvieron más horas de parada este mes?",
+            answer:
+              "Excavadora EX-07 y Camión 14 concentran la mayor parte, casi todo por mantenimiento correctivo. ¿Querés ver el detalle por causa?",
+          },
+          {
+            id: "operaciones",
+            label: "Operaciones",
+            kpis: [
+              { value: "128", label: "Despachos de hoy", ok: true, pct: 76 },
+              { value: "93 %", label: "Entregas a tiempo", ok: true, pct: 93 },
+              { value: "6", label: "SKUs en stock crítico", ok: false, pct: 24 },
+              { value: "97 %", label: "Turnos cubiertos", ok: true, pct: 97 },
+            ],
+            alerts: [
+              { t: "09:10", x: "Ruta Norte: dos entregas con riesgo de demora." },
+              { t: "08:30", x: "Depósito central: 6 SKUs por debajo del stock mínimo." },
+              { t: "Hoy", x: "Turno noche de Planta 1 con una vacante sin cubrir." },
+            ],
+            question: "¿Qué pedidos de hoy están en riesgo de llegar tarde?",
+            answer:
+              "Dos entregas de la Ruta Norte: el camión salió 40 minutos después de lo planificado. Sugiero avisar a los clientes ahora.",
+          },
+          {
+            id: "mantenimiento",
+            label: "Mantenimiento",
+            kpis: [
+              { value: "78 %", label: "Preventivos al día", ok: false, pct: 78 },
+              { value: "42", label: "Órdenes abiertas", ok: false, pct: 58 },
+              { value: "11", label: "Repuestos en espera", ok: false, pct: 40 },
+              { value: "87 %", label: "Disponibilidad", ok: true, pct: 87 },
+            ],
+            alerts: [
+              { t: "07:45", x: "Envasadora L2: parada no programada, orden creada." },
+              { t: "Ayer", x: "EX-07: tercer correctivo del mes en el sistema hidráulico." },
+              { t: "Hoy", x: "5 preventivos vencidos en la flota liviana." },
+            ],
+            question: "¿Qué equipo me conviene revisar primero esta semana?",
+            answer:
+              "La EX-07: acumula tres correctivos este mes en el mismo sistema. Revisarla en el próximo preventivo evita una parada mayor.",
+          },
+        ],
       },
       ypf: {
-        kicker: "Antecedente en la industria",
-        title: "YPF y su centro de monitoreo en tiempo real",
+        eyebrow: "ANTECEDENTE EN LA INDUSTRIA",
+        title: "YPF ya opera con un centro de monitoreo en tiempo real.",
         intro:
-          "YPF opera desde Buenos Aires un centro de monitoreo en tiempo real (RTIC) para sus pozos de Vaca Muerta. Es un proyecto de YPF: lo citamos como referencia de lo que permite una vista unificada de la operación.",
+          "YPF opera desde Buenos Aires un centro de monitoreo en tiempo real (RTIC) para sus pozos de Vaca Muerta. No es un proyecto de Nexura: lo citamos como referencia de lo que permite una vista unificada de la operación.",
         stats: [
-          { value: "~35 millones", label: "de datos por pozo" },
+          { value: "~35 M", label: "datos por pozo" },
           { value: "15–30 %", label: "meta de reducción de los tiempos de ciclo" },
           { value: "−25 %", label: "en el tiempo de construcción de pozos (programa Toyota Well)" },
           { value: "−71 %", label: "en el tiempo de puesta en marcha de pozos (programa Toyota Well)" },
@@ -790,62 +882,83 @@ const es: Dictionary = {
         ],
       },
       pilot: {
-        kicker: "Prueba de valor",
-        title: "30 días para verlo funcionando con sus datos",
-        steps: [
+        eyebrow: "PRUEBA DE VALOR",
+        title: "30 días. Tus datos. Resultados que podés medir.",
+        intro:
+          "Antes de cualquier compromiso, lo ves funcionando sobre tu operación real. Alcance y condiciones los definimos juntos.",
+        weekLabel: "SEMANA",
+        weeks: [
           {
-            name: "Semana 1",
-            description: "Relevamiento y conexión de los primeros sistemas.",
+            name: "Conectamos",
+            description: "Relevamiento y conexión de los primeros sistemas, en modo solo lectura.",
           },
-          { name: "Semana 2", description: "Primera consola con datos reales." },
-          { name: "Semana 3", description: "Alertas y asistente con IA." },
+          { name: "Primera consola", description: "Tu equipo ya ve sus indicadores con datos reales." },
           {
-            name: "Semana 4",
-            description: "Medición contra los criterios que acordamos al inicio.",
+            name: "Alertas e IA",
+            description:
+              "Sumamos alertas sobre desvíos y el asistente para preguntar en lenguaje natural.",
+          },
+          {
+            name: "Medimos",
+            description: "Revisamos el impacto con tu equipo y definimos los próximos pasos.",
           },
         ],
-        note: "Alcance y condiciones, a definir juntos.",
-      },
-      security: {
-        kicker: "Seguridad y datos",
-        title: "Sus datos, bajo su control",
-        items: [
-          "Solo lectura: el hub no escribe ni modifica nada en sus sistemas.",
-          "Acceso mínimo: solo a los datos que hacen falta para los indicadores acordados.",
-          "Acuerdos de confidencialidad antes de conectar cualquier sistema.",
-        ],
-        note: "Definimos juntos qué datos se usan y cuáles no.",
+        security: {
+          title: "Tus datos, bajo tu control",
+          subtitle: "Definimos juntos qué datos se usan y cómo.",
+          items: [
+            { title: "Solo lectura.", text: "El hub no escribe ni modifica nada en tus sistemas." },
+            {
+              title: "Acceso por rol.",
+              text: "Cada persona ve solo los indicadores que le corresponden.",
+            },
+            {
+              title: "Confidencialidad.",
+              text: "Firmamos el acuerdo antes de conectar cualquier sistema.",
+            },
+          ],
+        },
       },
       faq: {
-        kicker: "Preguntas frecuentes",
-        title: "Lo que suelen preguntarnos",
+        eyebrow: "PREGUNTAS FRECUENTES",
+        title: "Lo que suelen preguntarnos.",
+        more: { before: "¿Otra duda? ", link: "Escribinos", after: " y te respondemos en el día." },
         items: [
           {
             q: "¿Con qué sistemas se integra?",
-            a: "Con los que ya usan: ERP, telemetría de flota y maquinaria, sistemas de planta, RR.HH., logística y gestión documental. Si un sistema tiene API, base de datos o exportaciones, lo podemos leer. En el relevamiento confirmamos cada caso.",
+            a: "Con los que ya usás: ERP, gestión de flota y maquinaria, sistemas de planta, RR.HH., logística y gestión documental. Nos conectamos siempre en modo solo lectura.",
           },
           {
             q: "¿Qué pasa con los datos?",
-            a: "El acceso es de solo lectura y mínimo, con acuerdos de confidencialidad. Definimos juntos qué datos se usan y cuáles no.",
+            a: "No modificamos nada en tus sistemas. Definimos juntos qué datos se usan, quién ve cada indicador y firmamos un acuerdo de confidencialidad antes de conectar.",
           },
           {
             q: "¿Cuánto tarda?",
-            a: "La prueba de valor dura 30 días. Al final medimos contra los criterios acordados y decidimos juntos si seguir y cómo.",
+            a: "La prueba de valor dura 30 días. En la segunda semana tu equipo ya ve su primera consola con datos reales.",
           },
           {
             q: "¿Cuánto cuesta?",
-            a: "Depende de la cantidad de sistemas y del alcance. Presupuesto cerrado antes de empezar.",
+            a: "Depende de cuántos sistemas y áreas se conecten. Definimos alcance y condiciones de la prueba juntos, en la primera charla.",
           },
         ],
       },
-      form: {
-        kicker: "Prueba de valor",
-        title: "Pedí tu prueba de 30 días",
-        body: "Contanos qué sistemas usan y qué quieren resolver. Te respondemos para coordinar una primera charla y definir el alcance.",
-        submit: "Pedir prueba de valor",
+      contact: {
+        eyebrow: "EMPEZÁ ACÁ",
+        title: "Dejá de esperar el reporte de fin de mes.",
+        body: "Contanos qué sistemas usan y qué querés resolver. Te respondemos para coordinar una primera charla y definir el alcance de la prueba.",
+        steps: [
+          "Charla de 30 minutos para entender tu operación",
+          "Propuesta de alcance para la prueba de valor",
+          "En la semana 2, tu primera consola con datos reales",
+        ],
+        submit: "Quiero mi prueba de 30 días",
         success:
-          "¡Gracias! Recibimos tu pedido. Te contactamos en menos de 48 horas hábiles para coordinar la primera charla.",
+          "¡Gracias! Recibimos tu pedido. Te contactamos para coordinar la primera charla.",
       },
+    },
+    hub: {
+      menuLabel: "Menú",
+      footerTagline: "Hub para empresas · Software a medida desde Rosario, Argentina",
     },
   },
   footer: {

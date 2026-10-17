@@ -139,6 +139,8 @@ test("validateCompanyLead exige al menos un sistema conocido y el texto", () => 
   assert.equal(!empty.ok && empty.errors.goal, "required");
   const unknown = validateCompanyLead({ ...rigiBase, systems: ["erp", "hack"], goal: "Algo" });
   assert.equal(!unknown.ok && unknown.errors.systems, "choice");
+  const other = validateCompanyLead({ ...rigiBase, systems: ["other"], goal: "Algo" });
+  assert.equal(!other.ok && other.errors.systems, "choice");
 });
 
 test("cleanUtm conserva solo las 3 claves, recortadas y sin control", () => {
@@ -151,14 +153,10 @@ test("cleanUtm conserva solo las 3 claves, recortadas y sin control", () => {
 });
 
 
-test("validateCompanyLead: teléfono opcional, pero si viene se valida", () => {
-  const noPhone = validateCompanyLead({ ...rigiBase, phone: "", systems: ["erp"], goal: "Ver todo" });
-  assert.equal(noPhone.ok, true);
-  const badPhone = validateCompanyLead({ ...rigiBase, phone: "abc", systems: ["erp"], goal: "Ver todo" });
-  assert.equal(!badPhone.ok && badPhone.errors.phone, "phone");
-});
 
-test("validateCompanyLead acepta 'unsure' como sistema", () => {
-  const result = validateCompanyLead({ ...rigiBase, systems: ["unsure"], goal: "No sabemos" });
+test("validateCompanyLead no pide teléfono y acepta 'unsure'", () => {
+  const { phone: _phone, ...noPhone } = rigiBase;
+  const result = validateCompanyLead({ ...noPhone, systems: ["unsure"], goal: "No sabemos" });
   assert.equal(result.ok, true);
+  if (result.ok) assert.equal("phone" in result.data, false);
 });

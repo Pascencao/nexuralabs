@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
-import { FieldShell, inputClass } from "@/components/forms/Field";
 import { useFormSubmit } from "@/components/forms/useFormSubmit";
+import { ArrowIcon } from "@/components/landing/hub/ui";
 import { track } from "@/lib/analytics/track";
 import { ROUTES } from "@/lib/i18n/routes";
 import {
@@ -48,13 +48,30 @@ const EMPTY: Values = {
 
 const FIELD_ORDER: Record<RigiOrigin, Field[]> = {
   "rigi-proveedores": ["name", "company", "role", "email", "phone", "sector", "channel", "privacy"],
-  "rigi-empresas": ["name", "company", "role", "email", "phone", "systems", "goal", "privacy"],
+  "rigi-empresas": ["name", "company", "role", "email", "systems", "goal", "privacy"],
 };
 
+const ERROR_TEXT = "text-[#B42318]";
+const LABEL = "flex flex-col gap-1.5 text-[13px] font-semibold text-hub-ink";
+const CONTROL =
+  "w-full rounded-[10px] border bg-white px-3.5 py-3 font-plex text-[15px] font-normal text-hub-ink min-h-[46px] focus:border-hub-ink focus:outline-none focus:ring-2 focus:ring-hub-ink/20";
+
+function controlClass(invalid: boolean) {
+  return `${CONTROL} ${invalid ? "border-2 border-[#B42318]" : "border-[#C9CDD3]"}`;
+}
+
+function chipClass(on: boolean, invalid: boolean) {
+  return `inline-flex min-h-[44px] cursor-pointer items-center rounded-full border px-4 py-2.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hub-amber-ink focus-visible:ring-offset-2 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-hub-amber-ink has-[:focus-visible]:ring-offset-2 ${
+    on
+      ? "border-hub-ink bg-hub-ink text-white"
+      : invalid
+        ? "border-[#B42318] bg-white text-[#2A3240]"
+        : "border-[#C9CDD3] bg-white text-[#2A3240] hover:border-hub-ink"
+  }`;
+}
+
 function validate(origin: RigiOrigin, values: Values) {
-  return origin === "rigi-proveedores"
-    ? validateSupplierLead(values)
-    : validateCompanyLead(values);
+  return origin === "rigi-proveedores" ? validateSupplierLead(values) : validateCompanyLead(values);
 }
 
 /** Lee utm_source, utm_medium y utm_campaign de la URL actual. */
@@ -72,7 +89,7 @@ function readUtm(): Utm {
  * Formulario de las landings RIGI. Envía a /api/contact (mismo destino que el de la home)
  * con el campo oculto `origen` y las UTM de la URL.
  */
-export default function RigiLeadForm({
+export default function HubLeadForm({
   origin,
   submitLabel,
   successMessage,
@@ -128,11 +145,9 @@ export default function RigiLeadForm({
     if (errors[field]) revalidate(field, next);
   }
 
-  function toggleSystem(option: string, checked: boolean) {
-    const systems = checked
-      ? [...values.systems, option]
-      : values.systems.filter((v) => v !== option);
-    update("systems", systems);
+  function toggleSystem(option: string) {
+    const on = values.systems.includes(option);
+    update("systems", on ? values.systems.filter((v) => v !== option) : [...values.systems, option]);
   }
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -158,10 +173,15 @@ export default function RigiLeadForm({
     };
   }
 
-  const errorText = (field: Field) => {
+  function renderError(field: Field) {
     const code = errors[field];
-    return code ? dict.formErrors[code] : undefined;
-  };
+    if (!code) return null;
+    return (
+      <span id={`rigi-${field}-error`} className={`text-[13px] font-medium ${ERROR_TEXT}`}>
+        {dict.formErrors[code]}
+      </span>
+    );
+  }
 
   if (status === "success") {
     return (
@@ -169,29 +189,32 @@ export default function RigiLeadForm({
         ref={successRef}
         role="status"
         tabIndex={-1}
-        className="rounded-2xl bg-white p-8 text-left shadow-card focus:outline-none"
+        className="rounded-3xl bg-white p-9 text-hub-ink shadow-[0_40px_100px_rgba(0,0,0,.45)] focus:outline-none"
       >
-        <p className="text-lg font-semibold text-ink">{successMessage}</p>
+        <p className="m-0 font-display text-2xl font-bold">{successMessage}</p>
       </div>
     );
   }
 
   const sending = status === "sending";
-  const textInput = (
+  const textField = (
     field: "name" | "company" | "role" | "email" | "phone",
     label: string,
-    extra: React.InputHTMLAttributes<HTMLInputElement>,
-    hint?: string,
+    attrs: React.InputHTMLAttributes<HTMLInputElement>,
   ) => (
-    <FieldShell id={`rigi-${field}`} label={label} hint={hint} error={errorText(field)}>
-      <input
-        {...a11y(field)}
-        {...extra}
-        value={values[field]}
-        onChange={(e) => update(field, e.target.value)}
-        className={inputClass(Boolean(errors[field]))}
-      />
-    </FieldShell>
+    <div className="flex flex-col gap-1.5">
+      <label className={LABEL}>
+        {label}
+        <input
+          {...a11y(field)}
+          {...attrs}
+          value={values[field]}
+          onChange={(e) => update(field, e.target.value)}
+          className={controlClass(Boolean(errors[field]))}
+        />
+      </label>
+      {renderError(field)}
+    </div>
   );
 
   return (
@@ -200,36 +223,29 @@ export default function RigiLeadForm({
       onSubmit={onSubmit}
       noValidate
       aria-busy={sending}
-      className="space-y-5 rounded-2xl bg-white p-6 text-left shadow-card sm:p-8"
+      className="flex flex-col gap-5 rounded-3xl bg-white p-6 text-hub-ink shadow-[0_40px_100px_rgba(0,0,0,.45)] sm:p-9"
     >
       <input type="hidden" name="origen" value={origin} />
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        {textInput("name", f.fields.name, { type: "text", autoComplete: "name" })}
-        {textInput("company", isSupplier ? f.fields.company : f.fields.companyOrProject, {
-          type: "text",
-          autoComplete: "organization",
-        })}
-        {textInput("role", f.fields.role, { type: "text", autoComplete: "organization-title" })}
-        {textInput("email", isSupplier ? f.fields.workEmail : f.fields.email, {
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
+        {textField("name", f.fields.name, { type: "text", autoComplete: "name" })}
+        {textField("company", f.fields.company, { type: "text", autoComplete: "organization" })}
+        {textField("role", f.fields.role, { type: "text", autoComplete: "organization-title" })}
+        {textField("email", isSupplier ? f.fields.workEmail : f.fields.email, {
           type: "email",
           autoComplete: "email",
         })}
-        {textInput(
-          "phone",
-          isSupplier ? f.fields.phoneWhatsapp : f.fields.phone,
-          { type: "tel", autoComplete: "tel", inputMode: "tel" },
-          // Empresas: opcional (en un primer contacto, muchos gerentes prefieren no dejarlo).
-          isSupplier ? undefined : dict.contact.form.optional,
-        )}
-
+        {isSupplier &&
+          textField("phone", f.fields.phoneWhatsapp, { type: "tel", autoComplete: "tel", inputMode: "tel" })}
         {isSupplier && (
-          <FieldShell id="rigi-sector" label={f.fields.sector} error={errorText("sector")}>
+          <div className="flex flex-col gap-1.5">
+          <label className={LABEL}>
+            {f.fields.sector}
             <select
               {...a11y("sector")}
               value={values.sector}
               onChange={(e) => update("sector", e.target.value)}
-              className={inputClass(Boolean(errors.sector))}
+              className={controlClass(Boolean(errors.sector))}
             >
               <option value="" disabled>
                 {f.sectorPlaceholder}
@@ -240,62 +256,82 @@ export default function RigiLeadForm({
                 </option>
               ))}
             </select>
-          </FieldShell>
+          </label>
+          {renderError("sector")}
+          </div>
         )}
       </div>
 
       {isSupplier ? (
-        <ChoiceGroup
-          field="channel"
-          legend={f.fields.channel}
-          error={errorText("channel")}
-        >
-          {CONTACT_CHANNELS.map((option, i) => (
-            <ChoiceInput
-              key={option}
-              type="radio"
-              field="channel"
-              option={option}
-              first={i === 0}
-              invalid={Boolean(errors.channel)}
-              checked={values.channel === option}
-              onChange={() => update("channel", option)}
-              label={f.channelOptions[option]}
-            />
-          ))}
-        </ChoiceGroup>
+        <fieldset className="m-0 flex flex-col gap-2.5 border-0 p-0">
+          <legend className="mb-2.5 p-0 text-[13px] font-semibold">{f.fields.channel}</legend>
+          <div className="flex flex-wrap gap-2">
+            {CONTACT_CHANNELS.map((option, i) => {
+              const id = i === 0 ? "rigi-channel" : `rigi-channel-${option}`;
+              const on = values.channel === option;
+              return (
+                <label key={option} htmlFor={id} className={chipClass(on, Boolean(errors.channel))}>
+                  <input
+                    id={id}
+                    type="radio"
+                    name="channel"
+                    value={option}
+                    checked={on}
+                    onChange={() => update("channel", option)}
+                    aria-invalid={Boolean(errors.channel) || undefined}
+                    aria-describedby={errors.channel ? "rigi-channel-error" : undefined}
+                    className="sr-only"
+                  />
+                  {f.channelOptions[option]}
+                </label>
+              );
+            })}
+          </div>
+          {renderError("channel")}
+        </fieldset>
       ) : (
         <>
-          <ChoiceGroup field="systems" legend={f.fields.systems} error={errorText("systems")}>
-            {SYSTEM_OPTIONS.map((option, i) => (
-              <ChoiceInput
-                key={option}
-                type="checkbox"
-                field="systems"
-                option={option}
-                first={i === 0}
-                invalid={Boolean(errors.systems)}
-                checked={values.systems.includes(option)}
-                onChange={(checked) => toggleSystem(option, checked)}
-                label={f.systemOptions[option]}
-              />
-            ))}
-          </ChoiceGroup>
+          <fieldset className="m-0 flex flex-col gap-2.5 border-0 p-0">
+            <legend className="mb-2.5 p-0 text-[13px] font-semibold">{f.fields.systems}</legend>
+            <div className="flex flex-wrap gap-2">
+              {SYSTEM_OPTIONS.map((option, i) => {
+                const on = values.systems.includes(option);
+                return (
+                  <button
+                    key={option}
+                    id={i === 0 ? "rigi-systems" : undefined}
+                    type="button"
+                    aria-pressed={on}
+                    aria-describedby={errors.systems ? "rigi-systems-error" : undefined}
+                    onClick={() => toggleSystem(option)}
+                    className={chipClass(on, Boolean(errors.systems))}
+                  >
+                    {f.systemOptions[option]}
+                  </button>
+                );
+              })}
+            </div>
+            {renderError("systems")}
+          </fieldset>
 
-          <FieldShell id="rigi-goal" label={f.fields.goal} error={errorText("goal")}>
+          <div className="flex flex-col gap-1.5">
+          <label className={LABEL}>
+            {f.fields.goal}
             <textarea
               {...a11y("goal")}
               rows={4}
               value={values.goal}
               onChange={(e) => update("goal", e.target.value)}
-              className={inputClass(Boolean(errors.goal))}
+              className={`${controlClass(Boolean(errors.goal))} resize-y`}
             />
-          </FieldShell>
+          </label>
+          {renderError("goal")}
+          </div>
         </>
       )}
 
-      <div>
-        <label htmlFor="rigi-privacy" className="flex items-start gap-3 text-sm text-ink">
+      <div className="flex flex-col gap-1">
+        <label htmlFor="rigi-privacy" className="flex min-h-[44px] items-center gap-2.5 text-sm text-hub-paper-muted">
           <input
             id="rigi-privacy"
             name="privacy"
@@ -304,7 +340,7 @@ export default function RigiLeadForm({
             onChange={(e) => update("privacy", e.target.checked)}
             aria-invalid={Boolean(errors.privacy) || undefined}
             aria-describedby={errors.privacy ? "rigi-privacy-error" : undefined}
-            className="mt-0.5 h-5 w-5 shrink-0 rounded border-ink/30 text-ink focus:ring-2 focus:ring-ink/20"
+            className="h-5 w-5 shrink-0 rounded border-[#C9CDD3] text-hub-ink focus:ring-2 focus:ring-hub-ink/20"
           />
           <span>
             {f.privacy.before}
@@ -312,18 +348,14 @@ export default function RigiLeadForm({
               href={ROUTES.privacy[locale]}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-4 hover:text-gold"
+              className="text-hub-amber-ink underline underline-offset-4"
             >
               {f.privacy.link}
             </a>
             {f.privacy.after}
           </span>
         </label>
-        {errors.privacy && (
-          <p id="rigi-privacy-error" className="mt-1.5 text-sm font-medium text-build">
-            {errorText("privacy")}
-          </p>
-        )}
+        {renderError("privacy")}
       </div>
 
       {/* Honeypot: invisible para personas y lectores de pantalla; los bots suelen completarlo. */}
@@ -341,7 +373,7 @@ export default function RigiLeadForm({
       </div>
 
       {status === "error" && (
-        <p role="alert" className="text-sm font-medium text-build">
+        <p role="alert" className={`m-0 text-sm font-medium ${ERROR_TEXT}`}>
           {f.error}
         </p>
       )}
@@ -349,78 +381,11 @@ export default function RigiLeadForm({
       <button
         type="submit"
         disabled={sending}
-        className="inline-flex w-full items-center justify-center rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink-dark transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+        className="inline-flex min-h-[56px] cursor-pointer items-center justify-center gap-2.5 rounded-full border-0 bg-hub-ink px-[26px] py-[18px] font-plex text-base font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hub-amber-ink focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {sending ? f.sending : submitLabel}
+        <ArrowIcon className="text-hub-amber" />
       </button>
     </form>
-  );
-}
-
-function ChoiceGroup({
-  field,
-  legend,
-  error,
-  children,
-}: {
-  field: Field;
-  legend: string;
-  error?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <fieldset>
-      <legend className="text-sm font-semibold text-ink">{legend}</legend>
-      <div className="mt-2 flex flex-wrap gap-2">{children}</div>
-      {error && (
-        <p id={`rigi-${field}-error`} className="mt-1.5 text-sm font-medium text-build">
-          {error}
-        </p>
-      )}
-    </fieldset>
-  );
-}
-
-/** Opción de radio/checkbox con forma de "pill". La primera lleva el id del campo, para recibir el foco ante un error. */
-function ChoiceInput({
-  type,
-  field,
-  option,
-  first,
-  invalid,
-  checked,
-  onChange,
-  label,
-}: {
-  type: "radio" | "checkbox";
-  field: Field;
-  option: string;
-  first: boolean;
-  invalid: boolean;
-  checked: boolean;
-  onChange: (checked: boolean) => void;
-  label: string;
-}) {
-  const id = first ? `rigi-${field}` : `rigi-${field}-${option}`;
-  return (
-    <label
-      htmlFor={id}
-      className={`flex cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ink/30 ${
-        checked ? "border-ink bg-ink text-canvas" : invalid ? "border-build text-ink" : "border-ink/20 text-ink hover:border-ink/40"
-      }`}
-    >
-      <input
-        id={id}
-        type={type}
-        name={field}
-        value={option}
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-        aria-invalid={invalid || undefined}
-        aria-describedby={invalid ? `rigi-${field}-error` : undefined}
-        className="sr-only"
-      />
-      {label}
-    </label>
   );
 }
