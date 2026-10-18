@@ -9,3 +9,50 @@ html {
 body {
   @apply bg-canvas text-ink;
 }
+
+/* Landings RIGI: tokens del handoff "Landing Hub Nexura". */
+.hub-theme {
+  --ink: #0a0e14;
+  --ink-2: #0e141d;
+  --surface: #111824;
+  --surface-2: #141c28;
+  --line: #1f2a3a;
+  --line-2: #2a3647;
+  --text: #e8ecf2;
+  --text-muted: #b6c1cf;
+  --text-subtle: #9aa7b8;
+  --amber: #f4b740;
+  --amber-ink: #8a5a00;
+  --live: #4ade9f;
+  --paper: #f3f4f1;
+  --paper-line: #dde0e4;
+  --paper-muted: #4a5566;
+}
+
+.hub-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@keyframes hub-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 159, 0.55); }
+  70% { box-shadow: 0 0 0 10px rgba(74, 222, 159, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 159, 0); }
+}
+
+@keyframes hub-flow {
+  to { stroke-dashoffset: -40; }
+}
+
+.hub-live { animation: hub-pulse 2s infinite; }
+.hub-flow { stroke-dasharray: 4 6; animation: hub-flow 1.6s linear infinite; }
+
+.hub-theme details summary { list-style: none; }
+.hub-theme details summary::-webkit-details-marker { display: none; }
+.hub-theme details[open] .hub-plus { transform: rotate(45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hub-live, .hub-flow { animation: none; }
+}

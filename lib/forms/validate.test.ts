@@ -1,6 +1,13 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { NEED_OPTIONS, validateChecklist, validateContact } from "./validate.ts";
+import {
+  NEED_OPTIONS,
+  cleanUtm,
+  validateChecklist,
+  validateCompanyLead,
+  validateContact,
+  validateSupplierLead,
+} from "./validate.ts";
 
 const validContact = {
   name: "Ana Pérez",
@@ -9,8 +16,11 @@ const validContact = {
   message: "Queremos ordenar la posventa.",
 };
 
-test("NEED_OPTIONS lista las 5 opciones en orden", () => {
-  assert.deepEqual([...NEED_OPTIONS], ["processes", "software", "ai", "ai-rescue", "other"]);
+test("NEED_OPTIONS lista las 7 opciones en orden", () => {
+  assert.deepEqual(
+    [...NEED_OPTIONS],
+    ["processes", "software", "ai", "ai-rescue", "rigi-supplier", "rigi-company", "other"],
+  );
 });
 
 test("validateContact acepta datos válidos y recorta espacios", () => {
@@ -69,4 +79,84 @@ test("validateChecklist marca errores", () => {
   });
   const long = validateChecklist({ email: "ana@empresa.com", company: "a".repeat(121) });
   assert.equal(!long.ok && long.errors.company, "tooLong");
+});
+
+const rigiBase = {
+  name: "Ana Pérez",
+  company: "Metalúrgica Sur",
+  role: "Gerenta de operaciones",
+  email: "ana@metalurgicasur.com",
+  phone: "+54 9 341 555-1234",
+  privacy: true,
+};
+
+test("validateSupplierLead acepta datos válidos", () => {
+  const result = validateSupplierLead({ ...rigiBase, sector: "metalworking", channel: "whatsapp" });
+  assert.equal(result.ok, true);
+});
+
+test("validateSupplierLead marca obligatorios, opciones y privacidad", () => {
+  assert.deepEqual(validateSupplierLead({}), {
+    ok: false,
+    errors: {
+      name: "required",
+      company: "required",
+      role: "required",
+      email: "required",
+      phone: "required",
+      privacy: "consent",
+      sector: "choice",
+      channel: "choice",
+    },
+  });
+});
+
+test("validateSupplierLead exige privacy === true (no un string)", () => {
+  const result = validateSupplierLead({ ...rigiBase, privacy: "true", sector: "other", channel: "email" });
+  assert.equal(!result.ok && result.errors.privacy, "consent");
+});
+
+test("validación de teléfono", () => {
+  for (const phone of ["abc", "12345", "+54 (341) 555-12a4", "1".repeat(16)]) {
+    const result = validateSupplierLead({ ...rigiBase, phone, sector: "other", channel: "call" });
+    assert.equal(!result.ok && result.errors.phone, "phone", phone);
+  }
+  for (const phone of ["3415551234", "+54 9 341 555-1234", "(0341) 555 1234"]) {
+    const result = validateSupplierLead({ ...rigiBase, phone, sector: "other", channel: "call" });
+    assert.equal(result.ok, true, phone);
+  }
+});
+
+test("validateCompanyLead acepta datos válidos y deduplica sistemas", () => {
+  const result = validateCompanyLead({ ...rigiBase, systems: ["erp", "fleet", "erp"], goal: "Ver la flota" });
+  assert.equal(result.ok, true);
+  if (result.ok) assert.deepEqual(result.data.systems, ["erp", "fleet"]);
+});
+
+test("validateCompanyLead exige al menos un sistema conocido y el texto", () => {
+  const empty = validateCompanyLead({ ...rigiBase, systems: [], goal: "" });
+  assert.equal(!empty.ok && empty.errors.systems, "choice");
+  assert.equal(!empty.ok && empty.errors.goal, "required");
+  const unknown = validateCompanyLead({ ...rigiBase, systems: ["erp", "hack"], goal: "Algo" });
+  assert.equal(!unknown.ok && unknown.errors.systems, "choice");
+  const other = validateCompanyLead({ ...rigiBase, systems: ["other"], goal: "Algo" });
+  assert.equal(!other.ok && other.errors.systems, "choice");
+});
+
+test("cleanUtm conserva solo las 3 claves, recortadas y sin control", () => {
+  assert.deepEqual(
+    cleanUtm({ utm_source: " linkedin ", utm_medium: "a\nb", utm_campaign: "x".repeat(150), other: "z" }),
+    { utm_source: "linkedin", utm_medium: "ab", utm_campaign: "x".repeat(100) },
+  );
+  assert.deepEqual(cleanUtm(null), {});
+  assert.deepEqual(cleanUtm({ utm_source: 42 }), {});
+});
+
+
+
+test("validateCompanyLead no pide teléfono y acepta 'unsure'", () => {
+  const { phone: _phone, ...noPhone } = rigiBase;
+  const result = validateCompanyLead({ ...noPhone, systems: ["unsure"], goal: "No sabemos" });
+  assert.equal(result.ok, true);
+  if (result.ok) assert.equal("phone" in result.data, false);
 });

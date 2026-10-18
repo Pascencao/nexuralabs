@@ -6,6 +6,7 @@ import {
   checklistPdfPath,
   contactNotification,
   escapeHtml,
+  rigiNotification,
 } from "./emails.ts";
 
 const date = new Date("2026-10-06T15:00:00.000Z");
@@ -71,4 +72,33 @@ test("los asuntos no llevan saltos de línea ni caracteres de control", () => {
   assert.equal(contact.subject, "Nuevo contacto web: Ana Bcc: x@y.com Pérez (Aplicar IA)");
   const lead = checklistNotification({ email: "ana@empresa.com", company: "Acme\nCorp" }, { locale: "es", date });
   assert.equal(lead.subject, "Nuevo lead checklist: Acme Corp");
+});
+
+const rigiInput = {
+  name: "Ana",
+  company: "Metalúrgica Sur",
+  role: "Gerenta",
+  email: "ana@sur.com",
+  privacy: true,
+};
+
+test("rigiNotification (proveedores) incluye origen, rubro, canal y UTM", () => {
+  const email = rigiNotification(
+    { origin: "rigi-proveedores", input: { ...rigiInput, phone: "3415551234", sector: "metalworking", channel: "whatsapp" } },
+    { locale: "es", date, utm: { utm_source: "linkedin", utm_campaign: "rigi" } },
+  );
+  assert.equal(email.subject, "Nuevo lead RIGI proveedores: Metalúrgica Sur (Ana)");
+  for (const part of ["RIGI proveedores", "Metalmecánica", "WhatsApp", "3415551234", "utm_source: linkedin", "utm_medium: -", "utm_campaign: rigi"]) {
+    assert.ok(email.text.includes(part), part);
+  }
+});
+
+test("rigiNotification (empresas) lista sistemas y el texto, y escapa HTML", () => {
+  const email = rigiNotification(
+    { origin: "rigi-empresas", input: { ...rigiInput, systems: ["erp", "fleet"], goal: "<b>ver</b> todo" } },
+    { locale: "en", date, utm: {} },
+  );
+  assert.equal(email.subject, "Nuevo lead RIGI empresas: Metalúrgica Sur (Ana)");
+  assert.ok(email.text.includes("Sistemas: ERP, Flota y maquinaria"));
+  assert.ok(email.html.includes("&lt;b&gt;ver&lt;/b&gt; todo"));
 });

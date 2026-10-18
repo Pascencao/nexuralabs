@@ -40,6 +40,14 @@ const PAGE_TEXT: Record<PageKey, (d: Dictionary) => { title: string; description
   terms: (d) => ({ title: d.meta.termsTitle, description: d.meta.termsDescription }),
   iaPosventa: (d) => ({ title: d.meta.posventaTitle, description: d.meta.posventaDescription }),
   rescateIa: (d) => ({ title: d.meta.rescueTitle, description: d.meta.rescueDescription }),
+  rigiProveedores: (d) => ({
+    title: d.meta.rigiSuppliersTitle,
+    description: d.meta.rigiSuppliersDescription,
+  }),
+  rigiEmpresas: (d) => ({
+    title: d.meta.rigiCompaniesTitle,
+    description: d.meta.rigiCompaniesDescription,
+  }),
 };
 
 /** Metadata de una página: título, canonical, hreflang (es/en/x-default), Open Graph y Twitter. */

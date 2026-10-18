@@ -25,3 +25,12 @@ test("view_case: GA4 con case_id, píxel ViewContent con content_ids", () => {
   assert.deepEqual(toGa(event, "es"), ["view_case", { page_locale: "es", case_id: "posventa-whatsapp" }]);
   assert.deepEqual(toPixel(event), ["ViewContent", { content_ids: ["posventa-whatsapp"] }]);
 });
+
+test("view_landing: GA4 con landing, píxel ViewContent con content_name", () => {
+  const event = { name: "view_landing", landing: "rigi-proveedores" } as const;
+  assert.deepEqual(toGa(event, "es"), ["view_landing", { page_locale: "es", landing: "rigi-proveedores" }]);
+  assert.deepEqual(toPixel(event), [
+    "ViewContent",
+    { content_name: "rigi-proveedores", content_category: "landing" },
+  ]);
+});

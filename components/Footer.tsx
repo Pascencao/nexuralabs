@@ -1,11 +1,19 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
-import { ROUTES } from "@/lib/i18n/routes";
+import { ROUTES, isHubPath } from "@/lib/i18n/routes";
+
+const LINK_CLASS =
+  "rounded text-xs text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold";
 
 export default function Footer() {
   const { dict, locale } = useLanguage();
   const year = new Date().getFullYear();
+  const pathname = usePathname() ?? "";
+
+  // Landings RIGI: usan su propio footer (components/landing/hub/HubFooter).
+  if (isHubPath(pathname)) return null;
 
   return (
     <footer className="bg-ink-dark py-10">
@@ -14,16 +22,27 @@ export default function Footer() {
           NEXURA<span className="text-gold">LABS</span>
         </span>
         <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+          <nav
+            aria-label={dict.footer.rigiNavAria}
+            className="flex flex-col items-center gap-3 sm:flex-row sm:gap-5"
+          >
+            <a href={ROUTES.rigiProveedores[locale]} className={LINK_CLASS}>
+              {dict.footer.rigiSuppliers}
+            </a>
+            <a href={ROUTES.rigiEmpresas[locale]} className={LINK_CLASS}>
+              {dict.footer.rigiCompanies}
+            </a>
+          </nav>
           <nav aria-label={dict.footer.legalNavAria} className="flex items-center gap-5">
             <a
               href={ROUTES.privacy[locale]}
-              className="rounded text-xs text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className={LINK_CLASS}
             >
               {dict.footer.privacy}
             </a>
             <a
               href={ROUTES.terms[locale]}
-              className="rounded text-xs text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className={LINK_CLASS}
             >
               {dict.footer.terms}
             </a>

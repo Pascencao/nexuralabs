@@ -10,12 +10,17 @@ export const ROUTES = {
   terms: { es: "/terms", en: "/en/terms" },
   iaPosventa: { es: "/ia-posventa", en: "/en/ai-after-sales" },
   rescateIa: { es: "/rescate-ia", en: "/en/ai-rescue" },
+  rigiProveedores: { es: "/rigi-proveedores", en: "/en/rigi-suppliers" },
+  rigiEmpresas: { es: "/rigi-empresas", en: "/en/rigi-companies" },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 export type PageKey = keyof typeof ROUTES;
 
 /** Landings de un solo mensaje: header reducido (logo, idioma y "Hablemos"). */
 export const LANDING_KEYS = ["iaPosventa", "rescateIa"] as const satisfies readonly PageKey[];
+
+/** Landings RIGI: traen su propio nav y footer (handoff "sala de control"); el header y el footer del sitio no se muestran. */
+export const HUB_KEYS = ["rigiProveedores", "rigiEmpresas"] as const satisfies readonly PageKey[];
 
 const LOCALES_IN_ORDER: readonly Locale[] = ["es", "en"];
 
@@ -47,4 +52,9 @@ export function homeAnchor(locale: Locale, anchor: string): string {
 export function isLandingPath(pathname: string): boolean {
   const match = pageKeyFromPath(pathname);
   return match !== null && (LANDING_KEYS as readonly PageKey[]).includes(match.key);
+}
+
+export function isHubPath(pathname: string): boolean {
+  const match = pageKeyFromPath(pathname);
+  return match !== null && (HUB_KEYS as readonly PageKey[]).includes(match.key);
 }

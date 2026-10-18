@@ -12,6 +12,8 @@ const SETTINGS: Record<
   terms: { priority: 0.4, changeFrequency: "yearly" },
   iaPosventa: { priority: 0.8, changeFrequency: "monthly" },
   rescateIa: { priority: 0.8, changeFrequency: "monthly" },
+  rigiProveedores: { priority: 0.8, changeFrequency: "monthly" },
+  rigiEmpresas: { priority: 0.8, changeFrequency: "monthly" },
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {

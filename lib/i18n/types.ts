@@ -1,4 +1,10 @@
-import type { FieldError, Need } from "@/lib/forms/validate";
+import type {
+  ContactChannel,
+  FieldError,
+  Need,
+  SupplierSector,
+  SystemOption,
+} from "@/lib/forms/validate";
 
 export type Dictionary = {
   meta: {
@@ -13,6 +19,10 @@ export type Dictionary = {
     posventaDescription: string;
     rescueTitle: string;
     rescueDescription: string;
+    rigiSuppliersTitle: string;
+    rigiSuppliersDescription: string;
+    rigiCompaniesTitle: string;
+    rigiCompaniesDescription: string;
   };
   jsonLd: {
     organizationDescription: string;
@@ -136,6 +146,29 @@ export type Dictionary = {
     success: string;
     error: string;
   };
+  /** Etiquetas comunes de los formularios de las landings RIGI. */
+  rigiForm: {
+    fields: {
+      name: string;
+      company: string;
+      role: string;
+      email: string;
+      workEmail: string;
+      phone: string;
+      phoneWhatsapp: string;
+      sector: string;
+      channel: string;
+      systems: string;
+      goal: string;
+    };
+    sectorPlaceholder: string;
+    sectorOptions: Record<SupplierSector, string>;
+    channelOptions: Record<ContactChannel, string>;
+    systemOptions: Record<SystemOption, string>;
+    privacy: { before: string; link: string; after: string };
+    sending: string;
+    error: string;
+  };
   landings: {
     posventa: {
       hero: LandingHeroCopy;
@@ -149,12 +182,95 @@ export type Dictionary = {
       symptoms: { kicker: string; title: string; items: { name: string; description: string }[] };
       approach: { kicker: string; title: string; steps: { name: string; description: string }[] };
     };
+    rigiSuppliers: {
+      nav: HubNavCopy;
+      hero: HubHeroCopy & {
+        chart: {
+          windowTitle: string;
+          title: string;
+          /** Leyenda obligatoria: "Ejemplo ilustrativo". */
+          tag: string;
+          scaleLabel: string;
+          /** Un puntaje (0–5) por área, en el mismo orden que `areas.items`. */
+          scores: number[];
+        };
+      };
+      offer: HubStat[];
+      why: HubSectionHead & { items: NamedItem[]; note: string };
+      areas: HubSectionHead & { items: NamedItem[] };
+      deliverables: HubSectionHead & { items: NamedItem[] };
+      process: HubSectionHead & { stepLabel: string; steps: NamedItem[] };
+      audience: HubSectionHead & { items: string[] };
+      /** El caso sale de `cases.items[0]` (el mismo de la home). */
+      precedent: HubSectionHead & { problemLabel: string; solutionLabel: string };
+      faq: HubFaqCopy;
+      contact: HubContactCopy;
+    };
+    rigiCompanies: {
+      nav: HubNavCopy;
+      hero: HubHeroCopy & {
+        systems: string[];
+        console: {
+          title: string;
+          live: string;
+          kpis: { value: string; label: string; warn?: boolean }[];
+          question: string;
+          answer: string;
+        };
+      };
+      offer: HubStat[];
+      beforeAfter: HubSectionHead & {
+        today: HubTimeline;
+        withHub: HubTimeline;
+        caption: string;
+        pains: NamedItem[];
+      };
+      how: HubSectionHead & { steps: NamedItem[] };
+      console: HubSectionHead & {
+        tabsLabel: string;
+        windowTitle: string;
+        sampleTag: string;
+        alertsTitle: string;
+        assistantTitle: string;
+        assistantHint: string;
+        inputPlaceholder: string;
+        sendLabel: string;
+        inRange: string;
+        attention: string;
+        roles: {
+          id: string;
+          label: string;
+          kpis: { value: string; label: string; ok: boolean; pct: number }[];
+          alerts: { t: string; x: string }[];
+          question: string;
+          answer: string;
+        }[];
+      };
+      ypf: HubSectionHead & {
+        stats: HubStat[];
+        footnote: string;
+        sourcesLabel: string;
+        sources: { name: string; url: string }[];
+      };
+      pilot: HubSectionHead & {
+        weekLabel: string;
+        weeks: NamedItem[];
+        security: { title: string; subtitle: string; items: { title: string; text: string }[] };
+      };
+      faq: HubFaqCopy;
+      contact: HubContactCopy;
+    };
+    /** Textos comunes del nav y el footer de las landings RIGI. */
+    hub: { menuLabel: string; footerTagline: string };
   };
   footer: {
     rights: string;
     privacy: string;
     terms: string;
     legalNavAria: string;
+    rigiNavAria: string;
+    rigiSuppliers: string;
+    rigiCompanies: string;
   };
   legal: {
     privacy: { title: string; backHome: string; lastUpdated: string };
@@ -190,3 +306,38 @@ export type CaseStudy = {
 };
 
 export type LandingHeroCopy = { kicker: string; title: string; intro: string; cta: string };
+
+export type NamedItem = { name: string; description: string };
+
+export type HubNavCopy = { links: { anchor: string; label: string }[]; cta: string };
+
+export type HubHeroCopy = {
+  eyebrow: string;
+  /** Líneas del h1; la última (`titleHighlight`) va en ámbar. */
+  titleLines: string[];
+  titleHighlight: string;
+  lead: string;
+  primaryCta: string;
+  secondaryCta: string;
+  checks: string[];
+};
+
+export type HubStat = { value: string; label: string };
+
+export type HubSectionHead = { eyebrow: string; title: string; intro?: string };
+
+export type HubTimeline = { title: string; tag: string; moments: { t: string; x: string }[] };
+
+export type HubFaqCopy = HubSectionHead & {
+  more: { before: string; link: string; after: string };
+  items: { q: string; a: string }[];
+};
+
+export type HubContactCopy = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  steps: string[];
+  submit: string;
+  success: string;
+};
