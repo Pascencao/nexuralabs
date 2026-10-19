@@ -288,6 +288,14 @@ const es: Dictionary = {
       },
     ],
   },
+  rigiTeaser: {
+    kicker: "RIGI · PROVEEDORES Y EMPRESAS",
+    title: "Servicios para el ecosistema RIGI",
+    body: "Dos servicios pensados para los grandes proyectos del Régimen de Incentivo para Grandes Inversiones: uno para quienes les proveen bienes y servicios, y otro para las empresas que los ejecutan.",
+    panelTitle: "servicios / rigi",
+    panelTag: "2 SERVICIOS",
+    cta: "Ver servicios RIGI",
+  },
   contact: {
     kicker: "Contacto",
     title: "Hablemos",

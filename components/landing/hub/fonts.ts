@@ -23,3 +23,6 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const hubFontVars = `${display.variable} ${plex.variable} ${plexMono.variable}`;
+
+/** Para el panel RIGI de la home: solo display y mono (el texto corrido sigue en Inter). */
+export const hubAccentFontVars = `${display.variable} ${plexMono.variable}`;

@@ -119,6 +119,16 @@ export type Dictionary = {
     title: string;
     items: { q: string; a: string }[];
   };
+  /** Banda de la home que lleva a /rigi. */
+  rigiTeaser: {
+    kicker: string;
+    title: string;
+    body: string;
+    /** Cabecera del panel estilo "sala de control"; los servicios salen de landings.rigiHub. */
+    panelTitle: string;
+    panelTag: string;
+    cta: string;
+  };
   contact: {
     kicker: string;
     title: string;

@@ -10,41 +10,57 @@ type ConsoleCopy = {
 
 const LINE_YS = [22, 74, 126, 178, 230, 282];
 
+/** Columna de sistemas (chips oscuros con punto ámbar). */
+export function SystemChips({ systems, className = "" }: { systems: string[]; className?: string }) {
+  return (
+    <ul className={`flex gap-2.5 ${className}`.trim()}>
+      {systems.map((system) => (
+        <li
+          key={system}
+          className="flex items-center gap-2 whitespace-nowrap rounded-[10px] border border-[#243042] bg-hub-surface px-3 py-2.5 text-[13px] text-[#D5DCE6]"
+        >
+          <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-hub-amber" />
+          {system}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** Seis curvas punteadas animadas que convergen hacia la derecha (los datos "fluyendo"). */
+export function FlowLines({ stroke = "#F4B740", className = "" }: { stroke?: string; className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width="72"
+      height="300"
+      viewBox="0 0 72 300"
+      preserveAspectRatio="none"
+      className={`shrink-0 ${className}`.trim()}
+    >
+      {LINE_YS.map((y) => (
+        <path
+          key={y}
+          className="hub-flow"
+          d={`M0 ${y} C40 ${y} 36 150 72 150`}
+          fill="none"
+          stroke={stroke}
+          strokeWidth="1.5"
+        />
+      ))}
+    </svg>
+  );
+}
+
 /** Visual del hero: los 6 sistemas convergen (líneas animadas) en una mini consola. */
 export default function SystemsToConsole({ systems, copy }: { systems: string[]; copy: ConsoleCopy }) {
   return (
     <div className="flex min-w-0 flex-[1_1_560px] flex-col items-center gap-4 min-[720px]:flex-row min-[720px]:gap-0">
-      <ul className="flex w-full flex-row flex-wrap gap-2.5 min-[720px]:w-[132px] min-[720px]:shrink-0 min-[720px]:flex-col">
-        {systems.map((system) => (
-          <li
-            key={system}
-            className="flex items-center gap-2 whitespace-nowrap rounded-[10px] border border-[#243042] bg-hub-surface px-3 py-2.5 text-[13px] text-[#D5DCE6]"
-          >
-            <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-hub-amber" />
-            {system}
-          </li>
-        ))}
-      </ul>
-
-      <svg
-        aria-hidden="true"
-        width="72"
-        height="300"
-        viewBox="0 0 72 300"
-        preserveAspectRatio="none"
-        className="hidden shrink-0 min-[720px]:block"
-      >
-        {LINE_YS.map((y) => (
-          <path
-            key={y}
-            className="hub-flow"
-            d={`M0 ${y} C40 ${y} 36 150 72 150`}
-            fill="none"
-            stroke="#F4B740"
-            strokeWidth="1.5"
-          />
-        ))}
-      </svg>
+      <SystemChips
+        systems={systems}
+        className="w-full flex-row flex-wrap min-[720px]:w-[132px] min-[720px]:shrink-0 min-[720px]:flex-col"
+      />
+      <FlowLines className="hidden min-[720px]:block" />
 
       <div className="w-full min-w-0 flex-auto overflow-hidden rounded-[18px] border border-hub-line-2 bg-hub-ink-2 shadow-[0_30px_80px_rgba(0,0,0,.5),0_0_0_6px_rgba(244,183,64,.06)]">
         <div className="flex items-center justify-between border-b border-hub-line px-4 py-3">
