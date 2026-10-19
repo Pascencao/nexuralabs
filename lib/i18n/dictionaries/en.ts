@@ -286,7 +286,7 @@ const en: Dictionary = {
     ],
   },
   rigiTeaser: {
-    kicker: "RIGI",
+    kicker: "RIGI · SUPPLIERS AND COMPANIES",
     title: "Services for the RIGI ecosystem",
     body: "Two services built for large projects under Argentina's Large Investment Incentive Regime: one for the companies that supply them, and one for the companies that build and run them.",
     panelTitle: "services / rigi",
