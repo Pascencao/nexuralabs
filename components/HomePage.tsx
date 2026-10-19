@@ -17,13 +17,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <RigiTeaser />
       <ProblemSection />
       <ServiceLines />
       <ServiceDetails />
       <ConnectionDiagram />
       <AiApproach />
       <CaseStudies />
-      <RigiTeaser />
       <ChecklistOffer />
       <About />
       <Companies />
