@@ -26,7 +26,7 @@ const en: Dictionary = {
 
     rigiHubTitle: "RIGI Services for Suppliers and Companies | Nexura Labs",
     rigiHubDescription:
-      "Do you sell to a RIGI project or run one? A 4.0 digital maturity assessment for suppliers and a systems integration hub for companies.",
+      "A 4.0 digital maturity assessment for suppliers and a systems integration hub for companies that build or operate RIGI projects.",
     rigiSuppliersTitle: "Digital Maturity 4.0 Assessment for RIGI Suppliers | Nexura Labs",
     rigiSuppliersDescription:
       "We measure your company's digital maturity across 5 areas in 2 to 3 weeks and hand you a 0–5 score and a prioritized action plan.",
@@ -489,48 +489,52 @@ const en: Dictionary = {
       },
     },
     rigiHub: {
-      nav: { suppliers: "Suppliers", companies: "Companies", cta: "Pick your side" },
+      nav: { suppliers: "Suppliers", companies: "Companies", cta: "View solutions" },
       hero: {
-        eyebrow: "RIGI · SUPPLIERS AND COMPANIES",
-        titleLines: ["Which side of"],
-        titleHighlight: "the RIGI are you on?",
-        lead: "Large RIGI projects need two things: suppliers who can show up-to-date data, and companies that see their whole operation on one screen. Pick your side.",
+        eyebrow: "RIGI · SOLUTIONS FOR SUPPLIERS AND COMPANIES",
+        titleLines: ["Two roles in the RIGI."],
+        titleHighlight: "One solution for each.",
+        lead: "Projects under Argentina's Large Investment Incentive Regime (RIGI) require reliable information across the whole chain: suppliers with up-to-date data and documentation, and companies with full visibility of their operations. Each profile has a dedicated service.",
       },
-      chooseLabel: "Pick your side",
+      chooseLabel: "Solutions by profile",
       supplier: {
-        tag: "I'M A SUPPLIER",
-        title: "I want to sell to large projects.",
-        text: "4.0 digital maturity assessment: we measure your company across 5 areas and hand you a score and an action plan.",
+        tag: "SUPPLIERS",
+        title: "4.0 Digital Maturity Assessment",
+        text: "For companies that supply goods and services to RIGI projects. We assess five management areas and deliver a score per area and a prioritized action plan.",
         facts: [
           { value: "5", label: "areas assessed" },
-          { value: "2–3", label: "weeks" },
+          { value: "2–3", label: "weeks of work" },
         ],
-        cta: "Take the 4.0 test",
+        cta: "Explore the assessment",
       },
       company: {
-        tag: "I'M A RIGI COMPANY",
-        title: "I want to see my whole operation on one screen.",
-        text: "Nexura Hub: we connect ERP, fleet, plant, HR, logistics and documents into a single read-only console.",
+        tag: "RIGI COMPANIES",
+        title: "Systems Integration Hub",
+        text: "For companies that build or operate RIGI projects. We integrate ERP, fleet, plant, HR, logistics and documents into a single, read-only console.",
         facts: [
-          { value: "6", label: "systems in one view" },
+          { value: "6", label: "integrated systems" },
           { value: "30", label: "days of proof of value" },
         ],
-        cta: "See the hub",
+        cta: "Explore the hub",
       },
       help: {
-        eyebrow: "NOT SURE?",
-        title: "How to tell which one is yours.",
+        eyebrow: "HOW TO CHOOSE",
+        title: "Which service applies to each organization.",
         items: [
           {
-            lead: "You're a supplier if",
-            text: "you sell goods or services to a company that invests, or will invest, under the RIGI regime.",
+            lead: "Suppliers:",
+            text: "companies that supply, or aim to supply, goods or services to companies investing under the RIGI regime.",
           },
           {
-            lead: "You're a RIGI company if",
-            text: "your company builds or runs a project under the regime and needs to bring its areas' information together.",
+            lead: "RIGI companies:",
+            text: "companies that build or operate a project under the regime and need to integrate information across their areas.",
           },
         ],
-        contact: { before: "Still not sure? ", link: "Write to us", after: " and we'll point you the right way." },
+        contact: {
+          before: "Questions about which service applies: ",
+          link: "pablo@nexuralabs.agency",
+          after: "",
+        },
       },
     },
     rigiSuppliers: {
