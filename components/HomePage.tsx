@@ -6,6 +6,7 @@ import ConnectionDiagram from "@/components/ConnectionDiagram";
 import AiApproach from "@/components/AiApproach";
 import CaseStudies from "@/components/CaseStudies";
 import ChecklistOffer from "@/components/ChecklistOffer";
+import RigiTeaser from "@/components/RigiTeaser";
 import About from "@/components/About";
 import Companies from "@/components/Companies";
 import Stats from "@/components/Stats";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <ConnectionDiagram />
       <AiApproach />
       <CaseStudies />
+      <RigiTeaser />
       <ChecklistOffer />
       <About />
       <Companies />

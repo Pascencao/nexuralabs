@@ -119,6 +119,14 @@ export type Dictionary = {
     title: string;
     items: { q: string; a: string }[];
   };
+  /** Banda de la home que lleva a /rigi. */
+  rigiTeaser: {
+    kicker: string;
+    title: string;
+    body: string;
+    items: { name: string; description: string }[];
+    cta: string;
+  };
   contact: {
     kicker: string;
     title: string;

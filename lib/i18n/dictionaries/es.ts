@@ -288,6 +288,24 @@ const es: Dictionary = {
       },
     ],
   },
+  rigiTeaser: {
+    kicker: "RIGI",
+    title: "Servicios para el ecosistema RIGI",
+    body: "Dos servicios pensados para los grandes proyectos del Régimen de Incentivo para Grandes Inversiones: uno para quienes les proveen bienes y servicios, y otro para las empresas que los ejecutan.",
+    items: [
+      {
+        name: "Proveedores",
+        description:
+          "Diagnóstico de madurez digital 4.0: puntaje por área y plan de acción en 2 a 3 semanas.",
+      },
+      {
+        name: "Empresas del RIGI",
+        description:
+          "Hub de integración de sistemas: toda la operación en una consola, en modo solo lectura.",
+      },
+    ],
+    cta: "Ver servicios RIGI",
+  },
   contact: {
     kicker: "Contacto",
     title: "Hablemos",
