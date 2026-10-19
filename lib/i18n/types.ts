@@ -168,6 +168,8 @@ export type Dictionary = {
     channelOptions: Record<ContactChannel, string>;
     systemOptions: Record<SystemOption, string>;
     privacy: { before: string; link: string; after: string };
+    /** Mensajes de error propios de estos formularios (tono institucional, distinto del de la home). */
+    errors: Record<FieldError, string>;
     sending: string;
     error: string;
   };

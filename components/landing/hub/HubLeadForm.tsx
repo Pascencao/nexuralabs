@@ -178,7 +178,7 @@ export default function HubLeadForm({
     if (!code) return null;
     return (
       <span id={`rigi-${field}-error`} className={`text-[13px] font-medium ${ERROR_TEXT}`}>
-        {dict.formErrors[code]}
+        {f.errors[code]}
       </span>
     );
   }
