@@ -41,13 +41,20 @@ export default function ScoreConsole({
                     {format(row.score)} / {MAX}
                   </span>
                 </div>
-                <svg aria-hidden="true" className="mt-2 block h-2 w-full" viewBox="0 0 100 8" preserveAspectRatio="none">
-                  <rect x="0" y="0" width="100" height="8" rx="4" fill="#1F2A3A" />
+                {/* Barra en HTML (no SVG escalado) para que los extremos queden redondos a cualquier ancho. */}
+                <div aria-hidden="true" className="relative mt-2 h-2.5 w-full overflow-hidden rounded-full bg-hub-line">
                   {TICKS.slice(1, -1).map((t) => (
-                    <line key={t} x1={(t / MAX) * 100} x2={(t / MAX) * 100} y1="0" y2="8" stroke="#2A3647" strokeWidth="0.4" />
+                    <span
+                      key={t}
+                      className="absolute inset-y-0 w-px bg-hub-line-2"
+                      style={{ left: `${(t / MAX) * 100}%` }}
+                    />
                   ))}
-                  <rect x="0" y="0" width={pct} height="8" rx="4" fill={low ? "#F4B740" : "#4ADE9F"} />
-                </svg>
+                  <div
+                    className={`relative h-full rounded-full ${low ? "bg-hub-amber" : "bg-hub-live"}`}
+                    style={{ width: `${pct}%` }}
+                  />
+                </div>
               </li>
             );
           })}

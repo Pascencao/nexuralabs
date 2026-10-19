@@ -9,7 +9,7 @@ export default function HubShell({
   ctaHref,
   children,
 }: {
-  links: { anchor: string; label: string }[];
+  links: { href: string; label: string }[];
   cta: string;
   ctaHref: string;
   children: React.ReactNode;

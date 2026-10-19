@@ -18,7 +18,8 @@ export function track(event: AnalyticsEvent): void {
   const locale = isLocale(lang) ? lang : "es";
   try {
     window.gtag?.("event", ...toGa(event, locale));
-    window.fbq?.("track", ...toPixel(event));
+    const pixel = toPixel(event);
+    if (pixel) window.fbq?.("track", ...pixel);
   } catch {
     // La medición nunca debe romper la página.
   }

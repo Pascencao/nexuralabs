@@ -8,7 +8,8 @@ export type AnalyticsEvent =
   | { name: "form_submit"; need: string }
   | { name: "download_checklist" }
   | { name: "view_case"; caseId: string }
-  | { name: "view_landing"; landing: string };
+  | { name: "view_landing"; landing: string }
+  | { name: "select_rigi_path"; path: "proveedores" | "empresas" };
 
 export type PixelStandardEvent = "Contact" | "Lead" | "CompleteRegistration" | "ViewContent";
 
@@ -28,11 +29,13 @@ export function toGa(event: AnalyticsEvent, locale: Locale): [string, Params] {
       return [event.name, { ...base, case_id: event.caseId }];
     case "view_landing":
       return [event.name, { ...base, landing: event.landing }];
+    case "select_rigi_path":
+      return [event.name, { ...base, path: event.path }];
   }
 }
 
-/** Evento estándar equivalente del píxel de Meta. */
-export function toPixel(event: AnalyticsEvent): [PixelStandardEvent, Params] {
+/** Evento estándar equivalente del píxel de Meta (null: el evento solo va a GA4). */
+export function toPixel(event: AnalyticsEvent): [PixelStandardEvent, Params] | null {
   switch (event.name) {
     case "click_hablemos":
       return ["Contact", {}];
@@ -44,5 +47,8 @@ export function toPixel(event: AnalyticsEvent): [PixelStandardEvent, Params] {
       return ["ViewContent", { content_ids: [event.caseId] }];
     case "view_landing":
       return ["ViewContent", { content_name: event.landing, content_category: "landing" }];
+    case "select_rigi_path":
+      // La elección no es un evento estándar del píxel; la landing de destino ya dispara ViewContent.
+      return null;
   }
 }

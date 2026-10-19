@@ -54,7 +54,7 @@ const FIELD_ORDER: Record<RigiOrigin, Field[]> = {
 const ERROR_TEXT = "text-[#B42318]";
 const LABEL = "flex flex-col gap-1.5 text-[13px] font-semibold text-hub-ink";
 const CONTROL =
-  "w-full rounded-[10px] border bg-white px-3.5 py-3 font-plex text-[15px] font-normal text-hub-ink min-h-[46px] focus:border-hub-ink focus:outline-none focus:ring-2 focus:ring-hub-ink/20";
+  "w-full rounded-[10px] border bg-white px-3.5 py-3 font-plex text-[15px] font-normal text-hub-ink min-h-[46px] focus:border-hub-ink focus:outline-none focus:ring-2 focus:ring-[rgba(10,14,20,.2)]";
 
 function controlClass(invalid: boolean) {
   return `${CONTROL} ${invalid ? "border-2 border-[#B42318]" : "border-[#C9CDD3]"}`;
@@ -178,7 +178,7 @@ export default function HubLeadForm({
     if (!code) return null;
     return (
       <span id={`rigi-${field}-error`} className={`text-[13px] font-medium ${ERROR_TEXT}`}>
-        {dict.formErrors[code]}
+        {f.errors[code]}
       </span>
     );
   }
@@ -340,7 +340,7 @@ export default function HubLeadForm({
             onChange={(e) => update("privacy", e.target.checked)}
             aria-invalid={Boolean(errors.privacy) || undefined}
             aria-describedby={errors.privacy ? "rigi-privacy-error" : undefined}
-            className="h-5 w-5 shrink-0 rounded border-[#C9CDD3] text-hub-ink focus:ring-2 focus:ring-hub-ink/20"
+            className="h-5 w-5 shrink-0 rounded border-[#C9CDD3] text-hub-ink focus:ring-2 focus:ring-[rgba(10,14,20,.2)]"
           />
           <span>
             {f.privacy.before}

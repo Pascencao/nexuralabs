@@ -19,6 +19,8 @@ export type Dictionary = {
     posventaDescription: string;
     rescueTitle: string;
     rescueDescription: string;
+    rigiHubTitle: string;
+    rigiHubDescription: string;
     rigiSuppliersTitle: string;
     rigiSuppliersDescription: string;
     rigiCompaniesTitle: string;
@@ -166,6 +168,8 @@ export type Dictionary = {
     channelOptions: Record<ContactChannel, string>;
     systemOptions: Record<SystemOption, string>;
     privacy: { before: string; link: string; after: string };
+    /** Mensajes de error propios de estos formularios (tono institucional, distinto del de la home). */
+    errors: Record<FieldError, string>;
     sending: string;
     error: string;
   };
@@ -181,6 +185,20 @@ export type Dictionary = {
       hero: LandingHeroCopy;
       symptoms: { kicker: string; title: string; items: { name: string; description: string }[] };
       approach: { kicker: string; title: string; steps: { name: string; description: string }[] };
+    };
+    /** Página de entrada /rigi: el visitante elige si es proveedor o empresa. */
+    rigiHub: {
+      nav: { suppliers: string; companies: string; cta: string };
+      hero: { eyebrow: string; titleLines: string[]; titleHighlight: string; lead: string };
+      chooseLabel: string;
+      supplier: HubChoice;
+      company: HubChoice;
+      help: {
+        eyebrow: string;
+        title: string;
+        items: { lead: string; text: string }[];
+        contact: { before: string; link: string; after: string };
+      };
     };
     rigiSuppliers: {
       nav: HubNavCopy;
@@ -269,8 +287,7 @@ export type Dictionary = {
     terms: string;
     legalNavAria: string;
     rigiNavAria: string;
-    rigiSuppliers: string;
-    rigiCompanies: string;
+    rigiHub: string;
   };
   legal: {
     privacy: { title: string; backHome: string; lastUpdated: string };
@@ -323,6 +340,8 @@ export type HubHeroCopy = {
 };
 
 export type HubStat = { value: string; label: string };
+
+export type HubChoice = { tag: string; title: string; text: string; facts: HubStat[]; cta: string };
 
 export type HubSectionHead = { eyebrow: string; title: string; intro?: string };
 

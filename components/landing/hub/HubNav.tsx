@@ -20,7 +20,7 @@ export default function HubNav({
   cta,
   ctaHref,
 }: {
-  links: { anchor: string; label: string }[];
+  links: { href: string; label: string }[];
   cta: string;
   ctaHref: string;
 }) {
@@ -46,7 +46,7 @@ export default function HubNav({
 
         <nav aria-label={dict.header.navAria} className="hidden flex-wrap gap-6 min-[720px]:flex">
           {links.map((link) => (
-            <a key={link.anchor} href={`#${link.anchor}`} className={linkClass}>
+            <a key={link.href} href={link.href} className={linkClass}>
               {link.label}
             </a>
           ))}
@@ -84,8 +84,8 @@ export default function HubNav({
         >
           {links.map((link) => (
             <a
-              key={link.anchor}
-              href={`#${link.anchor}`}
+              key={link.href}
+              href={link.href}
               onClick={() => setOpen(false)}
               className="flex min-h-[44px] items-center rounded text-base text-hub-text no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hub-amber"
             >

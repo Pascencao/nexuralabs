@@ -34,3 +34,9 @@ test("view_landing: GA4 con landing, píxel ViewContent con content_name", () =>
     { content_name: "rigi-proveedores", content_category: "landing" },
   ]);
 });
+
+test("select_rigi_path: GA4 con path, sin evento de píxel", () => {
+  const event = { name: "select_rigi_path", path: "empresas" } as const;
+  assert.deepEqual(toGa(event, "es"), ["select_rigi_path", { page_locale: "es", path: "empresas" }]);
+  assert.equal(toPixel(event), null);
+});

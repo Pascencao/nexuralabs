@@ -7,7 +7,7 @@ import HubContact from "@/components/landing/hub/HubContact";
 import HubLeadForm from "@/components/landing/hub/HubLeadForm";
 import ScoreConsole from "@/components/landing/hub/ScoreConsole";
 import TrackLandingView from "@/components/landing/hub/TrackLandingView";
-import { Container, HeroText, OfferStrip, Section, SectionHead } from "@/components/landing/hub/ui";
+import { Container, HeroText, OfferStrip, Section, SectionHead, anchorLinks } from "@/components/landing/hub/ui";
 import { track } from "@/lib/analytics/track";
 
 const FORM_ID = "reservar";
@@ -23,7 +23,7 @@ export default function RigiSuppliersLanding() {
   }));
 
   return (
-    <HubShell links={r.nav.links} cta={r.nav.cta} ctaHref={formHref}>
+    <HubShell links={anchorLinks(r.nav.links)} cta={r.nav.cta} ctaHref={formHref}>
       <TrackLandingView landing="rigi-proveedores" />
 
       <section id="top" className="hub-grid border-b border-[#1C2534]">

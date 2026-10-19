@@ -51,7 +51,7 @@ Sitio de Nexura Labs, la consultoría de tecnología y crecimiento de Pablo Asce
 
 ## Landings RIGI
 
-`/rigi-proveedores` y `/rigi-empresas` (y sus versiones en `/en`) siguen el handoff "Landing Hub Nexura": otro sistema visual (Bricolage Grotesque + IBM Plex, tinta `#0A0E14`, ámbar `#F4B740`), con su propio nav y footer (`components/landing/hub/`). Los tokens viven en `.hub-theme` (`app/globals.css`) y en `hub.*` de `tailwind.config.js`. El header y el footer del sitio no se muestran en esas rutas (`HUB_KEYS` en `lib/i18n/routes.ts`).
+`/rigi` (página de entrada: el visitante elige si es proveedor o empresa), `/rigi-proveedores` y `/rigi-empresas` (y sus versiones en `/en`) siguen el handoff "Landing Hub Nexura": otro sistema visual (Bricolage Grotesque + IBM Plex, tinta `#0A0E14`, ámbar `#F4B740`), con su propio nav y footer (`components/landing/hub/`). Los tokens viven en `.hub-theme` (`app/globals.css`) y en `hub.*` de `tailwind.config.js`. El header y el footer del sitio no se muestran en esas rutas (`HUB_KEYS` en `lib/i18n/routes.ts`).
 
 ## Placeholders
 
@@ -105,7 +105,8 @@ npm run build:checklist   # regenera public/downloads/checklist-ia-{es,en}.pdf
 | `form_submit` | `need` | `Lead` | Envío exitoso del formulario de contacto |
 | `download_checklist` | — | `CompleteRegistration` | Envío exitoso del checklist |
 | `view_case` | `case_id` | `ViewContent` | Card de un caso visible al 50 % (una vez por carga) |
-| `view_landing` | `landing` (`rigi-proveedores`, `rigi-empresas`) | `ViewContent` | Carga de una landing RIGI |
+| `view_landing` | `landing` (`rigi`, `rigi-proveedores`, `rigi-empresas`) | `ViewContent` | Carga de una landing RIGI |
+| `select_rigi_path` | `path` (`proveedores`, `empresas`) | — (solo GA4) | Clic en una de las dos opciones de `/rigi` |
 
 Los formularios de las landings RIGI disparan `form_submit` con `need` = `rigi-proveedores` o `rigi-empresas` (→ `Lead` en el píxel).
 

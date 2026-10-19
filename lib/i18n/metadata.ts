@@ -40,6 +40,7 @@ const PAGE_TEXT: Record<PageKey, (d: Dictionary) => { title: string; description
   terms: (d) => ({ title: d.meta.termsTitle, description: d.meta.termsDescription }),
   iaPosventa: (d) => ({ title: d.meta.posventaTitle, description: d.meta.posventaDescription }),
   rescateIa: (d) => ({ title: d.meta.rescueTitle, description: d.meta.rescueDescription }),
+  rigi: (d) => ({ title: d.meta.rigiHubTitle, description: d.meta.rigiHubDescription }),
   rigiProveedores: (d) => ({
     title: d.meta.rigiSuppliersTitle,
     description: d.meta.rigiSuppliersDescription,

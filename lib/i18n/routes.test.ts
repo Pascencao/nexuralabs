@@ -53,6 +53,7 @@ test("homeAnchor arma anclas de la home por idioma", () => {
 test("ROUTES incluye las landings con slugs traducidos", () => {
   assert.deepEqual(ROUTES.iaPosventa, { es: "/ia-posventa", en: "/en/ai-after-sales" });
   assert.deepEqual(ROUTES.rescateIa, { es: "/rescate-ia", en: "/en/ai-rescue" });
+  assert.deepEqual(ROUTES.rigi, { es: "/rigi", en: "/en/rigi" });
   assert.deepEqual(ROUTES.rigiProveedores, { es: "/rigi-proveedores", en: "/en/rigi-suppliers" });
   assert.deepEqual(ROUTES.rigiEmpresas, { es: "/rigi-empresas", en: "/en/rigi-companies" });
   assert.deepEqual([...LANDING_KEYS], ["iaPosventa", "rescateIa"]);
@@ -73,6 +74,8 @@ test("isLandingPath reconoce solo las landings", () => {
 });
 
 test("isHubPath reconoce solo las landings RIGI", () => {
+  assert.equal(isHubPath("/rigi"), true);
+  assert.equal(isHubPath("/en/rigi"), true);
   assert.equal(isHubPath("/rigi-proveedores"), true);
   assert.equal(isHubPath("/en/rigi-companies"), true);
   assert.equal(isHubPath("/rescate-ia"), false);
