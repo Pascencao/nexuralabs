@@ -8,7 +8,7 @@ import HubLeadForm from "@/components/landing/hub/HubLeadForm";
 import RoleConsole from "@/components/landing/hub/RoleConsole";
 import SystemsToConsole from "@/components/landing/hub/SystemsToConsole";
 import TrackLandingView from "@/components/landing/hub/TrackLandingView";
-import { Container, HeroText, OfferStrip, Section, SectionHead } from "@/components/landing/hub/ui";
+import { Container, HeroText, OfferStrip, Section, SectionHead, anchorLinks } from "@/components/landing/hub/ui";
 import { track } from "@/lib/analytics/track";
 import type { HubTimeline } from "@/lib/i18n/types";
 
@@ -56,7 +56,7 @@ export default function RigiCompaniesLanding() {
   const formHref = `#${FORM_ID}`;
 
   return (
-    <HubShell links={r.nav.links} cta={r.nav.cta} ctaHref={formHref}>
+    <HubShell links={anchorLinks(r.nav.links)} cta={r.nav.cta} ctaHref={formHref}>
       <TrackLandingView landing="rigi-empresas" />
 
       <section id="top" className="hub-grid border-b border-[#1C2534]">

@@ -24,6 +24,9 @@ const en: Dictionary = {
     rescueDescription:
       "Your AI pilot never reached production. We audit the tech and the business case in 2 weeks, build a fix plan and get it running with metrics.",
 
+    rigiHubTitle: "RIGI Services for Suppliers and Companies | Nexura Labs",
+    rigiHubDescription:
+      "Do you sell to a RIGI project or run one? A 4.0 digital maturity assessment for suppliers and a systems integration hub for companies.",
     rigiSuppliersTitle: "Digital Maturity 4.0 Assessment for RIGI Suppliers | Nexura Labs",
     rigiSuppliersDescription:
       "We measure your company's digital maturity across 5 areas in 2 to 3 weeks and hand you a 0–5 score and a prioritized action plan.",
@@ -483,6 +486,51 @@ const en: Dictionary = {
               "We get it running inside your operation, with quality, usage and cost metrics.",
           },
         ],
+      },
+    },
+    rigiHub: {
+      nav: { suppliers: "Suppliers", companies: "Companies", cta: "Pick your side" },
+      hero: {
+        eyebrow: "RIGI · SUPPLIERS AND COMPANIES",
+        titleLines: ["Which side of"],
+        titleHighlight: "the RIGI are you on?",
+        lead: "Large RIGI projects need two things: suppliers who can show up-to-date data, and companies that see their whole operation on one screen. Pick your side.",
+      },
+      chooseLabel: "Pick your side",
+      supplier: {
+        tag: "I'M A SUPPLIER",
+        title: "I want to sell to large projects.",
+        text: "4.0 digital maturity assessment: we measure your company across 5 areas and hand you a score and an action plan.",
+        facts: [
+          { value: "5", label: "areas assessed" },
+          { value: "2–3", label: "weeks" },
+        ],
+        cta: "Take the 4.0 test",
+      },
+      company: {
+        tag: "I'M A RIGI COMPANY",
+        title: "I want to see my whole operation on one screen.",
+        text: "Nexura Hub: we connect ERP, fleet, plant, HR, logistics and documents into a single read-only console.",
+        facts: [
+          { value: "6", label: "systems in one view" },
+          { value: "30", label: "days of proof of value" },
+        ],
+        cta: "See the hub",
+      },
+      help: {
+        eyebrow: "NOT SURE?",
+        title: "How to tell which one is yours.",
+        items: [
+          {
+            lead: "You're a supplier if",
+            text: "you sell goods or services to a company that invests, or will invest, under the RIGI regime.",
+          },
+          {
+            lead: "You're a RIGI company if",
+            text: "your company builds or runs a project under the regime and needs to bring its areas' information together.",
+          },
+        ],
+        contact: { before: "Still not sure? ", link: "Write to us", after: " and we'll point you the right way." },
       },
     },
     rigiSuppliers: {
@@ -949,8 +997,7 @@ const en: Dictionary = {
     terms: "Terms of Service",
     legalNavAria: "Legal",
     rigiNavAria: "RIGI services",
-    rigiSuppliers: "RIGI: supplier assessment",
-    rigiCompanies: "RIGI: hub for companies",
+    rigiHub: "RIGI services",
   },
   legal: {
     privacy: {

@@ -26,11 +26,8 @@ export default function Footer() {
             aria-label={dict.footer.rigiNavAria}
             className="flex flex-col items-center gap-3 sm:flex-row sm:gap-5"
           >
-            <a href={ROUTES.rigiProveedores[locale]} className={LINK_CLASS}>
-              {dict.footer.rigiSuppliers}
-            </a>
-            <a href={ROUTES.rigiEmpresas[locale]} className={LINK_CLASS}>
-              {dict.footer.rigiCompanies}
+            <a href={ROUTES.rigi[locale]} className={LINK_CLASS}>
+              {dict.footer.rigiHub}
             </a>
           </nav>
           <nav aria-label={dict.footer.legalNavAria} className="flex items-center gap-5">

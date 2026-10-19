@@ -2,6 +2,11 @@
 
 export type Tone = "dark" | "light" | "amber";
 
+/** Links del nav que apuntan a secciones de la misma página. */
+export function anchorLinks(links: { anchor: string; label: string }[]) {
+  return links.map((link) => ({ href: `#${link.anchor}`, label: link.label }));
+}
+
 export function Container({ className = "", children }: { className?: string; children: React.ReactNode }) {
   return <div className={`mx-auto max-w-[1240px] px-6 ${className}`.trim()}>{children}</div>;
 }

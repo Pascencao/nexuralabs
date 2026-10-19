@@ -23,6 +23,9 @@ const es: Dictionary = {
     rescueTitle: "Rescate de proyectos de IA trabados | Nexura Labs",
     rescueDescription:
       "Tu piloto de IA no llegó a producción. Auditamos lo técnico y lo de negocio en 2 semanas, armamos un plan de corrección y lo ponemos a funcionar con métricas.",
+    rigiHubTitle: "Servicios RIGI para proveedores y empresas | Nexura Labs",
+    rigiHubDescription:
+      "¿Le vendés a un proyecto RIGI o lo operás? Diagnóstico de madurez digital 4.0 para proveedores y hub de integración de sistemas para empresas.",
     rigiSuppliersTitle: "Diagnóstico de madurez digital 4.0 para proveedores del RIGI | Nexura Labs",
     rigiSuppliersDescription:
       "Medimos la madurez digital de tu empresa en 5 áreas, en 2 a 3 semanas, y te entregamos un puntaje de 0 a 5 y un plan de acción priorizado.",
@@ -485,6 +488,51 @@ const es: Dictionary = {
               "Lo dejamos funcionando dentro de tu operación, con métricas de calidad, uso y costo.",
           },
         ],
+      },
+    },
+    rigiHub: {
+      nav: { suppliers: "Proveedores", companies: "Empresas", cta: "Elegí tu lado" },
+      hero: {
+        eyebrow: "RIGI · PROVEEDORES Y EMPRESAS",
+        titleLines: ["¿De qué lado"],
+        titleHighlight: "del RIGI estás?",
+        lead: "Los grandes proyectos del RIGI necesitan dos cosas: proveedores que puedan mostrar sus datos al día y empresas que vean toda su operación en una sola pantalla. Elegí tu lado.",
+      },
+      chooseLabel: "Elegí tu lado",
+      supplier: {
+        tag: "SOY PROVEEDOR",
+        title: "Quiero venderle a los grandes proyectos.",
+        text: "Examen de madurez digital 4.0: medimos tu empresa en 5 áreas y te entregamos un puntaje y un plan de acción.",
+        facts: [
+          { value: "5", label: "áreas evaluadas" },
+          { value: "2–3", label: "semanas" },
+        ],
+        cta: "Hacer el examen 4.0",
+      },
+      company: {
+        tag: "SOY EMPRESA DEL RIGI",
+        title: "Quiero ver toda mi operación en una pantalla.",
+        text: "Hub Nexura: conectamos ERP, flota, planta, RR.HH., logística y documentación en una sola consola, en modo solo lectura.",
+        facts: [
+          { value: "6", label: "sistemas en una vista" },
+          { value: "30", label: "días de prueba de valor" },
+        ],
+        cta: "Ver el hub",
+      },
+      help: {
+        eyebrow: "¿DUDÁS?",
+        title: "Cómo saber cuál te toca.",
+        items: [
+          {
+            lead: "Sos proveedor si",
+            text: "le vendés bienes o servicios a una empresa que invierte o va a invertir en el marco del RIGI.",
+          },
+          {
+            lead: "Sos empresa del RIGI si",
+            text: "tu empresa ejecuta u opera un proyecto adherido al régimen y necesita ordenar la información de sus áreas.",
+          },
+        ],
+        contact: { before: "¿Seguís con dudas? ", link: "Escribinos", after: " y te orientamos." },
       },
     },
     rigiSuppliers: {
@@ -967,8 +1015,7 @@ const es: Dictionary = {
     terms: "Términos de servicio",
     legalNavAria: "Legales",
     rigiNavAria: "Servicios RIGI",
-    rigiSuppliers: "RIGI: diagnóstico para proveedores",
-    rigiCompanies: "RIGI: hub para empresas",
+    rigiHub: "Servicios RIGI",
   },
   legal: {
     privacy: {
