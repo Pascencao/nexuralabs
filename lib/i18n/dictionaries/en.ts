@@ -289,18 +289,8 @@ const en: Dictionary = {
     kicker: "RIGI",
     title: "Services for the RIGI ecosystem",
     body: "Two services built for large projects under Argentina's Large Investment Incentive Regime: one for the companies that supply them, and one for the companies that build and run them.",
-    items: [
-      {
-        name: "Suppliers",
-        description:
-          "4.0 Digital Maturity Assessment: a score per area and an action plan in 2 to 3 weeks.",
-      },
-      {
-        name: "RIGI companies",
-        description:
-          "Systems Integration Hub: the whole operation in one read-only console.",
-      },
-    ],
+    panelTitle: "services / rigi",
+    panelTag: "2 SERVICES",
     cta: "See RIGI services",
   },
   contact: {

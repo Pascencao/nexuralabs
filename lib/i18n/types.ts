@@ -124,7 +124,9 @@ export type Dictionary = {
     kicker: string;
     title: string;
     body: string;
-    items: { name: string; description: string }[];
+    /** Cabecera del panel estilo "sala de control"; los servicios salen de landings.rigiHub. */
+    panelTitle: string;
+    panelTag: string;
     cta: string;
   };
   contact: {
