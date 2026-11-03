@@ -11,10 +11,11 @@ import {
   SUPPLIER_SECTORS,
   SYSTEM_OPTIONS,
   UTM_KEYS,
+  isDiagnosticOrigin,
   validateCompanyLead,
   validateSupplierLead,
   type FieldError,
-  type RigiOrigin,
+  type HubOrigin,
   type Utm,
 } from "@/lib/forms/validate";
 
@@ -46,9 +47,12 @@ const EMPTY: Values = {
   privacy: false,
 };
 
-const FIELD_ORDER: Record<RigiOrigin, Field[]> = {
-  "rigi-proveedores": ["name", "company", "role", "email", "phone", "sector", "channel", "privacy"],
+const DIAGNOSTIC_FIELDS: Field[] = ["name", "company", "role", "email", "phone", "sector", "channel", "privacy"];
+
+const FIELD_ORDER: Record<HubOrigin, Field[]> = {
+  "rigi-proveedores": DIAGNOSTIC_FIELDS,
   "rigi-empresas": ["name", "company", "role", "email", "systems", "goal", "privacy"],
+  "transformacion-digital": DIAGNOSTIC_FIELDS,
 };
 
 const ERROR_TEXT = "text-[#B42318]";
@@ -70,8 +74,8 @@ function chipClass(on: boolean, invalid: boolean) {
   }`;
 }
 
-function validate(origin: RigiOrigin, values: Values) {
-  return origin === "rigi-proveedores" ? validateSupplierLead(values) : validateCompanyLead(values);
+function validate(origin: HubOrigin, values: Values) {
+  return isDiagnosticOrigin(origin) ? validateSupplierLead(values) : validateCompanyLead(values);
 }
 
 /** Lee utm_source, utm_medium y utm_campaign de la URL actual. */
@@ -94,13 +98,13 @@ export default function HubLeadForm({
   submitLabel,
   successMessage,
 }: {
-  origin: RigiOrigin;
+  origin: HubOrigin;
   submitLabel: string;
   successMessage: string;
 }) {
   const { dict, locale } = useLanguage();
   const f = dict.rigiForm;
-  const isSupplier = origin === "rigi-proveedores";
+  const isSupplier = isDiagnosticOrigin(origin);
   const formRef = useRef<HTMLFormElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
   const [values, setValues] = useState<Values>(EMPTY);

@@ -19,9 +19,17 @@ export type FieldError =
   | "phone"
   | "consent";
 
-/** Formularios de las landings RIGI. El valor viaja en el campo oculto `origen`. */
-export const RIGI_ORIGINS = ["rigi-proveedores", "rigi-empresas"] as const;
-export type RigiOrigin = (typeof RIGI_ORIGINS)[number];
+/** Formularios de las landings hub (RIGI y transformación digital). El valor viaja en el campo oculto `origen`. */
+export const HUB_ORIGINS = ["rigi-proveedores", "rigi-empresas", "transformacion-digital"] as const;
+export type HubOrigin = (typeof HUB_ORIGINS)[number];
+
+/** Orígenes que piden los campos de diagnóstico (teléfono, rubro y canal) en vez de sistemas y objetivo. */
+export const DIAGNOSTIC_ORIGINS = ["rigi-proveedores", "transformacion-digital"] as const;
+export type DiagnosticOrigin = (typeof DIAGNOSTIC_ORIGINS)[number];
+
+export function isDiagnosticOrigin(origin: unknown): origin is DiagnosticOrigin {
+  return (DIAGNOSTIC_ORIGINS as readonly unknown[]).includes(origin);
+}
 
 export const SUPPLIER_SECTORS = [
   "capital-goods",

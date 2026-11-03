@@ -25,6 +25,8 @@ export type Dictionary = {
     rigiSuppliersDescription: string;
     rigiCompaniesTitle: string;
     rigiCompaniesDescription: string;
+    digitalTransformationTitle: string;
+    digitalTransformationDescription: string;
   };
   jsonLd: {
     organizationDescription: string;
@@ -210,30 +212,9 @@ export type Dictionary = {
         contact: { before: string; link: string; after: string };
       };
     };
-    rigiSuppliers: {
-      nav: HubNavCopy;
-      hero: HubHeroCopy & {
-        chart: {
-          windowTitle: string;
-          title: string;
-          /** Leyenda obligatoria: "Ejemplo ilustrativo". */
-          tag: string;
-          scaleLabel: string;
-          /** Un puntaje (0–5) por área, en el mismo orden que `areas.items`. */
-          scores: number[];
-        };
-      };
-      offer: HubStat[];
-      why: HubSectionHead & { items: NamedItem[]; note: string };
-      areas: HubSectionHead & { items: NamedItem[] };
-      deliverables: HubSectionHead & { items: NamedItem[] };
-      process: HubSectionHead & { stepLabel: string; steps: NamedItem[] };
-      audience: HubSectionHead & { items: string[] };
-      /** El caso sale de `cases.items[0]` (el mismo de la home). */
-      precedent: HubSectionHead & { problemLabel: string; solutionLabel: string };
-      faq: HubFaqCopy;
-      contact: HubContactCopy;
-    };
+    rigiSuppliers: DiagnosticLandingCopy;
+    /** Landing de transformación digital industrial: misma estructura que la de proveedores RIGI. */
+    digitalTransformation: DiagnosticLandingCopy;
     rigiCompanies: {
       nav: HubNavCopy;
       hero: HubHeroCopy & {
@@ -360,6 +341,32 @@ export type HubTimeline = { title: string; tag: string; moments: { t: string; x:
 export type HubFaqCopy = HubSectionHead & {
   more: { before: string; link: string; after: string };
   items: { q: string; a: string }[];
+};
+
+/** Landings de diagnóstico (proveedores RIGI, transformación digital): puntaje por área y plan. */
+export type DiagnosticLandingCopy = {
+  nav: HubNavCopy;
+  hero: HubHeroCopy & {
+    chart: {
+      windowTitle: string;
+      title: string;
+      /** Leyenda obligatoria: "Ejemplo ilustrativo". */
+      tag: string;
+      scaleLabel: string;
+      /** Un puntaje (0–5) por área, en el mismo orden que `areas.items`. */
+      scores: number[];
+    };
+  };
+  offer: HubStat[];
+  why: HubSectionHead & { items: NamedItem[]; note: string };
+  areas: HubSectionHead & { items: NamedItem[] };
+  deliverables: HubSectionHead & { items: NamedItem[] };
+  process: HubSectionHead & { stepLabel: string; steps: NamedItem[] };
+  audience: HubSectionHead & { items: string[] };
+  /** El caso sale de `cases.items[0]` (el mismo de la home). */
+  precedent: HubSectionHead & { problemLabel: string; solutionLabel: string };
+  faq: HubFaqCopy;
+  contact: HubContactCopy;
 };
 
 export type HubContactCopy = {

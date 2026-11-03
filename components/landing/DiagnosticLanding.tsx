@@ -9,12 +9,20 @@ import ScoreConsole from "@/components/landing/hub/ScoreConsole";
 import TrackLandingView from "@/components/landing/hub/TrackLandingView";
 import { Container, HeroText, OfferStrip, Section, SectionHead, anchorLinks } from "@/components/landing/hub/ui";
 import { track } from "@/lib/analytics/track";
+import type { DiagnosticOrigin } from "@/lib/forms/validate";
 
 const FORM_ID = "reservar";
 
-export default function RigiSuppliersLanding() {
+/** Qué textos usa cada landing de diagnóstico; el origen del lead coincide con el nombre de la landing. */
+const COPY_KEY = {
+  "rigi-proveedores": "rigiSuppliers",
+  "transformacion-digital": "digitalTransformation",
+} as const satisfies Record<DiagnosticOrigin, string>;
+
+/** Landing de diagnóstico (puntaje por área y plan). La usan proveedores RIGI y transformación digital. */
+export default function DiagnosticLanding({ origin }: { origin: DiagnosticOrigin }) {
   const { dict, locale } = useLanguage();
-  const r = dict.landings.rigiSuppliers;
+  const r = dict.landings[COPY_KEY[origin]];
   const caseStudy = dict.cases.items[0];
   const formHref = `#${FORM_ID}`;
   const chartRows = r.areas.items.map((area, i) => ({
@@ -24,7 +32,7 @@ export default function RigiSuppliersLanding() {
 
   return (
     <HubShell links={anchorLinks(r.nav.links)} cta={r.nav.cta} ctaHref={formHref}>
-      <TrackLandingView landing="rigi-proveedores" />
+      <TrackLandingView landing={origin} />
 
       <section id="top" className="hub-grid border-b border-[#1C2534]">
         <Container className="flex flex-wrap items-center gap-14 pb-[72px] pt-14 sm:pt-[88px]">
@@ -183,7 +191,7 @@ export default function RigiSuppliersLanding() {
       <HubFaq copy={r.faq} contactHref={formHref} />
 
       <HubContact id={FORM_ID} copy={r.contact}>
-        <HubLeadForm origin="rigi-proveedores" submitLabel={r.contact.submit} successMessage={r.contact.success} />
+        <HubLeadForm origin={origin} submitLabel={r.contact.submit} successMessage={r.contact.success} />
       </HubContact>
     </HubShell>
   );

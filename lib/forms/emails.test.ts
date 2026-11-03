@@ -6,7 +6,7 @@ import {
   checklistPdfPath,
   contactNotification,
   escapeHtml,
-  rigiNotification,
+  hubLeadNotification,
 } from "./emails.ts";
 
 const date = new Date("2026-10-06T15:00:00.000Z");
@@ -82,8 +82,8 @@ const rigiInput = {
   privacy: true,
 };
 
-test("rigiNotification (proveedores) incluye origen, rubro, canal y UTM", () => {
-  const email = rigiNotification(
+test("hubLeadNotification (proveedores) incluye origen, rubro, canal y UTM", () => {
+  const email = hubLeadNotification(
     { origin: "rigi-proveedores", input: { ...rigiInput, phone: "3415551234", sector: "metalworking", channel: "whatsapp" } },
     { locale: "es", date, utm: { utm_source: "linkedin", utm_campaign: "rigi" } },
   );
@@ -93,12 +93,26 @@ test("rigiNotification (proveedores) incluye origen, rubro, canal y UTM", () => 
   }
 });
 
-test("rigiNotification (empresas) lista sistemas y el texto, y escapa HTML", () => {
-  const email = rigiNotification(
+test("hubLeadNotification (empresas) lista sistemas y el texto, y escapa HTML", () => {
+  const email = hubLeadNotification(
     { origin: "rigi-empresas", input: { ...rigiInput, systems: ["erp", "fleet"], goal: "<b>ver</b> todo" } },
     { locale: "en", date, utm: {} },
   );
   assert.equal(email.subject, "Nuevo lead RIGI empresas: Metalúrgica Sur (Ana)");
   assert.ok(email.text.includes("Sistemas: ERP, Flota y maquinaria"));
   assert.ok(email.html.includes("&lt;b&gt;ver&lt;/b&gt; todo"));
+});
+
+test("hubLeadNotification (transformación digital) usa los campos de diagnóstico y su propio asunto", () => {
+  const email = hubLeadNotification(
+    {
+      origin: "transformacion-digital",
+      input: { ...rigiInput, phone: "3415551234", sector: "metalworking", channel: "call" },
+    },
+    { locale: "es", date, utm: { utm_source: "meta", utm_campaign: "transformacion-digital" } },
+  );
+  assert.equal(email.subject, "Nuevo lead transformación digital: Metalúrgica Sur (Ana)");
+  for (const part of ["Transformación digital industrial", "Metalmecánica", "Llamada", "utm_source: meta"]) {
+    assert.ok(email.text.includes(part), part);
+  }
 });

@@ -13,6 +13,7 @@ export const ROUTES = {
   rigi: { es: "/rigi", en: "/en/rigi" },
   rigiProveedores: { es: "/rigi-proveedores", en: "/en/rigi-suppliers" },
   rigiEmpresas: { es: "/rigi-empresas", en: "/en/rigi-companies" },
+  transformacionDigital: { es: "/transformacion-digital", en: "/en/digital-transformation" },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 export type PageKey = keyof typeof ROUTES;
@@ -20,8 +21,13 @@ export type PageKey = keyof typeof ROUTES;
 /** Landings de un solo mensaje: header reducido (logo, idioma y "Hablemos"). */
 export const LANDING_KEYS = ["iaPosventa", "rescateIa"] as const satisfies readonly PageKey[];
 
-/** Landings RIGI: traen su propio nav y footer (handoff "sala de control"); el header y el footer del sitio no se muestran. */
-export const HUB_KEYS = ["rigi", "rigiProveedores", "rigiEmpresas"] as const satisfies readonly PageKey[];
+/** Landings con el estilo "sala de control" (RIGI y transformación digital): traen su propio nav y footer; el header y el footer del sitio no se muestran. */
+export const HUB_KEYS = [
+  "rigi",
+  "rigiProveedores",
+  "rigiEmpresas",
+  "transformacionDigital",
+] as const satisfies readonly PageKey[];
 
 const LOCALES_IN_ORDER: readonly Locale[] = ["es", "en"];
 

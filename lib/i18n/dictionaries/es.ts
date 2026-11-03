@@ -32,6 +32,9 @@ const es: Dictionary = {
     rigiCompaniesTitle: "Hub de integración de sistemas para empresas del RIGI | Nexura Labs",
     rigiCompaniesDescription:
       "Conectamos ERP, flota, planta, RR.HH., logística y documentación en una sola vista, en modo solo lectura. Prueba de valor de 30 días.",
+    digitalTransformationTitle: "Diagnóstico de transformación digital para la industria | Nexura Labs",
+    digitalTransformationDescription:
+      "Relevamos tu planta en 5 áreas, en 2 a 3 semanas, y te entregamos un puntaje de 0 a 5 y una hoja de ruta para digitalizar primero lo que más rinde.",
   },
   jsonLd: {
     organizationDescription:
@@ -1023,6 +1026,196 @@ const es: Dictionary = {
         submit: "Solicitar prueba de valor",
         success:
           "Gracias. Recibimos la solicitud y nos comunicaremos para coordinar la primera reunión.",
+      },
+    },
+    digitalTransformation: {
+      nav: {
+        links: [
+          { anchor: "por-que", label: "Contexto" },
+          { anchor: "areas", label: "Áreas" },
+          { anchor: "que-recibis", label: "Entregables" },
+          { anchor: "como-funciona", label: "Metodología" },
+          { anchor: "faq", label: "Preguntas" },
+        ],
+        cta: "Contacto",
+      },
+      hero: {
+        eyebrow: "INDUSTRIA 4.0 · DIAGNÓSTICO PARA PYMES INDUSTRIALES",
+        titleLines: ["Transformación digital"],
+        titleHighlight: "para tu planta.",
+        lead: "Relevamos cómo trabaja hoy tu planta, con sus procesos, máquinas, sistemas y datos, y te entregamos un puntaje por área y una hoja de ruta para digitalizar primero lo que más rinde.",
+        primaryCta: "Solicitar diagnóstico",
+        secondaryCta: "Ver las 5 áreas",
+        checks: ["Plazo de 2 a 3 semanas", "Puntaje de 0 a 5 por área", "Presupuesto cerrado antes de iniciar"],
+        chart: {
+          windowTitle: "diagnóstico / planta 4.0",
+          title: "Puntaje por área",
+          tag: "Ejemplo ilustrativo",
+          scaleLabel: "Escala de 0 a 5",
+          scores: [2.5, 1.5, 2, 3, 1],
+        },
+      },
+      offer: [
+        { value: "5", label: "áreas de la planta evaluadas con criterios definidos" },
+        { value: "0–5", label: "puntaje por área, con evidencia documentada" },
+        { value: "2–3", label: "semanas desde el relevamiento hasta la entrega" },
+        { value: "1", label: "hoja de ruta priorizada por impacto" },
+      ],
+      why: {
+        eyebrow: "CONTEXTO",
+        title: "No es comprar software. Es cambiar cómo opera la planta.",
+        // Verificado el 2026-11-02 en argentina.gob.ar/inti/servicios-inti/transformacion-digital
+        // (definición) y en las noticias del INTI sobre su programa Industria 4.0 (tecnologías).
+        intro:
+          "El INTI define la transformación digital como la integración de tecnologías digitales en todas las áreas de una organización: un cambio cultural y estratégico, no solo de herramientas, para ganar eficiencia, innovación y competitividad. En la industria, eso se apoya en cuatro palancas.",
+        items: [
+          {
+            name: "Interconectividad",
+            description: "Máquinas, sensores y sistemas que comparten información sin carga manual.",
+          },
+          {
+            name: "Automatización",
+            description: "Menos tareas repetitivas y menos errores en la carga y el control.",
+          },
+          {
+            name: "Datos en tiempo real",
+            description: "Producción, paradas y calidad visibles mientras pasan, no a fin de mes.",
+          },
+          {
+            name: "IA y análisis de datos",
+            description: "Anticipar fallas, demanda y desvíos de costo con la información que ya existe.",
+          },
+        ],
+        note: "La definición citada es del INTI (Dirección Técnica de Transformación Digital). Nexura Labs es una consultora independiente: no forma parte del INTI ni presta servicios en su nombre.",
+      },
+      areas: {
+        eyebrow: "ÁREAS EVALUADAS",
+        title: "Cinco áreas de la planta.",
+        items: [
+          {
+            name: "Procesos y producción",
+            description: "Planificación, órdenes de trabajo, tiempos de ciclo y cuellos de botella.",
+          },
+          {
+            name: "Máquinas y conectividad",
+            description: "Qué equipos registran datos, cómo se recolectan y si llegan a los sistemas de gestión.",
+          },
+          {
+            name: "Mantenimiento y calidad",
+            description: "Registro de paradas, fallas, controles y no conformidades, y su seguimiento.",
+          },
+          {
+            name: "Sistemas de gestión",
+            description: "ERP, stock, compras y costos, y cuánto se integran con lo que pasa en planta.",
+          },
+          {
+            name: "Datos y decisiones",
+            description: "Indicadores que se miden, con qué frecuencia y cuánto tarda armar un reporte.",
+          },
+        ],
+      },
+      deliverables: {
+        eyebrow: "ENTREGABLES",
+        title: "Puntaje, hoja de ruta y piloto opcional.",
+        items: [
+          {
+            name: "Puntaje de 0 a 5 por área",
+            description:
+              "Nivel de madurez digital de la planta en cada una de las cinco áreas, con la evidencia que respalda cada valor.",
+          },
+          {
+            name: "Hoja de ruta priorizada",
+            description:
+              "Iniciativas ordenadas por impacto y esfuerzo, empezando por las de retorno más rápido.",
+          },
+          {
+            name: "Piloto opcional de 4 a 6 semanas",
+            description:
+              "Implementación en una línea o un proceso, con resultados medibles antes de escalar al resto de la planta.",
+          },
+        ],
+      },
+      process: {
+        eyebrow: "METODOLOGÍA",
+        title: "Tres etapas, de dos a tres semanas.",
+        stepLabel: "ETAPA",
+        steps: [
+          {
+            name: "Relevamiento en planta",
+            description:
+              "Recorrida de la planta y entrevistas con producción, mantenimiento, calidad y administración, más la revisión de los sistemas y planillas en uso.",
+          },
+          {
+            name: "Medición",
+            description:
+              "Asignación de un puntaje de 0 a 5 por área según criterios definidos, con el fundamento de cada valor.",
+          },
+          {
+            name: "Entrega de la hoja de ruta",
+            description:
+              "Presentación de los resultados y de las iniciativas priorizadas, y definición conjunta del primer paso.",
+          },
+        ],
+      },
+      audience: {
+        eyebrow: "ALCANCE",
+        title: "Pensado para PyMEs industriales.",
+        items: [
+          "Metalmecánicas",
+          "Fabricantes de bienes de capital",
+          "Alimenticias",
+          "Plásticos y químicas",
+          "Autopartistas",
+          "Plantas de producción a medida",
+        ],
+      },
+      precedent: {
+        eyebrow: "ANTECEDENTE",
+        title: "Tecnología en funcionamiento en la industria.",
+        intro:
+          "Caso real: un agente que atiende consultas técnicas por WhatsApp para un cliente del sector industrial.",
+        problemLabel: "Problema",
+        solutionLabel: "Solución",
+      },
+      faq: {
+        eyebrow: "PREGUNTAS FRECUENTES",
+        title: "Consultas habituales.",
+        more: { before: "Para otras consultas, ", link: "utilizar el formulario de contacto", after: "." },
+        items: [
+          {
+            q: "¿Cuál es el costo?",
+            a: "Depende del tamaño de la planta y de la cantidad de líneas o sedes a relevar. El presupuesto se cierra antes de iniciar.",
+          },
+          {
+            q: "¿Cuánto dura?",
+            a: "Entre dos y tres semanas desde el relevamiento hasta la entrega de la hoja de ruta. El piloto opcional suma de cuatro a seis semanas.",
+          },
+          {
+            q: "¿Hay que cambiar las máquinas o comprar sistemas nuevos?",
+            a: "No para hacer el diagnóstico. La hoja de ruta prioriza aprovechar primero lo que ya existe y propone inversiones solo donde el retorno lo justifica.",
+          },
+          {
+            q: "¿Qué información se requiere?",
+            a: "Acceso de lectura a los sistemas, planillas y documentos en uso, y algunas horas de los referentes de cada área. Trabajamos bajo acuerdos de confidencialidad.",
+          },
+          {
+            q: "¿Es aplicable a una pyme?",
+            a: "Sí. El alcance se ajusta al tamaño de la planta: en empresas pequeñas el relevamiento es más breve y la hoja de ruta se concentra en pocas mejoras de impacto rápido.",
+          },
+        ],
+      },
+      contact: {
+        eyebrow: "SOLICITAR DIAGNÓSTICO",
+        title: "Sabé dónde está tu planta antes de invertir.",
+        body: "Con los datos del formulario coordinamos el relevamiento por el medio de contacto indicado. Presupuesto cerrado antes de iniciar.",
+        steps: [
+          "Contacto por el medio indicado",
+          "Coordinación de la visita a planta",
+          "Entrega del puntaje y de la hoja de ruta en 2 a 3 semanas",
+        ],
+        submit: "Solicitar diagnóstico",
+        success:
+          "Gracias. Recibimos la solicitud y nos comunicaremos dentro de las 48 horas hábiles para coordinar el diagnóstico.",
       },
     },
     hub: {
