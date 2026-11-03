@@ -49,6 +49,10 @@ const PAGE_TEXT: Record<PageKey, (d: Dictionary) => { title: string; description
     title: d.meta.rigiCompaniesTitle,
     description: d.meta.rigiCompaniesDescription,
   }),
+  transformacionDigital: (d) => ({
+    title: d.meta.digitalTransformationTitle,
+    description: d.meta.digitalTransformationDescription,
+  }),
 };
 
 /** Metadata de una página: título, canonical, hreflang (es/en/x-default), Open Graph y Twitter. */

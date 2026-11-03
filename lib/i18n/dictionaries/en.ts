@@ -33,6 +33,9 @@ const en: Dictionary = {
     rigiCompaniesTitle: "Systems Integration Hub for RIGI Companies | Nexura Labs",
     rigiCompaniesDescription:
       "We connect ERP, fleet, plant, HR, logistics and documents into a single read-only view. 30-day proof of value.",
+    digitalTransformationTitle: "Digital Transformation Assessment for Manufacturers | Nexura Labs",
+    digitalTransformationDescription:
+      "We assess your plant across 5 areas in 2 to 3 weeks and hand you a 0–5 score and a roadmap to digitize first what pays back most.",
   },
   jsonLd: {
     organizationDescription:
@@ -1005,6 +1008,191 @@ const en: Dictionary = {
         ],
         submit: "Request a proof of value",
         success: "Thank you. We have received the request and will be in touch to schedule the first meeting.",
+      },
+    },
+    digitalTransformation: {
+      nav: {
+        links: [
+          { anchor: "por-que", label: "Context" },
+          { anchor: "areas", label: "Areas" },
+          { anchor: "que-recibis", label: "Deliverables" },
+          { anchor: "como-funciona", label: "Methodology" },
+          { anchor: "faq", label: "FAQ" },
+        ],
+        cta: "Contact",
+      },
+      hero: {
+        eyebrow: "INDUSTRY 4.0 · ASSESSMENT FOR MANUFACTURERS",
+        titleLines: ["Digital transformation"],
+        titleHighlight: "for your plant.",
+        lead: "We map how your plant works today, from processes and machines to systems and data, and deliver a score per area and a roadmap to digitize first what pays back most.",
+        primaryCta: "Request an assessment",
+        secondaryCta: "See the 5 areas",
+        checks: ["2 to 3 week timeline", "0–5 score per area", "Fixed quote before starting"],
+        chart: {
+          windowTitle: "assessment / plant 4.0",
+          title: "Score per area",
+          tag: "Illustrative example",
+          scaleLabel: "0 to 5 scale",
+          scores: [2.5, 1.5, 2, 3, 1],
+        },
+      },
+      offer: [
+        { value: "5", label: "plant areas assessed against defined criteria" },
+        { value: "0–5", label: "score per area, with documented evidence" },
+        { value: "2–3", label: "weeks from discovery to handover" },
+        { value: "1", label: "roadmap prioritized by impact" },
+      ],
+      why: {
+        eyebrow: "CONTEXT",
+        title: "It's not buying software. It's changing how the plant runs.",
+        intro:
+          "Argentina's National Institute of Industrial Technology (INTI) defines digital transformation as integrating digital technologies across every area of an organization: a cultural and strategic shift, not just new tools, to gain efficiency, innovation and competitiveness. In manufacturing, it rests on four levers.",
+        items: [
+          {
+            name: "Connectivity",
+            description: "Machines, sensors and systems sharing information without manual data entry.",
+          },
+          {
+            name: "Automation",
+            description: "Fewer repetitive tasks and fewer errors in data entry and control.",
+          },
+          {
+            name: "Real-time data",
+            description: "Output, downtime and quality visible as they happen, not at month-end.",
+          },
+          {
+            name: "AI and analytics",
+            description: "Anticipate failures, demand and cost deviations with the data you already have.",
+          },
+        ],
+        note: "The definition cited is INTI's (Technical Directorate for Digital Transformation). Nexura Labs is an independent consultancy: it is not part of INTI and does not provide services on its behalf.",
+      },
+      areas: {
+        eyebrow: "AREAS ASSESSED",
+        title: "Five areas of the plant.",
+        items: [
+          {
+            name: "Processes and production",
+            description: "Planning, work orders, cycle times and bottlenecks.",
+          },
+          {
+            name: "Machines and connectivity",
+            description: "Which equipment records data, how it is collected and whether it reaches management systems.",
+          },
+          {
+            name: "Maintenance and quality",
+            description: "How downtime, failures, inspections and non-conformities are recorded and followed up.",
+          },
+          {
+            name: "Management systems",
+            description: "ERP, inventory, purchasing and costs, and how well they connect with the shop floor.",
+          },
+          {
+            name: "Data and decisions",
+            description: "Which metrics are tracked, how often, and how long it takes to build a report.",
+          },
+        ],
+      },
+      deliverables: {
+        eyebrow: "DELIVERABLES",
+        title: "Score, roadmap and optional pilot.",
+        items: [
+          {
+            name: "0–5 score per area",
+            description:
+              "The plant's digital maturity in each of the five areas, with the evidence behind every value.",
+          },
+          {
+            name: "Prioritized roadmap",
+            description: "Initiatives ranked by impact and effort, starting with the fastest payback.",
+          },
+          {
+            name: "Optional 4 to 6 week pilot",
+            description:
+              "Implementation on one line or process, with measurable results before scaling to the rest of the plant.",
+          },
+        ],
+      },
+      process: {
+        eyebrow: "METHODOLOGY",
+        title: "Three stages, two to three weeks.",
+        stepLabel: "STAGE",
+        steps: [
+          {
+            name: "On-site discovery",
+            description:
+              "A plant walkthrough and interviews with production, maintenance, quality and administration, plus a review of the systems and spreadsheets in use.",
+          },
+          {
+            name: "Scoring",
+            description: "A 0–5 score per area against defined criteria, with the rationale for each value.",
+          },
+          {
+            name: "Roadmap handover",
+            description: "Presentation of the results and prioritized initiatives, and a joint decision on the first step.",
+          },
+        ],
+      },
+      audience: {
+        eyebrow: "SCOPE",
+        title: "Built for small and mid-sized manufacturers.",
+        items: [
+          "Metalworking",
+          "Capital goods manufacturers",
+          "Food and beverage",
+          "Plastics and chemicals",
+          "Auto parts",
+          "Custom production plants",
+        ],
+      },
+      precedent: {
+        eyebrow: "TRACK RECORD",
+        title: "Technology already running in industry.",
+        intro:
+          "A real case: an agent that handles technical questions over WhatsApp for a client in the industrial sector.",
+        problemLabel: "Problem",
+        solutionLabel: "Solution",
+      },
+      faq: {
+        eyebrow: "FAQ",
+        title: "Frequently asked questions.",
+        more: { before: "For other questions, please ", link: "use the contact form", after: "." },
+        items: [
+          {
+            q: "What does it cost?",
+            a: "It depends on the size of the plant and the number of lines or sites to cover. The quote is fixed before starting.",
+          },
+          {
+            q: "How long does it take?",
+            a: "Two to three weeks from discovery to roadmap handover. The optional pilot adds four to six weeks.",
+          },
+          {
+            q: "Do we need new machines or new systems?",
+            a: "Not for the assessment. The roadmap prioritizes getting more out of what you already have and proposes investments only where the payback justifies them.",
+          },
+          {
+            q: "What information is required?",
+            a: "Read access to the systems, spreadsheets and documents in use, and a few hours with the key people in each area. We work under confidentiality agreements.",
+          },
+          {
+            q: "Is it suitable for a small business?",
+            a: "Yes. The scope adapts to the size of the plant: in smaller companies discovery is shorter and the roadmap focuses on a few quick-impact improvements.",
+          },
+        ],
+      },
+      contact: {
+        eyebrow: "REQUEST AN ASSESSMENT",
+        title: "Know where your plant stands before you invest.",
+        body: "With the details from the form, we schedule discovery through the preferred contact method. Fixed quote before starting.",
+        steps: [
+          "Contact through the preferred method",
+          "Plant visit scheduled",
+          "Score and roadmap delivered in 2 to 3 weeks",
+        ],
+        submit: "Request an assessment",
+        success:
+          "Thank you. We have received the request and will be in touch within 48 business hours to schedule the assessment.",
       },
     },
     hub: {

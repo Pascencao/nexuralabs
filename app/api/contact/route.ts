@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { isLocale, type Locale } from "@/lib/i18n/config";
-import { contactNotification, rigiNotification, type EmailContent } from "@/lib/forms/emails";
+import { contactNotification, hubLeadNotification, type EmailContent } from "@/lib/forms/emails";
 import { readJsonBody } from "@/lib/forms/http";
 import { isLikelyBot } from "@/lib/forms/spam";
 import {
   cleanUtm,
+  isDiagnosticOrigin,
   validateCompanyLead,
   validateContact,
   validateSupplierLead,
@@ -26,11 +27,11 @@ export async function POST(request: Request) {
   let email: EmailContent;
   let replyTo: string;
 
-  // Las landings RIGI mandan `origen` y usan sus propios campos; el resto es el formulario de la home.
-  if (body.origen === "rigi-proveedores") {
+  // Las landings hub mandan `origen` y usan sus propios campos; el resto es el formulario de la home.
+  if (isDiagnosticOrigin(body.origen)) {
     const result = validateSupplierLead(body);
     if (!result.ok) return NextResponse.json({ ok: false, errors: result.errors }, { status: 400 });
-    email = rigiNotification(
+    email = hubLeadNotification(
       { origin: body.origen, input: result.data },
       { locale, date, utm: cleanUtm(body.utm) },
     );
@@ -38,7 +39,7 @@ export async function POST(request: Request) {
   } else if (body.origen === "rigi-empresas") {
     const result = validateCompanyLead(body);
     if (!result.ok) return NextResponse.json({ ok: false, errors: result.errors }, { status: 400 });
-    email = rigiNotification(
+    email = hubLeadNotification(
       { origin: body.origen, input: result.data },
       { locale, date, utm: cleanUtm(body.utm) },
     );

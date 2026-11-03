@@ -15,6 +15,7 @@ const SETTINGS: Record<
   rigi: { priority: 0.8, changeFrequency: "monthly" },
   rigiProveedores: { priority: 0.8, changeFrequency: "monthly" },
   rigiEmpresas: { priority: 0.8, changeFrequency: "monthly" },
+  transformacionDigital: { priority: 0.8, changeFrequency: "monthly" },
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {

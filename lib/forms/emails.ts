@@ -3,7 +3,8 @@ import type {
   ChecklistInput,
   CompanyLeadInput,
   ContactInput,
-  RigiOrigin,
+  DiagnosticOrigin,
+  HubOrigin,
   SupplierLeadInput,
   Utm,
 } from "./validate";
@@ -102,17 +103,25 @@ export function contactNotification(
   };
 }
 
-export type RigiLead =
-  | { origin: "rigi-proveedores"; input: SupplierLeadInput }
+export type HubLead =
+  | { origin: DiagnosticOrigin; input: SupplierLeadInput }
   | { origin: "rigi-empresas"; input: CompanyLeadInput };
 
-const ORIGIN_LABEL_ES: Record<RigiOrigin, string> = {
+const ORIGIN_LABEL_ES: Record<HubOrigin, string> = {
   "rigi-proveedores": "RIGI proveedores (diagnóstico 4.0)",
   "rigi-empresas": "RIGI empresas (hub / prueba de valor)",
+  "transformacion-digital": "Transformación digital industrial (diagnóstico de planta)",
 };
 
-export function rigiNotification(
-  lead: RigiLead,
+/** Cómo arranca el asunto del aviso según la landing de origen. */
+const SUBJECT_PREFIX: Record<HubOrigin, string> = {
+  "rigi-proveedores": "Nuevo lead RIGI proveedores",
+  "rigi-empresas": "Nuevo lead RIGI empresas",
+  "transformacion-digital": "Nuevo lead transformación digital",
+};
+
+export function hubLeadNotification(
+  lead: HubLead,
   ctx: { locale: Locale; date: Date; utm: Utm },
 ): EmailContent {
   const { input } = lead;
@@ -123,7 +132,7 @@ export function rigiNotification(
     ["Cargo", input.role],
     ["Email", input.email],
   ];
-  if (lead.origin === "rigi-proveedores") {
+  if (lead.origin !== "rigi-empresas") {
     rows.push(
       ["Teléfono", lead.input.phone],
       ["Rubro", SECTOR_LABEL_ES[lead.input.sector] ?? lead.input.sector],
@@ -143,9 +152,8 @@ export function rigiNotification(
     ["Idioma", ctx.locale],
     ["Fecha", ctx.date.toISOString()],
   );
-  const kind = lead.origin === "rigi-proveedores" ? "proveedores" : "empresas";
   return {
-    subject: `Nuevo lead RIGI ${kind}: ${oneLine(input.company)} (${oneLine(input.name)})`,
+    subject: `${SUBJECT_PREFIX[lead.origin]}: ${oneLine(input.company)} (${oneLine(input.name)})`,
     text: rowsToText(rows),
     html: rowsToHtml(rows),
   };

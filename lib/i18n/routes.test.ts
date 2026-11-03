@@ -56,6 +56,10 @@ test("ROUTES incluye las landings con slugs traducidos", () => {
   assert.deepEqual(ROUTES.rigi, { es: "/rigi", en: "/en/rigi" });
   assert.deepEqual(ROUTES.rigiProveedores, { es: "/rigi-proveedores", en: "/en/rigi-suppliers" });
   assert.deepEqual(ROUTES.rigiEmpresas, { es: "/rigi-empresas", en: "/en/rigi-companies" });
+  assert.deepEqual(ROUTES.transformacionDigital, {
+    es: "/transformacion-digital",
+    en: "/en/digital-transformation",
+  });
   assert.deepEqual([...LANDING_KEYS], ["iaPosventa", "rescateIa"]);
 });
 
@@ -73,11 +77,13 @@ test("isLandingPath reconoce solo las landings", () => {
   assert.equal(isLandingPath("/no-existe"), false);
 });
 
-test("isHubPath reconoce solo las landings RIGI", () => {
+test("isHubPath reconoce solo las landings hub (RIGI y transformación digital)", () => {
   assert.equal(isHubPath("/rigi"), true);
   assert.equal(isHubPath("/en/rigi"), true);
   assert.equal(isHubPath("/rigi-proveedores"), true);
   assert.equal(isHubPath("/en/rigi-companies"), true);
+  assert.equal(isHubPath("/transformacion-digital"), true);
+  assert.equal(isHubPath("/en/digital-transformation"), true);
   assert.equal(isHubPath("/rescate-ia"), false);
   assert.equal(isHubPath("/"), false);
 });
